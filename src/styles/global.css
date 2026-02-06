@@ -110,11 +110,6 @@ body {
   #scroll-wrapper > .section {
     padding-top: 7rem;
     padding-bottom: 2.5rem;
-  }
-  /* Solo secciones con mucho contenido usan flex-start para evitar solapamiento con nav */
-  #scroll-wrapper > .section[data-index="1"],
-  #scroll-wrapper > .section[data-index="2"],
-  #scroll-wrapper > .section[data-index="5"] {
     justify-content: flex-start;
   }
 }
