@@ -55,9 +55,9 @@ const projects = [
       <span class="hidden sm:block text-slate-600 text-sm tracking-[0.15em]">RESULTADOS REALES</span>
     </div>
 
-    <!-- Mobile: lista vertical compacta -->
-    <div class="flex md:hidden flex-col gap-2">
-      {projects.map(({ name, type, desc, tech, url, status }) => (
+    <!-- Mobile: lista vertical compacta con scroll -->
+    <div class="flex md:hidden flex-col gap-2 max-h-[60vh] overflow-y-auto no-scrollbar">
+      {projects.map(({ name, type, desc, url, status }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all">
           <div class="shrink-0">
             <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
