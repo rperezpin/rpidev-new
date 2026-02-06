@@ -56,9 +56,9 @@ const projects = [
     </div>
 
     <!-- Mobile: lista vertical compacta con scroll -->
-    <div class="flex md:hidden flex-col gap-2 max-h-[60vh] overflow-y-auto no-scrollbar">
+    <div class="flex md:hidden flex-col gap-2 max-h-[60vh] overflow-y-auto no-scrollbar w-full">
       {projects.map(({ name, type, desc, url, status }) => (
-        <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all">
+        <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
           <div class="shrink-0">
             <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
             <h3 class="text-sm font-bold">{name}</h3>
