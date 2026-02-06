@@ -61,6 +61,17 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
       rel="stylesheet"
     />
 
+    <!-- CSS Crítico para evitar FOUC en mobile -->
+    <style>
+      @media (max-width: 767px) {
+        .section {
+          padding-top: 8rem !important;
+          padding-bottom: 2.5rem !important;
+          justify-content: flex-start !important;
+        }
+      }
+    </style>
+
     <!-- Schema.org JSON-LD -->
     {!noIndex && (
       <script type="application/ld+json" set:html={JSON.stringify({

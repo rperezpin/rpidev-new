@@ -46,8 +46,8 @@ const projects = [
 ---
 
 <section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="4">
-  <div class="max-w-7xl mx-auto w-full section-content h-full flex flex-col">
-    <div class="flex justify-between items-end mb-5 md:mb-10 flex-shrink-0">
+  <div class="max-w-7xl mx-auto w-full section-content">
+    <div class="flex justify-between items-end mb-5 md:mb-10">
       <div>
         <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4">/ PORTFOLIO</p>
         <h2 class="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter">Proyectos.</h2>
@@ -56,7 +56,7 @@ const projects = [
     </div>
 
     <!-- Mobile: lista vertical compacta con scroll -->
-    <div class="flex md:hidden flex-col gap-2 flex-1 overflow-y-auto no-scrollbar w-full">
+    <div class="flex md:hidden flex-col gap-2 max-h-[70vh] overflow-y-auto no-scrollbar w-full">
       {projects.map(({ name, type, desc, url, status }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
           <div class="shrink-0">
