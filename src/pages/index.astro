@@ -48,9 +48,30 @@ import Contact from '../components/sections/Contact.astro';
   <!-- Navegación 2D tipo serpiente: gradiente dinámico + transiciones entre secciones -->
   <script>
     function initScrollEffects() {
+      const w = window as typeof window & { __scrollEffectsInitialized?: boolean };
+      if (w.__scrollEffectsInitialized) return;
+      w.__scrollEffectsInitialized = true;
+
       const gradient = document.getElementById('mouse-gradient');
       const container = document.getElementById('scroll-container');
       const wrapper = document.getElementById('scroll-wrapper');
+      if (!container || !wrapper) return;
+
+      const getViewportHeight = () => (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+      let viewportWidth = window.innerWidth;
+      let viewportHeight = getViewportHeight();
+
+      function updateViewportVars() {
+        viewportWidth = window.innerWidth;
+        viewportHeight = getViewportHeight();
+        document.documentElement.style.setProperty('--vw', `${viewportWidth * 0.01}px`);
+        document.documentElement.style.setProperty('--vh', `${viewportHeight * 0.01}px`);
+      }
+
+      function applyTransform(index: number) {
+        const pos = POSITIONS[index];
+        wrapper.style.transform = `translate(${-pos.col * viewportWidth}px, ${-pos.row * viewportHeight}px)`;
+      }
 
       // Posiciones de cada sección en la cuadrícula 2D (col, row)
       // Layout serpiente:
@@ -74,6 +95,19 @@ import Contact from '../components/sections/Contact.astro';
       let currentSection = 0;
       let isTransitioning = false;
 
+      updateViewportVars();
+      applyTransform(currentSection);
+      window.addEventListener('resize', () => {
+        updateViewportVars();
+        applyTransform(currentSection);
+      });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', () => {
+          updateViewportVars();
+          applyTransform(currentSection);
+        });
+      }
+
       // Gradiente que sigue el mouse
       if (gradient) {
         document.addEventListener('mousemove', (e) => {
@@ -89,8 +123,8 @@ import Contact from '../components/sections/Contact.astro';
         currentSection = index;
 
         // Mover el wrapper a la posición de la sección destino
-        const pos = POSITIONS[index];
-        wrapper.style.transform = `translate(${-pos.col * 100}vw, ${-pos.row * 100}vh)`;
+        updateViewportVars();
+        applyTransform(index);
 
         // Ocultar contenido de la sección anterior
         const prevContent = document.querySelector(`.section[data-index="${prevSection}"] .section-content`);
@@ -154,13 +188,23 @@ import Contact from '../components/sections/Contact.astro';
         // Navegación táctil (mobile)
         let touchStartX = 0;
         let touchStartY = 0;
+        let touchStartTarget: EventTarget | null = null;
 
         container.addEventListener('touchstart', (e) => {
           touchStartX = e.touches[0].clientX;
           touchStartY = e.touches[0].clientY;
+          touchStartTarget = e.target;
         }, { passive: true });
 
         container.addEventListener('touchend', (e) => {
+          const scrollableTarget = touchStartTarget instanceof Element
+            ? touchStartTarget.closest('[data-scrollable]')
+            : null;
+          if (scrollableTarget instanceof HTMLElement) {
+            const canScroll = scrollableTarget.scrollHeight - scrollableTarget.clientHeight > 2;
+            if (canScroll) return;
+          }
+
           const dx = e.changedTouches[0].clientX - touchStartX;
           const dy = e.changedTouches[0].clientY - touchStartY;
           const absDx = Math.abs(dx);

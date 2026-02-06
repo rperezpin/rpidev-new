@@ -65,7 +65,7 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
     <style>
       @media (max-width: 767px) {
         .section {
-          padding-top: 8rem !important;
+          padding-top: calc(var(--nav-h, 8rem) + env(safe-area-inset-top)) !important;
           padding-bottom: 2.5rem !important;
           justify-content: flex-start !important;
         }
