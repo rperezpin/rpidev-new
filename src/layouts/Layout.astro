@@ -1,0 +1,108 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.rpidev.com';
+const ogImage = `${siteUrl}/images/og-default.jpg`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="author" content="Rubén Pérez Izuel" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="RPI Dev" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Fonts: IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD -->
+    {!noIndex && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "name": "RPI Dev",
+            "description": "Consultoría digital y desarrollo web para autónomos y pymes en Granada",
+            "url": siteUrl,
+            "email": "ruben@rpidev.com",
+            "telephone": "+34614830864",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Ermita 42",
+              "addressLocality": "Huétor Vega",
+              "addressRegion": "Granada",
+              "postalCode": "18198",
+              "addressCountry": "ES"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "Rubén Pérez Izuel"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/rubén-pérez-izuel-a02607189",
+              "https://github.com/rperezpin",
+              "https://www.instagram.com/rpi.dev/",
+              "https://www.facebook.com/profile.php?id=61583465244829"
+            ]
+          },
+          {
+            "@type": "WebPage",
+            "name": title,
+            "description": description,
+            "url": canonical
+          }
+        ]
+      })} />
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

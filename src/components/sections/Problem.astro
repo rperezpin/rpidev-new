@@ -1,0 +1,56 @@
+---
+import { Clock, Unplug, TrendingDown, AlertTriangle } from '@lucide/astro';
+
+const painPoints = [
+  {
+    icon: Clock,
+    title: 'Tareas repetitivas',
+    desc: 'Te quitan tiempo cada día.',
+  },
+  {
+    icon: Unplug,
+    title: 'Herramientas desconectadas',
+    desc: 'No comparten datos entre sí.',
+  },
+  {
+    icon: TrendingDown,
+    title: 'Procesos manuales',
+    desc: 'Frenan tu crecimiento.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Sin sistema estable',
+    desc: 'Estrés y falta de control.',
+  },
+];
+---
+
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="1">
+  <div class="max-w-5xl mx-auto w-full section-content">
+    <div class="mb-6 md:mb-12">
+      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-3 md:mb-4">/ SI ERES AUTÓNOMO O PYME</p>
+      <h2 class="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter">
+        Deja de pelearte<br />
+        <span class="text-blue-600">con la tecnología.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 md:gap-6 max-w-4xl">
+      {painPoints.map(({ icon: Icon, title, desc }) => (
+        <div class="group flex flex-col md:flex-row gap-2 md:gap-3 p-3 md:p-6 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-2xl hover:border-red-900/40 transition-all duration-300">
+          <div class="w-8 h-8 md:w-12 md:h-12 shrink-0 bg-red-500/10 text-red-400 rounded-lg md:rounded-xl flex items-center justify-center">
+            <Icon class="w-4 h-4 md:w-6 md:h-6" />
+          </div>
+          <div>
+            <h3 class="font-bold text-sm md:text-lg mb-0.5 md:mb-1">{title}</h3>
+            <p class="text-slate-500 text-xs md:text-base leading-relaxed">{desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-6 md:mt-10 text-slate-500 text-sm md:text-base max-w-md">
+      No debería ser tan complicado. La tecnología está para ayudarte.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { Globe, Zap, Link2, MessageCircle } from '@lucide/astro';
+
+const services = [
+  {
+    icon: Globe,
+    title: 'Webs que convierten',
+    desc: 'Carga rápido, explica tu oferta.',
+  },
+  {
+    icon: Zap,
+    title: 'Automatización',
+    desc: 'Un sistema repite tareas por ti.',
+  },
+  {
+    icon: Link2,
+    title: 'Integraciones',
+    desc: 'CRM, TPV y facturación conectados.',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Consultoría honesta',
+    desc: 'Solo lo necesario, bien explicado.',
+  },
+];
+---
+
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="2">
+  <div class="max-w-6xl mx-auto w-full section-content">
+    <div class="mb-6 md:mb-12">
+      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-3 md:mb-4">/ SERVICIOS</p>
+      <h2 class="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter">
+        ¿Qué puedo hacer<br />
+        <span class="text-blue-600">por ti?</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 md:gap-6">
+      {services.map(({ icon: Icon, title, desc }) => (
+        <div class="group p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-3xl hover:border-blue-600/30 transition-all duration-500">
+          <div class="w-10 h-10 md:w-14 md:h-14 bg-blue-600/10 text-blue-500 rounded-lg md:rounded-2xl flex items-center justify-center mb-3 md:mb-6 group-hover:scale-110 transition-transform">
+            <Icon class="w-5 h-5 md:w-6 md:h-6" />
+          </div>
+          <h3 class="text-sm md:text-xl font-bold mb-1 md:mb-3 uppercase tracking-tight">{title}</h3>
+          <p class="text-slate-400 text-xs md:text-base leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

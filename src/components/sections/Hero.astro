@@ -1,0 +1,60 @@
+---
+import { ChevronRight } from '@lucide/astro';
+---
+
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="0">
+  <header class="sr-only">
+    <h1>RPI Dev - Consultoría Digital y Desarrollo de Software en Granada</h1>
+  </header>
+
+  <div class="max-w-5xl section-content">
+    <div class="flex items-center gap-2 mb-4 md:mb-6 text-blue-400 text-xs md:text-sm tracking-[0.2em]">
+      <div class="w-6 md:w-8 h-[2px] bg-blue-600"></div>
+      CONSULTOR DIGITAL & DEV
+    </div>
+
+    <h2 class="text-4xl sm:text-5xl md:text-[6rem] lg:text-[8rem] font-bold leading-[0.9] tracking-tighter mb-5 md:mb-8">
+      Digitaliza tu negocio.<br />
+      <span class="text-blue-600">Gana tiempo.</span><br />
+      <span class="text-white/30">Hazlo crecer.</span>
+    </h2>
+
+    <p class="text-base md:text-xl text-slate-400 max-w-xl leading-relaxed">
+      Te ayudo a simplificar tareas y procesos para que te enfoques en lo realmente importante.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-3 mt-6 md:mt-10">
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white font-bold text-xs md:text-sm uppercase tracking-widest rounded-full overflow-hidden text-center"
+      >
+        <span class="relative z-10">Diagnóstico gratuito</span>
+        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+      </a>
+
+      <button
+        id="hero-cta-scroll"
+        class="group flex items-center justify-center gap-2 text-xs md:text-sm font-bold tracking-widest text-blue-500 hover:text-white transition-colors px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white/10 rounded-full hover:border-white/20"
+      >
+        VER CÓMO FUNCIONA <ChevronRight class="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initHeroCTA() {
+    const btn = document.getElementById('hero-cta-scroll');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (window.navigateToSection) {
+          window.navigateToSection(1);
+        }
+      });
+    }
+  }
+  document.addEventListener('astro:page-load', initHeroCTA);
+  initHeroCTA();
+</script>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /legal
+Disallow: /privacy
+Disallow: /cookies
+
+Sitemap: https://www.rpidev.com/sitemap-index.xml

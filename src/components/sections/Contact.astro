@@ -1,0 +1,82 @@
+---
+import { Mail, MessageCircle, Calendar, Send as SendIcon } from '@lucide/astro';
+
+const channels = [
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    desc: 'Respuesta rápida',
+    url: 'https://wa.me/34614830864?text=Hola%20Rubén%2C%20me%20gustaría%20consultarte%20acerca%20de%20...',
+    colorClass: 'text-green-500',
+    borderClass: 'hover:border-green-600/30',
+  },
+  {
+    icon: Calendar,
+    label: 'Reservar cita',
+    desc: '30 min gratis',
+    url: 'https://cal.com/ruben-perez-yumwg8/30min',
+    colorClass: 'text-blue-500',
+    borderClass: 'hover:border-blue-600/30',
+  },
+  {
+    icon: SendIcon,
+    label: 'Telegram',
+    desc: '@rpidev',
+    url: 'https://t.me/rpidev',
+    colorClass: 'text-blue-500',
+    borderClass: 'hover:border-blue-600/30',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    desc: 'ruben@rpidev.com',
+    url: 'mailto:ruben@rpidev.com',
+    colorClass: 'text-purple-400',
+    borderClass: 'hover:border-purple-600/30',
+  },
+];
+---
+
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center items-center px-5 pt-16 pb-20 md:px-6 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="5">
+  <div class="max-w-4xl w-full text-center section-content">
+    <h2 class="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter mb-3 md:mb-4 outline-text">HABLAMOS.</h2>
+    <p class="text-base md:text-xl text-slate-400 mb-2 md:mb-4">
+      Cada día que no automatizas, pierdes horas.
+    </p>
+    <p class="text-sm md:text-base text-slate-600 mb-6 md:mb-10">
+      Hoy puedes empezar a recuperarlas.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-10">
+      {channels.map(({ icon: Icon, label, desc, url, colorClass, borderClass }) => (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`group p-4 md:p-5 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-2xl ${borderClass} transition-all duration-300 text-left`}
+        >
+          <Icon class={`w-5 h-5 md:w-6 md:h-6 mb-2 md:mb-3 ${colorClass}`} />
+          <p class="text-sm md:text-base font-bold">{label}</p>
+          <p class="text-[10px] md:text-xs text-slate-500 mt-0.5">{desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <p class="text-xs md:text-sm text-slate-500 mb-4 md:mb-6 max-w-md mx-auto">
+      Cuéntame qué necesitas y qué impacto tendría en tu negocio.
+      Respondo en 24–48h laborables.
+    </p>
+
+    <div class="flex justify-center gap-4 md:gap-6">
+      <a href="https://www.linkedin.com/in/rubén-pérez-izuel-a02607189" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-500 transition-colors text-xs md:text-sm font-bold tracking-widest">
+        LINKEDIN
+      </a>
+      <a href="https://github.com/rperezpin" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-500 transition-colors text-xs md:text-sm font-bold tracking-widest">
+        GITHUB
+      </a>
+      <a href="https://www.instagram.com/rpi.dev/" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-blue-500 transition-colors text-xs md:text-sm font-bold tracking-widest">
+        INSTAGRAM
+      </a>
+    </div>
+  </div>
+</section>

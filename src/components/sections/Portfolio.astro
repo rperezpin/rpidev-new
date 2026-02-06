@@ -1,0 +1,114 @@
+---
+import { ExternalLink } from '@lucide/astro';
+
+const projects = [
+  {
+    name: 'Hebe Psicóloga',
+    type: 'WEB',
+    desc: 'Web con SEO dual.',
+    tech: ['Astro', 'Tailwind'],
+    url: 'https://www.hebepsicologa.com',
+    status: 'Producción',
+  },
+  {
+    name: 'SEO Pilot',
+    type: 'SAAS',
+    desc: 'Auditoría SEO con IA.',
+    tech: ['Python', 'React', 'FastAPI'],
+    url: 'https://www.seopilot.es',
+    status: 'Producción',
+  },
+  {
+    name: 'CRM rpidev',
+    type: 'CRM',
+    desc: 'CRM con IA para leads.',
+    tech: ['Next.js', 'PostgreSQL'],
+    url: 'https://crm-rpidev.vercel.app/',
+    status: 'Producción',
+  },
+  {
+    name: 'BasicPlanner',
+    type: 'GESTIÓN',
+    desc: 'Agenda y facturación clínica.',
+    tech: ['React', 'Firebase'],
+    url: 'https://landing-basic-planner.vercel.app/',
+    status: 'Desarrollo',
+  },
+  {
+    name: 'VeriFax',
+    type: 'AUTO',
+    desc: '−70% tiempo facturación.',
+    tech: ['Node.js', 'MongoDB'],
+    url: 'https://verifactu2.onrender.com/',
+    status: 'Desarrollo',
+  },
+];
+---
+
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="4">
+  <div class="max-w-7xl mx-auto w-full section-content">
+    <div class="flex justify-between items-end mb-5 md:mb-10">
+      <div>
+        <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4">/ PORTFOLIO</p>
+        <h2 class="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter">Proyectos.</h2>
+      </div>
+      <span class="hidden sm:block text-slate-600 text-sm tracking-[0.15em]">RESULTADOS REALES</span>
+    </div>
+
+    <!-- Mobile: lista vertical compacta -->
+    <div class="flex md:hidden flex-col gap-2">
+      {projects.map(({ name, type, desc, tech, url, status }) => (
+        <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all">
+          <div class="shrink-0">
+            <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
+            <h3 class="text-sm font-bold">{name}</h3>
+            <p class="text-slate-500 text-[11px] leading-snug">{desc}</p>
+          </div>
+          <div class="ml-auto shrink-0 flex flex-col items-end gap-1">
+            <span class={`text-[8px] font-bold tracking-wider px-1.5 py-0.5 rounded-full ${
+              status === 'Producción'
+                ? 'bg-emerald-500/10 text-emerald-400'
+                : 'bg-amber-500/10 text-amber-400'
+            }`}>
+              {status.toUpperCase()}
+            </span>
+            <ExternalLink class="w-3 h-3 text-slate-600" />
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Desktop: grid -->
+    <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-5">
+      {projects.map(({ name, type, desc, tech, url, status }) => (
+        <article class="group relative p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-blue-600/30 transition-all duration-300">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-blue-500 text-xs font-bold tracking-[0.2em]">{type}</span>
+            <span class={`text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full ${
+              status === 'Producción'
+                ? 'bg-emerald-500/10 text-emerald-400'
+                : 'bg-amber-500/10 text-amber-400'
+            }`}>
+              {status.toUpperCase()}
+            </span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">{name}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">{desc}</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            {tech.map((t) => (
+              <span class="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">{t}</span>
+            ))}
+          </div>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-white font-bold tracking-widest transition-colors"
+          >
+            VER PROYECTO <ExternalLink class="w-3.5 h-3.5" />
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
