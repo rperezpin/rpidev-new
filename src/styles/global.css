@@ -108,8 +108,9 @@ body {
 /* Ajustar padding en mobile para librar el nav */
 @media (max-width: 767px) {
   #scroll-wrapper > .section {
-    padding-top: 6rem;
+    padding-top: 7rem;
     padding-bottom: 2.5rem;
+    justify-content: flex-start;
   }
 }
 
