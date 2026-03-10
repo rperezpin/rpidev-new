@@ -1,11 +1,14 @@
 ---
 import '../styles/global.css';
+import type { Lang } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/ui';
 
 interface Props {
   title: string;
   description: string;
   canonical?: string;
   noIndex?: boolean;
+  lang?: Lang;
 }
 
 const {
@@ -13,14 +16,17 @@ const {
   description,
   canonical = Astro.url.href,
   noIndex = false,
+  lang = 'es',
 } = Astro.props;
 
 const siteUrl = 'https://www.rpidev.com';
 const ogImage = `${siteUrl}/images/og-default.jpg`;
+const alternateLang = lang === 'es' ? 'en' : 'es';
+const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.replace(/^\/en/, '') || '/';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +37,15 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {noIndex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    }
+
+    <!-- Hreflang: alternate language versions -->
+    <link rel="alternate" hreflang="es" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${getLocalizedPath('en', currentPath)}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -39,7 +53,12 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_ES'} />
     <meta property="og:site_name" content="RPI Dev" />
 
     <!-- Twitter Card -->
@@ -47,6 +66,10 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="ES-GR" />
+    <meta name="geo.placename" content="Granada" />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -78,12 +101,25 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": `${siteUrl}/#organization`,
             "name": "RPI Dev",
-            "description": "Consultoría digital y desarrollo web para autónomos y pymes en Granada",
+            "description": lang === 'es'
+              ? "Consultoría digital, desarrollo web y automatización de procesos para autónomos y pymes en Granada"
+              : "Digital consulting, web development, and process automation for freelancers and SMBs in Granada, Spain",
             "url": siteUrl,
             "email": "ruben@rpidev.com",
             "telephone": "+34614830864",
+            "priceRange": "$$",
+            "image": ogImage,
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ],
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Calle Ermita 42",
@@ -92,22 +128,162 @@ const ogImage = `${siteUrl}/images/og-default.jpg`;
               "postalCode": "18198",
               "addressCountry": "ES"
             },
-            "founder": {
-              "@type": "Person",
-              "name": "Rubén Pérez Izuel"
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 37.1548,
+              "longitude": -3.5826
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Granada" },
+              { "@type": "Country", "name": "Spain" }
+            ],
+            "founder": { "@id": `${siteUrl}/#founder` },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": lang === 'es' ? "Servicios de desarrollo web y automatización" : "Web development and automation services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": lang === 'es' ? "Desarrollo Web" : "Web Development",
+                    "description": lang === 'es'
+                      ? "Diseño y desarrollo de sitios web rápidos, optimizados para SEO y orientados a conversión"
+                      : "Design and development of fast, SEO-optimized, conversion-oriented websites"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": lang === 'es' ? "Automatización de procesos" : "Process Automation",
+                    "description": lang === 'es'
+                      ? "Automatización de tareas repetitivas y flujos de trabajo para ahorrar tiempo"
+                      : "Automation of repetitive tasks and workflows to save time"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": lang === 'es' ? "Integraciones de software" : "Software Integrations",
+                    "description": lang === 'es'
+                      ? "Conexión de CRM, TPV, facturación y otras herramientas empresariales"
+                      : "Connecting CRM, POS, invoicing, and other business tools"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": lang === 'es' ? "Consultoría digital" : "Digital Consulting",
+                    "description": lang === 'es'
+                      ? "Asesoramiento en digitalización y estrategia tecnológica para pymes"
+                      : "Digitalization and technology strategy consulting for SMBs"
+                  }
+                }
+              ]
             },
             "sameAs": [
-              "https://www.linkedin.com/in/rubén-pérez-izuel-a02607189",
+              "https://www.linkedin.com/in/rub%C3%A9n-p%C3%A9rez-izuel-a02607189",
               "https://github.com/rperezpin",
               "https://www.instagram.com/rpi.dev/",
               "https://www.facebook.com/profile.php?id=61583465244829"
             ]
           },
           {
+            "@type": "Person",
+            "@id": `${siteUrl}/#founder`,
+            "name": "Rubén Pérez Izuel",
+            "jobTitle": lang === 'es' ? "Desarrollador Web y Consultor Digital" : "Web Developer & Digital Consultant",
+            "url": siteUrl,
+            "email": "ruben@rpidev.com",
+            "worksFor": { "@id": `${siteUrl}/#organization` },
+            "sameAs": [
+              "https://www.linkedin.com/in/rub%C3%A9n-p%C3%A9rez-izuel-a02607189",
+              "https://github.com/rperezpin",
+              "https://www.instagram.com/rpi.dev/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${siteUrl}/#website`,
+            "url": siteUrl,
+            "name": "RPI Dev",
+            "description": lang === 'es'
+              ? "Desarrollo web y automatización para empresas en Granada"
+              : "Web development and automation for businesses in Granada, Spain",
+            "publisher": { "@id": `${siteUrl}/#organization` },
+            "inLanguage": [
+              { "@type": "Language", "name": "Spanish", "alternateName": "es" },
+              { "@type": "Language", "name": "English", "alternateName": "en" }
+            ]
+          },
+          {
             "@type": "WebPage",
+            "@id": canonical,
+            "url": canonical,
             "name": title,
             "description": description,
-            "url": canonical
+            "isPartOf": { "@id": `${siteUrl}/#website` },
+            "about": { "@id": `${siteUrl}/#organization` },
+            "inLanguage": lang === 'es' ? 'es-ES' : 'en-US'
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": lang === 'es'
+              ? [
+                  {
+                    "@type": "Question",
+                    "name": "¿Qué servicios de desarrollo web ofrecéis en Granada?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Ofrecemos desarrollo de sitios web rápidos y optimizados para SEO, automatización de procesos empresariales, integración de herramientas (CRM, TPV, facturación) y consultoría digital para autónomos y pymes."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "¿Cuánto cuesta desarrollar una web profesional?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Cada proyecto se presupuesta de forma personalizada según las necesidades. Ofrecemos un diagnóstico gratuito de 30 minutos para entender tu negocio y presentar una propuesta con coste claro y plazos definidos."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "¿Cómo funciona la automatización de procesos?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Analizamos tus tareas repetitivas y diseñamos sistemas que las ejecutan automáticamente: envío de emails, sincronización de datos entre herramientas, generación de informes y más. El resultado es un ahorro de tiempo real y medible."
+                    }
+                  }
+                ]
+              : [
+                  {
+                    "@type": "Question",
+                    "name": "What web development services do you offer in Granada?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "We offer fast, SEO-optimized website development, business process automation, tool integration (CRM, POS, invoicing), and digital consulting for freelancers and SMBs."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How much does a professional website cost?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Each project is individually quoted based on your needs. We offer a free 30-minute consultation to understand your business and present a clear proposal with defined costs and timelines."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does process automation work?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "We analyze your repetitive tasks and design systems that execute them automatically: sending emails, syncing data between tools, generating reports, and more. The result is real, measurable time savings."
+                    }
+                  }
+                ]
           }
         ]
       })} />

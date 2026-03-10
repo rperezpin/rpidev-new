@@ -39,8 +39,8 @@ body {
 }
 
 .outline-text {
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.05);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.15);
 }
 
 @keyframes fadeInUp {

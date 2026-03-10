@@ -1,0 +1,34 @@
+# RPI Dev — AI Content Guide
+
+> RPI Dev is a digital consulting and web development studio based in Granada, Spain, run by Rubén Pérez Izuel. This document lists the key pages and resources for AI assistants, language models, and retrieval-augmented generation systems.
+>
+> RPI Dev specializes in web development, business process automation, software integrations, IoT systems, and digital consulting for freelancers and SMBs.
+
+## Main Content
+
+- [Home (ES)](https://www.rpidev.com/)
+- [Home (EN)](https://www.rpidev.com/en/)
+
+## Services
+
+RPI Dev offers four core service areas:
+
+1. **Online visibility** — Landing pages, corporate websites, e-commerce, and digital profiles with local and organic SEO optimized for Google.
+2. **Process automation** — Automated workflows using n8n, Make, and Zapier that eliminate manual tasks and save measurable hours weekly.
+3. **Integrations & IoT** — Connecting software, hardware, and IoT devices into unified systems for agriculture, hospitality, warehouses, and industrial environments.
+4. **Digital consulting** — Business diagnosis and personalized digital transformation roadmaps with concrete, measurable outcomes.
+
+## About
+
+- **Studio:** RPI Dev
+- **Founder:** Rubén Pérez Izuel, Web Developer & Digital Consultant
+- **Location:** Huétor Vega, Granada, Spain (18198)
+- **Contact:** ruben@rpidev.com · +34 614 830 864
+- **Languages:** Spanish (default), English
+- **Free consultation:** 30-minute diagnostic session available
+
+## Optional
+
+- [Legal Notice](https://www.rpidev.com/legal)
+- [Privacy Policy](https://www.rpidev.com/privacy)
+- [Cookies Policy](https://www.rpidev.com/cookies)

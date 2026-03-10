@@ -1,8 +1,48 @@
+# https://www.robotstxt.org/
+
+# Default: allow all
 User-agent: *
 Allow: /
-
+Allow: /en/
 Disallow: /legal
 Disallow: /privacy
 Disallow: /cookies
+
+# AI/LLM Bots — allow full access for AI search visibility
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Traditional search engines
+User-agent: Googlebot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.png$
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: bingbot
+Allow: /
+Crawl-delay: 5
 
 Sitemap: https://www.rpidev.com/sitemap-index.xml

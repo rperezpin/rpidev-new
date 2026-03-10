@@ -1,5 +1,14 @@
 ---
+import type { Lang } from '../i18n/ui';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
 const year = new Date().getFullYear();
+const legalPrefix = lang === 'es' ? '' : '/en';
 ---
 
 <footer class="fixed bottom-3 left-4 md:bottom-8 md:left-8 z-50 flex items-center gap-3 md:gap-4">
@@ -14,7 +23,7 @@ const year = new Date().getFullYear();
 </footer>
 
 <div class="fixed bottom-3 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-2 md:gap-3">
-  <a href="/legal" class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">Legal</a>
-  <a href="/privacy" class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">Privacidad</a>
-  <a href="/cookies" class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">Cookies</a>
+  <a href={`${legalPrefix}/legal`} class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">{t(lang, 'footer.legal')}</a>
+  <a href={`${legalPrefix}/privacy`} class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">{t(lang, 'footer.privacy')}</a>
+  <a href={`${legalPrefix}/cookies`} class="text-[8px] md:text-[9px] text-slate-600 hover:text-slate-400 transition-colors">{t(lang, 'footer.cookies')}</a>
 </div>

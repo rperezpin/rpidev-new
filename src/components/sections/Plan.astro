@@ -1,40 +1,34 @@
 ---
-const steps = [
-  {
-    num: '01',
-    title: 'Hablamos',
-    desc: 'Me cuentas tu negocio y tu objetivo.',
-  },
-  {
-    num: '02',
-    title: 'Diseñamos',
-    desc: 'Propuesta con coste claro y plazos.',
-  },
-  {
-    num: '03',
-    title: 'Implementamos',
-    desc: 'Implemento, mido y mejoro.',
-  },
-];
+import type { Lang } from '../../i18n/ui';
+import { t } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const nums = ['01', '02', '03'];
+const steps = t(lang, 'plan.steps') as { title: string; desc: string }[];
 ---
 
 <section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="3">
   <div class="max-w-5xl mx-auto w-full my-auto md:my-0 section-content">
     <div class="mb-4 md:mb-14">
-      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4">/ METODOLOGÍA</p>
+      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4">{t(lang, 'plan.label')}</p>
       <h2 class="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter">
-        Plan sencillo<br />
-        <span class="text-blue-600">para empezar.</span>
+        {t(lang, 'plan.heading.line1')}<br />
+        <span class="text-blue-600">{t(lang, 'plan.heading.line2')}</span>
       </h2>
     </div>
 
     <!-- Mobile: vertical timeline -->
     <div class="flex md:hidden flex-col gap-3">
-      {steps.map(({ num, title, desc }, i) => (
+      {steps.map(({ title, desc }, i) => (
         <div class="flex items-start gap-3">
           <div class="flex flex-col items-center">
             <div class="w-9 h-9 bg-yellow-500/10 text-yellow-300 rounded-lg flex items-center justify-center text-xs font-bold shrink-0">
-              {num}
+              {nums[i]}
             </div>
             {i < 2 && <div class="w-px h-full bg-white/5 mt-1"></div>}
           </div>
@@ -48,13 +42,13 @@ const steps = [
 
     <!-- Desktop: horizontal cards -->
     <div class="hidden md:flex flex-row gap-8">
-      {steps.map(({ num, title, desc }, i) => (
+      {steps.map(({ title, desc }, i) => (
         <div class="relative">
           <div class="group p-8 bg-white/[0.02] border border-white/5 rounded-3xl hover:border-yellow-900/40 transition-all duration-500 h-full">
-            <span class="text-7xl font-bold text-white/[0.04] absolute top-4 right-6 select-none">{num}</span>
+            <span class="text-7xl font-bold text-white/[0.04] absolute top-4 right-6 select-none">{nums[i]}</span>
             <div class="relative">
               <div class="w-12 h-12 bg-yellow-500/10 text-yellow-300 rounded-xl flex items-center justify-center mb-6 text-base font-bold">
-                {num}
+                {nums[i]}
               </div>
               <h3 class="text-xl font-bold mb-3">{title}</h3>
               <p class="text-slate-400 text-base leading-relaxed">{desc}</p>
@@ -70,9 +64,9 @@ const steps = [
     </div>
 
     <div class="mt-4 md:mt-12 p-3 md:p-6 bg-emerald-500/5 border border-emerald-900/30 rounded-xl md:rounded-2xl max-w-xl">
-      <p class="text-emerald-400 text-sm md:text-base font-bold mb-0.5 md:mb-1">Imagina tu negocio en automático</p>
+      <p class="text-emerald-400 text-sm md:text-base font-bold mb-0.5 md:mb-1">{t(lang, 'plan.callout.title')}</p>
       <p class="text-slate-500 text-[11px] md:text-sm leading-snug">
-        Más tiempo para tus clientes. Procesos claros. Un sistema que crece contigo.
+        {t(lang, 'plan.callout.desc')}
       </p>
     </div>
   </div>
