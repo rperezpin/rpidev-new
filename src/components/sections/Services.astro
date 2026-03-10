@@ -1,5 +1,5 @@
 ---
-import { Globe, Zap, Link2, MessageCircle } from '@lucide/astro';
+import { Globe, Zap, Link2, MessageCircle, ChevronDown } from '@lucide/astro';
 import type { Lang } from '../../i18n/ui';
 import { t } from '../../i18n/ui';
 
@@ -27,15 +27,61 @@ const services = t(lang, 'services.items') as { title: string; desc: string }[];
       {services.map(({ title, desc }, i) => {
         const Icon = icons[i];
         return (
-          <div class="group p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-3xl hover:border-blue-600/30 transition-all duration-500">
+          <div class="service-card group p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-3xl hover:border-blue-600/30 transition-all duration-500">
             <div class="w-10 h-10 md:w-14 md:h-14 bg-blue-600/10 text-blue-500 rounded-lg md:rounded-2xl flex items-center justify-center mb-3 md:mb-6 group-hover:scale-110 transition-transform">
               <Icon class="w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <h3 class="text-sm md:text-xl font-bold mb-1 md:mb-3 uppercase tracking-tight">{title}</h3>
-            <p class="text-slate-400 text-xs md:text-base leading-relaxed">{desc}</p>
+            <button class="service-card-toggle w-full flex items-center gap-1 text-left" type="button" aria-expanded="false">
+              <h3 class="text-sm md:text-xl font-bold uppercase tracking-tight flex-1">{title}</h3>
+              <ChevronDown class="service-card-chevron md:hidden w-4 h-4 shrink-0 text-slate-500 transition-transform duration-300" />
+            </button>
+            <div class="service-card-body">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-slate-400 text-xs md:text-base leading-relaxed pt-1 md:pt-3">{desc}</p>
+              </div>
+            </div>
           </div>
         );
       })}
     </div>
   </div>
 </section>
+
+<style>
+  .service-card-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease;
+  }
+  .service-card-body.is-open {
+    grid-template-rows: 1fr;
+  }
+  @media (min-width: 768px) {
+    .service-card-body {
+      grid-template-rows: 1fr;
+    }
+    .service-card-toggle {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+</style>
+
+<script>
+  function initServiceAccordion() {
+    document.querySelectorAll('.service-card:not([data-acc-init])').forEach(card => {
+      card.setAttribute('data-acc-init', 'true');
+      const toggle = card.querySelector('.service-card-toggle');
+      const body = card.querySelector('.service-card-body');
+      const chevron = card.querySelector('.service-card-chevron');
+      toggle?.addEventListener('click', () => {
+        if (window.innerWidth >= 768) return;
+        const isOpen = body?.classList.toggle('is-open');
+        chevron?.classList.toggle('rotate-180', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen ?? false));
+      });
+    });
+  }
+  initServiceAccordion();
+  document.addEventListener('astro:page-load', initServiceAccordion);
+</script>

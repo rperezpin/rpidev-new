@@ -1,5 +1,5 @@
 ---
-import { Clock, Unplug, TrendingDown, AlertTriangle } from '@lucide/astro';
+import { Clock, Unplug, TrendingDown, AlertTriangle, ChevronDown } from '@lucide/astro';
 import type { Lang } from '../../i18n/ui';
 import { t } from '../../i18n/ui';
 
@@ -27,13 +27,20 @@ const painPoints = t(lang, 'problem.painPoints') as { title: string; desc: strin
       {painPoints.map(({ title, desc }, i) => {
         const Icon = icons[i];
         return (
-          <div class="group flex flex-col md:flex-row gap-2 md:gap-3 p-3 md:p-6 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-2xl hover:border-red-900/40 transition-all duration-300">
+          <div class="problem-card group flex flex-col md:flex-row gap-2 md:gap-3 p-3 md:p-6 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-2xl hover:border-red-900/40 transition-all duration-300">
             <div class="w-8 h-8 md:w-12 md:h-12 shrink-0 bg-red-500/10 text-red-400 rounded-lg md:rounded-xl flex items-center justify-center">
               <Icon class="w-4 h-4 md:w-6 md:h-6" />
             </div>
-            <div>
-              <h3 class="font-bold text-sm md:text-lg mb-0.5 md:mb-1">{title}</h3>
-              <p class="text-slate-500 text-xs md:text-base leading-relaxed">{desc}</p>
+            <div class="flex-1 min-w-0">
+              <button class="problem-card-toggle w-full flex items-center gap-1 text-left" type="button" aria-expanded="false">
+                <h3 class="font-bold text-sm md:text-lg flex-1">{title}</h3>
+                <ChevronDown class="problem-card-chevron md:hidden w-4 h-4 shrink-0 text-slate-500 transition-transform duration-300" />
+              </button>
+              <div class="problem-card-body">
+                <div class="overflow-hidden min-h-0">
+                  <p class="text-slate-500 text-xs md:text-base leading-relaxed pt-0.5 md:pt-1">{desc}</p>
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -45,3 +52,42 @@ const painPoints = t(lang, 'problem.painPoints') as { title: string; desc: strin
     </p>
   </div>
 </section>
+
+<style>
+  .problem-card-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease;
+  }
+  .problem-card-body.is-open {
+    grid-template-rows: 1fr;
+  }
+  @media (min-width: 768px) {
+    .problem-card-body {
+      grid-template-rows: 1fr;
+    }
+    .problem-card-toggle {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+</style>
+
+<script>
+  function initProblemAccordion() {
+    document.querySelectorAll('.problem-card:not([data-acc-init])').forEach(card => {
+      card.setAttribute('data-acc-init', 'true');
+      const toggle = card.querySelector('.problem-card-toggle');
+      const body = card.querySelector('.problem-card-body');
+      const chevron = card.querySelector('.problem-card-chevron');
+      toggle?.addEventListener('click', () => {
+        if (window.innerWidth >= 768) return;
+        const isOpen = body?.classList.toggle('is-open');
+        chevron?.classList.toggle('rotate-180', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen ?? false));
+      });
+    });
+  }
+  initProblemAccordion();
+  document.addEventListener('astro:page-load', initProblemAccordion);
+</script>
