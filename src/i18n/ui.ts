@@ -32,8 +32,8 @@ export const ui = {
 
     // Problem
     'problem.label': '/ SI ERES AUTÓNOMO O PYME',
-    'problem.heading.line1': 'No pierdas tiempo',
-    'problem.heading.line2': 'automatizando tareas.',
+    'problem.heading.line1': 'Utiliza tu tiempo',
+    'problem.heading.line2': 'en tareas de valor.',
     'problem.footer':
       'No debería ser tan complicado. La tecnología está para ayudarte.',
     'problem.painPoints': [
@@ -133,8 +133,8 @@ export const ui = {
 
     // Problem
     'problem.label': '/ IF YOU ARE A FREELANCER OR SMB',
-    'problem.heading.line1': 'Stop wasting time',
-    'problem.heading.line2': 'on what can be automated.',
+    'problem.heading.line1': 'Use your time',
+    'problem.heading.line2': 'on meaningful work.',
     'problem.footer':
       "It shouldn't be this complicated. Technology is here to help you.",
     'problem.painPoints': [
