@@ -47,13 +47,13 @@ const projects = projectData.map((data, i) => ({
     <div class="flex md:hidden flex-col gap-2 flex-1 min-h-0 overflow-y-auto no-scrollbar w-full overscroll-contain" data-scrollable>
       {projects.map(({ name, type, desc, url, status, statusLabel }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
-          <div class="shrink-0">
+          <div class="min-w-0 flex-1">
             <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
             <h3 class="text-sm font-bold">{name}</h3>
             <p class="text-slate-500 text-[11px] leading-snug">{desc}</p>
           </div>
-          <div class="ml-auto shrink-0 flex flex-col items-end gap-1">
-            <span class={`text-[8px] font-bold tracking-wider px-1.5 py-0.5 rounded-full ${
+          <div class="ml-auto shrink-0 flex flex-col items-end gap-1 pl-2">
+            <span class={`text-[8px] font-bold tracking-wider px-1.5 py-0.5 rounded-full whitespace-nowrap ${
               status === 'production'
                 ? 'bg-emerald-500/10 text-emerald-400'
                 : 'bg-amber-500/10 text-amber-400'

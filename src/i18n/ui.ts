@@ -32,8 +32,8 @@ export const ui = {
 
     // Problem
     'problem.label': '/ SI ERES AUTÓNOMO O PYME',
-    'problem.heading.line1': 'Deja de perder tiempo',
-    'problem.heading.line2': 'con lo que se puede automatizar.',
+    'problem.heading.line1': 'No pierdas tiempo',
+    'problem.heading.line2': 'automatizando tareas.',
     'problem.footer':
       'No debería ser tan complicado. La tecnología está para ayudarte.',
     'problem.painPoints': [
