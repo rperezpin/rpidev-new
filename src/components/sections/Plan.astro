@@ -12,11 +12,11 @@ const nums = ['01', '02', '03'];
 const steps = t(lang, 'plan.steps') as { title: string; desc: string }[];
 ---
 
-<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 sm:px-10 pt-16 pb-20 md:px-20 lg:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="3">
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 sm:px-10 pt-16 pb-20 md:px-20 lg:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="3" data-scrollable>
   <div class="max-w-5xl mx-auto w-full my-auto md:my-0 section-content">
-    <div class="mb-4 md:mb-14">
-      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4">{t(lang, 'plan.label')}</p>
-      <h2 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
+    <div class="mb-4 md:mb-14 short:mb-3">
+      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4 short:mb-1">{t(lang, 'plan.label')}</p>
+      <h2 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl short:text-[clamp(1.5rem,6.5vh,2.25rem)] font-bold tracking-tighter short:mb-1">
         {t(lang, 'plan.heading.line1')}<br />
         <span class="text-blue-600">{t(lang, 'plan.heading.line2')}</span>
       </h2>
@@ -41,17 +41,17 @@ const steps = t(lang, 'plan.steps') as { title: string; desc: string }[];
     </div>
 
     <!-- Desktop: horizontal cards -->
-    <div class="hidden md:flex flex-row gap-8">
+    <div class="hidden md:flex flex-row gap-8 short:gap-4">
       {steps.map(({ title, desc }, i) => (
         <div class="relative">
-          <div class="group p-8 bg-white/[0.02] border border-white/5 rounded-3xl hover:border-yellow-900/40 transition-all duration-500 h-full">
-            <span class="text-7xl font-bold text-white/[0.04] absolute top-4 right-6 select-none">{nums[i]}</span>
+          <div class="group p-8 short:p-4 bg-white/[0.02] border border-white/5 rounded-3xl hover:border-yellow-900/40 transition-all duration-500 h-full">
+            <span class="text-7xl font-bold text-white/[0.04] absolute top-4 right-6 select-none short:hidden">{nums[i]}</span>
             <div class="relative">
-              <div class="w-12 h-12 bg-yellow-500/10 text-yellow-300 rounded-xl flex items-center justify-center mb-6 text-base font-bold">
+              <div class="w-12 h-12 short:w-8 short:h-8 bg-yellow-500/10 text-yellow-300 rounded-xl flex items-center justify-center mb-6 short:mb-2 text-base short:text-xs font-bold">
                 {nums[i]}
               </div>
-              <h3 class="text-xl font-bold mb-3">{title}</h3>
-              <p class="text-slate-400 text-base leading-relaxed">{desc}</p>
+              <h3 class="text-xl short:text-sm font-bold mb-3 short:mb-1">{title}</h3>
+              <p class="text-slate-400 text-base short:text-xs leading-relaxed">{desc}</p>
             </div>
           </div>
           {i < 2 && (
@@ -63,7 +63,7 @@ const steps = t(lang, 'plan.steps') as { title: string; desc: string }[];
       ))}
     </div>
 
-    <div class="mt-4 md:mt-12 p-3 md:p-6 bg-emerald-500/5 border border-emerald-900/30 rounded-xl md:rounded-2xl max-w-xl">
+    <div class="mt-4 md:mt-12 short:mt-3 p-3 md:p-6 short:p-2 bg-emerald-500/5 border border-emerald-900/30 rounded-xl md:rounded-2xl max-w-xl">
       <p class="text-emerald-400 text-sm md:text-base font-bold mb-0.5 md:mb-1">{t(lang, 'plan.callout.title')}</p>
       <p class="text-slate-500 text-[11px] md:text-sm leading-snug">
         {t(lang, 'plan.callout.desc')}
