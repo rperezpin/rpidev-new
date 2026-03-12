@@ -103,7 +103,7 @@ body {
   position: absolute;
   width: calc(var(--vw) * 200);
   height: calc(var(--vh) * 300);
-  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
