@@ -87,9 +87,60 @@ const lang = 'en';
       ];
 
       const DIRECTIONS = ['right', 'down', 'left', 'down', 'right'];
+      const WHEEL_INTENT_THRESHOLD = 220;
+      const WHEEL_GESTURE_GAP_MS = 180;
+      const WHEEL_INTENT_RESET_MS = 220;
+      const MIN_WHEEL_DELTA = 10;
 
       let currentSection = 0;
       let isTransitioning = false;
+      let wheelIntent = 0;
+      let wheelDirection = 0;
+      let wheelResetTimer: number | undefined;
+      let lastWheelEventAt = 0;
+      let edgeReleasePending = false;
+      let edgeReleaseDirection = 0;
+
+      function resetWheelIntent() {
+        wheelIntent = 0;
+        wheelDirection = 0;
+        if (wheelResetTimer) {
+          window.clearTimeout(wheelResetTimer);
+          wheelResetTimer = undefined;
+        }
+      }
+
+      function scheduleWheelIntentReset() {
+        if (wheelResetTimer) window.clearTimeout(wheelResetTimer);
+        wheelResetTimer = window.setTimeout(() => {
+          resetWheelIntent();
+        }, WHEEL_INTENT_RESET_MS);
+      }
+
+      function resetEdgeRelease() {
+        edgeReleasePending = false;
+        edgeReleaseDirection = 0;
+      }
+
+      function normalizeWheelDelta(e: WheelEvent) {
+        if (e.deltaMode === WheelEvent.DOM_DELTA_LINE) return e.deltaY * 16;
+        if (e.deltaMode === WheelEvent.DOM_DELTA_PAGE) return e.deltaY * viewportHeight;
+        return e.deltaY;
+      }
+
+      function getScrollableTarget(target: EventTarget | null) {
+        if (!(target instanceof Element)) return null;
+        return target.closest('[data-scrollable]');
+      }
+
+      function canConsumeScroll(scrollableTarget: HTMLElement, deltaY: number) {
+        const maxScrollTop = scrollableTarget.scrollHeight - scrollableTarget.clientHeight;
+        if (maxScrollTop <= 2) return false;
+
+        const canScrollDown = deltaY > 0 && scrollableTarget.scrollTop < maxScrollTop - 2;
+        const canScrollUp = deltaY < 0 && scrollableTarget.scrollTop > 2;
+        return canScrollDown || canScrollUp;
+      }
 
       updateViewportVars();
       applyTransform(currentSection);
@@ -113,6 +164,8 @@ const lang = 'en';
       function navigateTo(index: number) {
         if (!wrapper || index < 0 || index >= POSITIONS.length || index === currentSection || isTransitioning) return;
 
+        resetWheelIntent();
+        resetEdgeRelease();
         isTransitioning = true;
         const prevSection = currentSection;
         currentSection = index;
@@ -163,16 +216,65 @@ const lang = 'en';
 
         if (!isTouchDevice) {
           container.addEventListener('wheel', (e) => {
-            const scrollableTarget = e.target instanceof Element
-              ? e.target.closest('[data-scrollable]')
-              : null;
-            if (scrollableTarget instanceof HTMLElement) {
-              const canScrollDown = e.deltaY > 0 && scrollableTarget.scrollTop < scrollableTarget.scrollHeight - scrollableTarget.clientHeight - 2;
-              const canScrollUp = e.deltaY < 0 && scrollableTarget.scrollTop > 2;
-              if (canScrollDown || canScrollUp) return;
+            const deltaY = normalizeWheelDelta(e);
+            if (Math.abs(deltaY) < MIN_WHEEL_DELTA) return;
+
+            const direction = deltaY > 0 ? 1 : -1;
+            const now = performance.now();
+            const timeSinceLastWheel = now - lastWheelEventAt;
+            lastWheelEventAt = now;
+
+            if (timeSinceLastWheel > WHEEL_GESTURE_GAP_MS) {
+              resetWheelIntent();
             }
+
+            const scrollableTarget = getScrollableTarget(e.target);
+            if (scrollableTarget instanceof HTMLElement) {
+              if (canConsumeScroll(scrollableTarget, deltaY)) {
+                resetWheelIntent();
+                resetEdgeRelease();
+                return;
+              }
+
+              const hasOverflow = scrollableTarget.scrollHeight - scrollableTarget.clientHeight > 2;
+              if (hasOverflow) {
+                if (!edgeReleasePending || edgeReleaseDirection !== direction) {
+                  edgeReleasePending = true;
+                  edgeReleaseDirection = direction;
+                  resetWheelIntent();
+                  return;
+                }
+
+                if (timeSinceLastWheel <= WHEEL_GESTURE_GAP_MS) {
+                  resetWheelIntent();
+                  return;
+                }
+
+                resetEdgeRelease();
+              }
+            } else {
+              resetEdgeRelease();
+            }
+
+            if (isTransitioning) {
+              e.preventDefault();
+              resetWheelIntent();
+              return;
+            }
+
             e.preventDefault();
-            const direction = e.deltaY > 0 ? 1 : -1;
+
+            if (wheelDirection !== direction) {
+              wheelIntent = 0;
+            }
+
+            wheelDirection = direction;
+            wheelIntent += Math.abs(deltaY);
+            scheduleWheelIntentReset();
+
+            if (wheelIntent < WHEEL_INTENT_THRESHOLD) return;
+
+            resetWheelIntent();
             navigateTo(currentSection + direction);
           }, { passive: false });
         }
