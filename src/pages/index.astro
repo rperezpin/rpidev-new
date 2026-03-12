@@ -193,7 +193,8 @@ const lang = 'es';
           const absDx = Math.abs(dx);
           const absDy = Math.abs(dy);
 
-          if (Math.max(absDx, absDy) < 80) return;
+          const SWIPE_THRESHOLD = 60;
+          if (Math.max(absDx, absDy) < SWIPE_THRESHOLD) return;
 
           const scrollableTarget = touchStartTarget instanceof Element
             ? touchStartTarget.closest('[data-scrollable]')
@@ -211,16 +212,16 @@ const lang = 'es';
 
           if (currentSection < POSITIONS.length - 1) {
             const dir = DIRECTIONS[currentSection];
-            if (dir === 'right' && absDx > absDy && dx < -80) forward = true;
-            if (dir === 'down' && absDy > absDx && dy < -80) forward = true;
-            if (dir === 'left' && absDx > absDy && dx > 80) forward = true;
+            if (dir === 'right' && absDx > absDy && dx < -SWIPE_THRESHOLD) forward = true;
+            if (dir === 'down' && absDy > absDx && dy < -SWIPE_THRESHOLD) forward = true;
+            if (dir === 'left' && absDx > absDy && dx > SWIPE_THRESHOLD) forward = true;
           }
 
           if (currentSection > 0) {
             const dir = DIRECTIONS[currentSection - 1];
-            if (dir === 'right' && absDx > absDy && dx > 80) backward = true;
-            if (dir === 'down' && absDy > absDx && dy > 80) backward = true;
-            if (dir === 'left' && absDx > absDy && dx < -80) backward = true;
+            if (dir === 'right' && absDx > absDy && dx > SWIPE_THRESHOLD) backward = true;
+            if (dir === 'down' && absDy > absDx && dy > SWIPE_THRESHOLD) backward = true;
+            if (dir === 'left' && absDx > absDy && dx < -SWIPE_THRESHOLD) backward = true;
           }
 
           if (forward && !isTransitioning) navigateTo(currentSection + 1);

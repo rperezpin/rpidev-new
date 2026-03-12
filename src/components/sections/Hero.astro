@@ -10,7 +10,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 ---
 
-<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 pt-16 pb-20 md:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="0">
+<section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 sm:px-10 pt-16 pb-20 md:px-20 lg:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar" data-index="0">
   <header class="sr-only">
     <h1>{t(lang, 'hero.h1')}</h1>
   </header>
@@ -21,13 +21,13 @@ const { lang = 'es' } = Astro.props;
       {t(lang, 'hero.tagline')}
     </div>
 
-    <h2 class="text-4xl sm:text-5xl md:text-[6rem] lg:text-[8rem] font-bold leading-[0.9] tracking-tighter mb-5 md:mb-8">
+    <h2 class="text-4xl sm:text-5xl md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] font-bold leading-[0.9] tracking-tighter mb-5 md:mb-8">
       {t(lang, 'hero.heading.line1')}<br />
       <span class="text-blue-600">{t(lang, 'hero.heading.line2')}</span><br />
       <span class="text-white/30">{t(lang, 'hero.heading.line3')}</span>
     </h2>
 
-    <p class="text-base md:text-xl text-slate-400 max-w-xl leading-relaxed">
+    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 max-w-xl leading-relaxed">
       {t(lang, 'hero.subtitle')}
     </p>
 

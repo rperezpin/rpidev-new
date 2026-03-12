@@ -88,13 +88,14 @@ body {
 
 .section-hidden {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(10px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
 }
 
 .section-visible {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
 }
 
 /* Snake/zigzag 2D scroll layout */
@@ -102,7 +103,8 @@ body {
   position: absolute;
   width: calc(var(--vw) * 200);
   height: calc(var(--vh) * 300);
-  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 #scroll-wrapper > .section {
@@ -114,7 +116,7 @@ body {
 /* Ajustar padding en mobile para librar el nav */
 @media (max-width: 767px) {
   #scroll-wrapper > .section {
-    padding-top: calc(var(--nav-h, 8rem) + env(safe-area-inset-top));
+    padding-top: calc(var(--nav-h, 4rem) + env(safe-area-inset-top));
     padding-bottom: 2.5rem;
     justify-content: flex-start;
   }
@@ -135,11 +137,11 @@ body {
 /* Scroll direction indicator bounce */
 @keyframes indicatorBounce {
   0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(4px); }
+  50% { transform: translateX(5px); }
 }
 
 .scroll-indicator-bounce {
-  animation: indicatorBounce 1.5s ease-in-out infinite;
+  animation: indicatorBounce 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 ::selection {
