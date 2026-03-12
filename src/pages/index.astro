@@ -98,8 +98,6 @@ const lang = 'es';
       let wheelDirection = 0;
       let wheelResetTimer: number | undefined;
       let lastWheelEventAt = 0;
-      let edgeReleasePending = false;
-      let edgeReleaseDirection = 0;
 
       function resetWheelIntent() {
         wheelIntent = 0;
@@ -115,11 +113,6 @@ const lang = 'es';
         wheelResetTimer = window.setTimeout(() => {
           resetWheelIntent();
         }, WHEEL_INTENT_RESET_MS);
-      }
-
-      function resetEdgeRelease() {
-        edgeReleasePending = false;
-        edgeReleaseDirection = 0;
       }
 
       function normalizeWheelDelta(e: WheelEvent) {
@@ -165,7 +158,6 @@ const lang = 'es';
         if (!wrapper || index < 0 || index >= POSITIONS.length || index === currentSection || isTransitioning) return;
 
         resetWheelIntent();
-        resetEdgeRelease();
         isTransitioning = true;
         const prevSection = currentSection;
         currentSection = index;
@@ -232,28 +224,8 @@ const lang = 'es';
             if (scrollableTarget instanceof HTMLElement) {
               if (canConsumeScroll(scrollableTarget, deltaY)) {
                 resetWheelIntent();
-                resetEdgeRelease();
                 return;
               }
-
-              const hasOverflow = scrollableTarget.scrollHeight - scrollableTarget.clientHeight > 2;
-              if (hasOverflow) {
-                if (!edgeReleasePending || edgeReleaseDirection !== direction) {
-                  edgeReleasePending = true;
-                  edgeReleaseDirection = direction;
-                  resetWheelIntent();
-                  return;
-                }
-
-                if (timeSinceLastWheel <= WHEEL_GESTURE_GAP_MS) {
-                  resetWheelIntent();
-                  return;
-                }
-
-                resetEdgeRelease();
-              }
-            } else {
-              resetEdgeRelease();
             }
 
             if (isTransitioning) {
