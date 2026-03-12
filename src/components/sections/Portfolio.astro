@@ -46,7 +46,7 @@ const projects = projectData.map((data, i) => ({
     <!-- Mobile: lista vertical compacta con scroll -->
     <div class="flex md:hidden flex-col gap-2 flex-1 min-h-0 overflow-y-auto no-scrollbar w-full overscroll-contain" data-scrollable>
       {projects.map(({ name, type, desc, url, status, statusLabel }) => (
-        <a href={url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
+        <a href={url} target="_blank" rel="noopener noreferrer" class="project-card-link flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
           <div class="min-w-0 flex-1">
             <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
             <h3 class="text-sm font-bold">{name}</h3>
@@ -102,3 +102,32 @@ const projects = projectData.map((data, i) => ({
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.project-card-link').forEach((link) => {
+    let startX = 0;
+    let startY = 0;
+    let dragged = false;
+
+    link.addEventListener('touchstart', (e) => {
+      const t = (e as TouchEvent).touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      dragged = false;
+    }, { passive: true });
+
+    link.addEventListener('touchmove', (e) => {
+      const t = (e as TouchEvent).touches[0];
+      if (Math.abs(t.clientX - startX) > 8 || Math.abs(t.clientY - startY) > 8) {
+        dragged = true;
+      }
+    }, { passive: true });
+
+    link.addEventListener('click', (e) => {
+      if (dragged) {
+        e.preventDefault();
+        dragged = false;
+      }
+    });
+  });
+</script>

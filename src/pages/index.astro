@@ -188,20 +188,23 @@ const lang = 'es';
         }, { passive: true });
 
         container.addEventListener('touchend', (e) => {
-          const scrollableTarget = touchStartTarget instanceof Element
-            ? touchStartTarget.closest('[data-scrollable]')
-            : null;
-          if (scrollableTarget instanceof HTMLElement) {
-            const canScroll = scrollableTarget.scrollHeight - scrollableTarget.clientHeight > 2;
-            if (canScroll) return;
-          }
-
           const dx = e.changedTouches[0].clientX - touchStartX;
           const dy = e.changedTouches[0].clientY - touchStartY;
           const absDx = Math.abs(dx);
           const absDy = Math.abs(dy);
 
           if (Math.max(absDx, absDy) < 80) return;
+
+          const scrollableTarget = touchStartTarget instanceof Element
+            ? touchStartTarget.closest('[data-scrollable]')
+            : null;
+          if (scrollableTarget instanceof HTMLElement) {
+            if (absDy > absDx) {
+              const canScrollDown = dy < 0 && scrollableTarget.scrollTop < scrollableTarget.scrollHeight - scrollableTarget.clientHeight - 2;
+              const canScrollUp = dy > 0 && scrollableTarget.scrollTop > 2;
+              if (canScrollDown || canScrollUp) return;
+            }
+          }
 
           let forward = false;
           let backward = false;
