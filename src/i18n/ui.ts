@@ -48,10 +48,10 @@ export const ui = {
     'services.heading.line1': '¿Qué puedo hacer',
     'services.heading.line2': 'por ti?',
     'services.items': [
-      { title: 'Visibilidad online', desc: 'Landings, webs corporativas, tiendas online y perfiles digitales con SEO local y orgánico para que te encuentren en Google antes que a tu competencia.' },
-      { title: 'Automatización de procesos', desc: 'Flujos automáticos con n8n, Make y Zapier que eliminan tareas manuales, reducen errores y recuperan horas de trabajo cada semana.' },
-      { title: 'Integraciones e IoT', desc: 'Conecto software, hardware e IoT en un solo sistema. Soluciones para agricultura, restauración, almacenes, industria y cualquier entorno que necesite automatización física.' },
-      { title: 'Consultoría digital', desc: 'Diagnóstico de tu negocio y hoja de ruta personalizada. Te acompaño en cada fase de la transformación digital con soluciones concretas y medibles.' },
+      { title: 'Visibilidad online', desc: 'Webs, landings y tiendas online con SEO local y orgánico para que te encuentren en Google antes que a tu competencia.' },
+      { title: 'Automatización de procesos', desc: 'Flujos automáticos con n8n, Make y Zapier que eliminan tareas manuales y recuperan horas de trabajo cada semana.' },
+      { title: 'Integraciones e IoT', desc: 'Conecto software, hardware e IoT en un solo sistema: agricultura, restauración, almacenes, industria y más.' },
+      { title: 'Consultoría digital', desc: 'Diagnóstico de tu negocio y hoja de ruta personalizada para acompañarte en cada fase de tu transformación digital.' },
     ],
 
     // Plan
@@ -75,11 +75,12 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCCIÓN',
     'portfolio.statusDev': 'DESARROLLO',
     'portfolio.projects': [
+      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Tienda headless de joyería con Astro y WooCommerce.' },
+      { name: 'Choose', type: 'APP', desc: 'Asistente IA para elegir tu dispositivo ideal.' },
       { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Web con catálogo de piezas y bajas de vehículos.' },
       { name: 'Casvisol', type: 'WEB', desc: 'Web corporativa para empresa de energía solar.' },
       { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Web profesional con SEO optimizado.' },
       { name: 'SEO Pilot', type: 'SAAS', desc: 'Auditoría SEO automatizada con IA.' },
-      { name: 'Choose', type: 'APP', desc: 'Asistente IA para elegir tu dispositivo ideal.' },
       { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Antigua web corporativa de rpidev.' },
       { name: 'CRM rpidev', type: 'CRM', desc: 'CRM con IA para gestión de leads.' },
       { name: 'BasicPlanner', type: 'GESTIÓN', desc: 'Agenda y facturación clínica.' },
@@ -149,10 +150,10 @@ export const ui = {
     'services.heading.line1': 'What can I do',
     'services.heading.line2': 'for you?',
     'services.items': [
-      { title: 'Online visibility', desc: 'Landing pages, corporate websites, online stores and digital profiles with local and organic SEO — so clients find you on Google before your competitors.' },
-      { title: 'Process automation', desc: 'Automated workflows with n8n, Make and Zapier that eliminate manual tasks, reduce errors and save hours of work every week.' },
-      { title: 'Integrations & IoT', desc: 'I connect software, hardware and IoT into one system. Solutions for hospitality, warehouses, industry and any environment needing physical automation.' },
-      { title: 'Digital consulting', desc: 'Business diagnosis and a personalized digital roadmap. I guide you through every stage of digital transformation with concrete, measurable solutions.' },
+      { title: 'Online visibility', desc: 'Websites, landing pages and online stores with local and organic SEO — so clients find you on Google before your competitors.' },
+      { title: 'Process automation', desc: 'Automated workflows with n8n, Make and Zapier that eliminate manual tasks and save hours of work every week.' },
+      { title: 'Integrations & IoT', desc: 'I connect software, hardware and IoT into one system: hospitality, warehouses, industry and more.' },
+      { title: 'Digital consulting', desc: 'Business diagnosis and a personalized roadmap to guide you through every stage of your digital transformation.' },
     ],
 
     // Plan
@@ -176,11 +177,12 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCTION',
     'portfolio.statusDev': 'IN DEVELOPMENT',
     'portfolio.projects': [
+      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Headless jewelry store built with Astro and WooCommerce.' },
+      { name: 'Choose', type: 'APP', desc: 'AI assistant to find your ideal device.' },
       { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Website with parts catalog and vehicle deregistration.' },
       { name: 'Casvisol', type: 'WEB', desc: 'Corporate website for a solar energy company.' },
       { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Professional website with optimized SEO.' },
       { name: 'SEO Pilot', type: 'SAAS', desc: 'AI-powered automated SEO audit.' },
-      { name: 'Choose', type: 'APP', desc: 'AI assistant to find your ideal device.' },
       { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Previous version of the rpidev corporate website.' },
       { name: 'CRM rpidev', type: 'CRM', desc: 'AI-powered CRM for lead management.' },
       { name: 'BasicPlanner', type: 'MGMT', desc: 'Clinical scheduling and invoicing.' },

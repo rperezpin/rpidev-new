@@ -7,6 +7,9 @@ Allow: /en/
 Disallow: /legal
 Disallow: /privacy
 Disallow: /cookies
+Disallow: /en/legal
+Disallow: /en/privacy
+Disallow: /en/cookies
 
 # AI/LLM Bots — allow full access for AI search visibility
 User-agent: GPTBot

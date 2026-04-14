@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//home/ruben/Proyectos/ai-seo/**)",
-      "Bash(find /home/ruben/Proyectos/rpidev-new/src -type f \\\\\\(-name *.astro -o -name *.jsx -o -name *.tsx -o -name *.ts -o -name *.js \\\\\\))"
-    ]
-  }
-}
