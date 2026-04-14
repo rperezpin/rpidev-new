@@ -108,6 +108,12 @@ export const ui = {
     // Language switcher
     'lang.switch': 'EN',
     'lang.switchLabel': 'Switch to English',
+
+    // Cookie banner
+    'cookie.text': 'Usamos cookies analíticas para entender cómo se usa la web y mejorarla. Puedes aceptar o rechazar su uso.',
+    'cookie.accept': 'Aceptar',
+    'cookie.decline': 'Rechazar',
+    'cookie.learnMore': 'Más info',
   },
 
   en: {
@@ -210,6 +216,12 @@ export const ui = {
     // Language switcher
     'lang.switch': 'ES',
     'lang.switchLabel': 'Cambiar a Español',
+
+    // Cookie banner
+    'cookie.text': 'We use analytics cookies to understand how the site is used and improve it. You can accept or decline.',
+    'cookie.accept': 'Accept',
+    'cookie.decline': 'Decline',
+    'cookie.learnMore': 'Learn more',
   },
 } as const;
 

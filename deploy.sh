@@ -9,7 +9,7 @@ DOCROOT="$BASE_DIR/httpdocs"
 REPO_DIR="$BASE_DIR/repo"
 
 # ==== Git ====
-GIT_URL="git@github.com:rperezpin/rpidev-astro.git"
+GIT_URL="git@github.com:rperezpin/rpidev-new.git"
 BRANCH="${1:-${BRANCH:-main}}"
 
 export GIT_SSH_KEY="${GIT_SSH_KEY:-$HOME/.ssh/github_rpidev}"

@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import type { Lang } from '../i18n/ui';
-import { getLocalizedPath } from '../i18n/ui';
+import { getLocalizedPath, t } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -19,9 +19,16 @@ const {
   lang = 'es',
 } = Astro.props;
 
+const GTM_ID = 'GTM-W65MZL7G';
+
+const cookieText      = t(lang, 'cookie.text') as string;
+const cookieAccept    = t(lang, 'cookie.accept') as string;
+const cookieDecline   = t(lang, 'cookie.decline') as string;
+const cookieLearnMore = t(lang, 'cookie.learnMore') as string;
+const cookiesHref     = lang === 'es' ? '/cookies' : '/en/cookies';
+
 const siteUrl = 'https://www.rpidev.com';
 const ogImage = `${siteUrl}/images/og-default.jpg`;
-const alternateLang = lang === 'es' ? 'en' : 'es';
 const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.replace(/^\/en/, '') || '/';
 ---
 
@@ -38,8 +45,10 @@ const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.repl
     <meta http-equiv="Permissions-Policy" content="accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests"
     />
+    <!-- Ocultar banner hasta que JS decida mostrarlo -->
+    <style is:inline>#cookie-banner { display: none; }</style>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -84,9 +93,29 @@ const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.repl
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
 
-    <!-- Fonts: IBM Plex Mono -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Google Tag Manager: consent mode + init (debe ir antes que cualquier otro script) -->
+    {import.meta.env.PROD && (
+      <Fragment set:html={`<script>(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  var c;try{c=localStorage.getItem('cookie_consent');}catch(e){c=null;}
+  w[l].push(['consent','default',{
+    ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',
+    analytics_storage:c==='granted'?'granted':'denied',
+    functionality_storage:'granted',security_storage:'granted'
+  }]);
+  w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W65MZL7G');</script>`} />
+    )}
+
+    <!-- Fonts: IBM Plex Mono -->
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -298,6 +327,89 @@ const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.repl
     )}
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    {import.meta.env.PROD && (
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-W65MZL7G"
+          height="0" width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        />
+      </noscript>
+    )}
+
     <slot />
+
+    <!-- Cookie Banner -->
+    <div
+      id="cookie-banner"
+      hidden
+      role="dialog"
+      aria-live="polite"
+      aria-label={lang === 'es' ? 'Aviso de cookies' : 'Cookie notice'}
+      class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-sm bg-[#0f172a] border border-white/10 text-slate-200 shadow-2xl rounded-2xl p-5 z-[9999]"
+    >
+      <p class="text-sm leading-relaxed mb-4">
+        {cookieText}
+        {' '}<a href={cookiesHref} class="underline underline-offset-2 hover:text-white transition-colors">{cookieLearnMore}</a>.
+      </p>
+      <div class="flex gap-2 justify-end">
+        <button
+          id="cookie-decline"
+          class="text-xs px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10 transition-colors"
+        >{cookieDecline}</button>
+        <button
+          id="cookie-accept"
+          class="text-xs px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+        >{cookieAccept}</button>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+
+        function getConsent() {
+          try { return localStorage.getItem('cookie_consent'); } catch { return null; }
+        }
+
+        function applyConsent(value) {
+          try { localStorage.setItem('cookie_consent', value); } catch {}
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(['consent', 'update', {
+            analytics_storage: value === 'granted' ? 'granted' : 'denied'
+          }]);
+          if (value === 'granted') {
+            window.dataLayer.push({ event: 'cookie_consent_granted' });
+          }
+        }
+
+        function hideBanner() {
+          banner.hidden = true;
+          banner.style.display = 'none';
+        }
+
+        var consent = getConsent();
+        if (consent === 'granted' || consent === 'denied') {
+          applyConsent(consent);
+          hideBanner();
+        } else {
+          banner.style.display = 'block';
+          banner.removeAttribute('hidden');
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', function () {
+          applyConsent('granted');
+          hideBanner();
+        });
+
+        document.getElementById('cookie-decline').addEventListener('click', function () {
+          applyConsent('denied');
+          hideBanner();
+        });
+      })();
+    </script>
   </body>
 </html>
