@@ -75,6 +75,7 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCCIÓN',
     'portfolio.statusDev': 'DESARROLLO',
     'portfolio.projects': [
+      { name: 'Nieves Muriel', type: 'WEB', desc: 'Web personal para escritora y profesora universitaria.' },
       { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Tienda headless de joyería con Astro y WooCommerce.' },
       { name: 'Choose', type: 'APP', desc: 'Asistente IA para elegir tu dispositivo ideal.' },
       { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Web con catálogo de piezas y bajas de vehículos.' },
@@ -183,6 +184,7 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCTION',
     'portfolio.statusDev': 'IN DEVELOPMENT',
     'portfolio.projects': [
+      { name: 'Nieves Muriel', type: 'WEB', desc: 'Personal website for a writer and university professor.' },
       { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Headless jewelry store built with Astro and WooCommerce.' },
       { name: 'Choose', type: 'APP', desc: 'AI assistant to find your ideal device.' },
       { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Website with parts catalog and vehicle deregistration.' },
