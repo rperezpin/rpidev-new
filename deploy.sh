@@ -118,6 +118,21 @@ if [ -f "$HTACCESS" ] && ! grep -q "Deny access to .env" "$HTACCESS" 2>/dev/null
 EOF
 fi
 
+# ==== Despliegue de configuración Nginx (Plesk) ====
+NGINX_CONF_DIR="$BASE_DIR/conf"
+if [ -d "$NGINX_CONF_DIR" ]; then
+    log "Desplegando configuración de Nginx..."
+    cp -f "$REPO_DIR/nginx-security-headers.conf" "$NGINX_CONF_DIR/vhost_nginx.conf"
+    
+    if command -v /usr/local/psa/admin/bin/httpdmng >/dev/null 2>&1; then
+        log "Aplicando configuración de Nginx en Plesk..."
+        /usr/local/psa/admin/bin/httpdmng --reconfigure-domain rpidev.com || true
+    elif command -v plesk >/dev/null 2>&1; then
+        log "Aplicando configuración de Nginx en Plesk..."
+        plesk sbin httpdmng --reconfigure-domain rpidev.com || true
+    fi
+fi
+
 # ==== Permisos ====
 WEB_USER="${WEB_USER:-rpidev.com_6q80r46lbmh}"
 WEB_GROUP="${WEB_GROUP:-psacln}"
