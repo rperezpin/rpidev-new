@@ -1,0 +1,516 @@
+---
+import LayoutStatic from '../layouts/LayoutStatic.astro';
+import NavStatic from '../components/NavStatic.astro';
+---
+
+<LayoutStatic
+  title="Subvenciones para digitalizar tu negocio | RPIdev"
+  description="Ayudas y subvenciones activas y próximas para digitalizar tu negocio en España. LEADER 2023-2027, Kit Digital y Pyme Digital Granada. Te acompañamos en todo el proceso desde Granada."
+  canonical="https://www.rpidev.com/subvenciones"
+>
+  <NavStatic lang="es" activePage="/subvenciones" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Back link -->
+    <a href="/" class="text-blue-500 text-xs font-bold tracking-widest hover:text-white transition-colors mb-10 inline-block">← VOLVER AL INICIO</a>
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold tracking-widest mb-6">
+        SUBVENCIONES &amp; FINANCIACIÓN
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Ayudas para digitalizar<br class="hidden md:block" /> tu negocio: <span class="text-blue-500">guía mayo 2026</span>
+      </h1>
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-4">
+        Existen fondos públicos y europeos que pueden financiar una parte importante de digitalizar tu negocio. En esta página encontrarás qué ayudas hay, cuáles están activas ahora mismo y cuáles se esperan próximamente.
+      </p>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        En RPIdev te acompañamos en todo el proceso técnico: definición del proyecto, ejecución y documentación para la justificación.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA →
+      </a>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Estado de ayudas -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">RESUMEN</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Estado de las ayudas disponibles</h2>
+      <div class="overflow-x-auto rounded-xl border border-white/5">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PROGRAMA</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">ESTADO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PARA QUIÉN</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                programa: 'LEADER 2023-2027',
+                dot: 'bg-green-500',
+                estado: 'Activa ahora',
+                estadoColor: 'text-green-400',
+                para: 'Autónomos y pymes en zona rural',
+              },
+              {
+                programa: 'Kit Digital',
+                dot: 'bg-amber-400',
+                estado: 'Próximamente — pendiente de nueva apertura',
+                estadoColor: 'text-amber-400',
+                para: 'Autónomos y pymes (0–49 empleados)',
+              },
+              {
+                programa: 'Pyme Digital Cámara Granada',
+                dot: 'bg-amber-400',
+                estado: 'Próximamente — próxima convocatoria ~primavera 2027',
+                estadoColor: 'text-amber-400',
+                para: 'Pymes y autónomos de Granada',
+              },
+            ].map(({ programa, dot, estado, estadoColor, para }, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-200 font-bold border-r border-white/5 whitespace-nowrap">{programa}</td>
+                <td class={`px-5 py-3 font-bold border-r border-white/5 ${estadoColor}`}>
+                  <span class="flex items-center gap-2">
+                    <span class={`inline-block w-2 h-2 rounded-full shrink-0 ${dot}`}></span>
+                    {estado}
+                  </span>
+                </td>
+                <td class="px-5 py-3 text-slate-400">{para}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- LEADER -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"></span>
+        <span class="text-green-400 text-xs font-bold tracking-widest">ACTIVA AHORA</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">LEADER 2023-2027</h2>
+
+      <!-- Qué es -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3 mb-4">
+          LEADER es una iniciativa europea para el desarrollo de zonas rurales, financiada con fondos FEADER. En España está integrada en el Plan Estratégico de la PAC 2023-2027 como la <strong class="text-slate-200">Intervención 7119</strong>, y la gestionan localmente los <strong class="text-slate-200">Grupos de Desarrollo Rural (GDR)</strong> de cada comarca.
+        </p>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          <strong class="text-slate-200">No funciona por concurso ni por puntuación</strong>: las solicitudes se resuelven por orden de presentación. Quien antes entra con un proyecto bien preparado, antes accede al dinero.
+        </p>
+        <div class="p-4 bg-blue-600/5 border border-blue-600/20 rounded-xl text-sm text-blue-300">
+          Convocatoria en Andalucía: <strong>abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028</strong>, salvo agotamiento de fondos.
+        </div>
+      </div>
+
+      <!-- Cuánto financia -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ['Porcentaje de ayuda', 'Hasta el 65% de la inversión subvencionable'],
+                ['Importe máximo por proyecto', '200.000 €'],
+                ['Entidades públicas y asociaciones', 'Hasta el 100%'],
+                ['Tipo de concurrencia', 'No competitiva — por orden de presentación'],
+                ['Plazo en Andalucía', 'Abierto hasta el 31 de diciembre de 2028'],
+              ].map(([concepto, detalle], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                  <td class="px-5 py-3 text-slate-400">{detalle}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Qué puede incluir -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ PUEDE INCLUIR TU PROYECTO</span>
+        <ul class="grid sm:grid-cols-2 gap-3 mt-3">
+          {[
+            'Desarrollo de software y aplicaciones a medida',
+            'Creación o mejora de tu página web profesional',
+            'Tienda online y comercio electrónico',
+            'Digitalización del proceso productivo o de gestión',
+            'Herramientas de automatización de procesos',
+            'CRM y sistemas de gestión de clientes',
+            'Soluciones IoT para monitorización agrícola o industrial',
+            'Honorarios de consultores técnicos vinculados al proyecto',
+          ].map((item) => (
+            <li class="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300">
+              <span class="text-blue-500 mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- A quién va dirigido -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">A QUIÉN VA DIRIGIDO</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3 mb-4">Autónomos y pymes en zonas rurales elegibles. Encaja especialmente con:</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {[
+            { emoji: '🌿', label: 'Turismo rural y hostelería', desc: 'Reservas, web, gestión de alojamientos' },
+            { emoji: '🌾', label: 'Agroalimentario', desc: 'Trazabilidad, tienda de venta directa, software de explotación' },
+            { emoji: '🛒', label: 'Comercio local en pueblos', desc: 'Catálogo digital, pasarela de pago, presencia online' },
+            { emoji: '🏥', label: 'Servicios profesionales rurales', desc: 'Clínicas, despachos, gestorías' },
+            { emoji: '🏗️', label: 'Industria y artesanía', desc: 'Automatización, digitalización, presencia en internet' },
+            { emoji: '🌱', label: 'Emprendedores rurales', desc: 'Nuevas actividades con base digital sólida' },
+          ].map(({ emoji, label, desc }) => (
+            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+              <div class="flex items-center gap-2 mb-1">
+                <span>{emoji}</span>
+                <span class="text-slate-200 text-sm font-bold">{label}</span>
+              </div>
+              <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Proceso -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO FUNCIONA EL PROCESO</span>
+        <div class="space-y-3 mt-3">
+          {[
+            ['Verificar elegibilidad', 'Comprobar que tu municipio pertenece a una zona LEADER y a qué GDR corresponde'],
+            ['Definir el proyecto', 'Qué vas a digitalizar, con qué inversión y qué impacto tendrá en tu actividad'],
+            ['Preparar la memoria descriptiva', 'Documento técnico y plan económico del proyecto'],
+            ['Presentar la solicitud', 'En la sede electrónica del GDR correspondiente'],
+            ['Ejecutar la inversión', 'Una vez concedida la ayuda — ningún gasto puede realizarse antes de la resolución'],
+            ['Justificar la inversión', 'Con facturas, pagos y documentación técnica para recibir el pago'],
+          ].map(([titulo, desc], i) => (
+            <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+              <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+              <div>
+                <p class="text-slate-200 text-sm font-bold mb-0.5">{titulo}</p>
+                <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-4 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300">
+          <strong>Importante:</strong> no puedes ejecutar ningún gasto antes de que se resuelva la ayuda. Si contratas el desarrollo antes de la resolución, ese gasto no será subvencionable.
+        </div>
+      </div>
+
+      <!-- GDRs Granada -->
+      <div class="mb-8">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">GDRS DE GRANADA</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3 mb-4">
+          Granada es la provincia con <strong class="text-slate-200">mayor asignación LEADER de toda Andalucía</strong>, con casi 22 millones de euros hasta 2029 repartidos entre 8 Grupos de Desarrollo Rural:
+        </p>
+        <div class="overflow-x-auto rounded-xl border border-white/5">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/5">
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">GDR</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">TERRITORIO</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">CONTACTO</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Alfanevada', 'https://www.alfanevada.info/', 'Arco Noreste de la Vega (Alfacar, Monachil, Güéjar Sierra…)', 'alfanevada@alfanevada.info'],
+                ['Promovega', 'https://promovega.org/', 'Vega-Sierra Elvira (Atarfe, Cúllar Vega, Pinos Puente…)', 'info@promovega.org'],
+                ['GDR Altiplano de Granada', 'https://altiplanogranada.org/', 'Altiplano (Baza, Huéscar, Benamaurel, Caniles…)', 'altiplanogranada.org'],
+                ['Poniente Granadino', 'https://ponientegranadino.org/', 'Poniente (Loja, Alhama, Montefrío, Íllora…)', 'asociacion@ponientegranadino.org'],
+                ['Valle de Lecrín, Temple y Costa', 'https://lecrintemplecosta.com/', 'Valle de Lecrín, Temple y Costa (Padul, Dúrcal, Almuñécar…)', 'lecrintemplecosta.com'],
+                ['Alpujarra-Sierra Nevada', 'https://www.alpujarradegranada.com/', 'Alpujarra y Sierra Nevada (Órgiva, Lanjarón, Trevélez…)', 'alpujarradegranada.com'],
+                ['GDR Los Montes de Granada', 'https://www.losmontes.org/', 'Montes de Granada (Iznalloz, Guadahortuna, Montejícar…)', 'losmontes.org'],
+                ['GDR Comarca de Guadix', 'https://www.comarcadeguadix.com/', 'Comarca de Guadix (Guadix, Purullena, La Calahorra…)', 'comarcadeguadix.com'],
+              ].map(([nombre, url, territorio, contacto], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 border-r border-white/5">
+                    <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-bold transition-colors text-xs">{nombre}</a>
+                  </td>
+                  <td class="px-5 py-3 text-slate-400 text-xs border-r border-white/5">{territorio}</td>
+                  <td class="px-5 py-3 text-slate-500 text-xs">{contacto}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-500 text-xs mt-4">El primer paso es identificar a qué GDR pertenece tu municipio y contactar con su equipo técnico para una valoración previa.</p>
+      </div>
+
+      <!-- Fuera de Granada -->
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">¿Tu negocio está fuera de Granada?</p>
+        <p class="text-slate-400 text-xs leading-relaxed">
+          El programa LEADER opera en todas las comunidades autónomas a través de más de 250 Grupos de Acción Local. Para encontrar el GDR de tu comarca consulta la{' '}
+          <a href="https://www.redr.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">Red Española de Desarrollo Rural (REDR)</a>.
+        </p>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Kit Digital -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Kit Digital</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          El Kit Digital fue el programa de digitalización para pymes y autónomos más importante de la historia de España: más de 850.000 empresas beneficiadas y más de 3.400 millones de euros concedidos entre 2022 y 2025.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
+        <div class="mt-3 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-sm text-slate-300 leading-relaxed">
+          Las convocatorias originales cerraron el 31 de octubre de 2025. En enero de 2026 se publicó la <strong>Orden TDF/39/2026</strong>, que modifica las bases reguladoras para permitir redistribuir los fondos no ejecutados en nuevas solicitudes, sin fecha de cierre fija. Sin embargo, a mayo de 2026 Red.es <strong>aún no ha publicado los plazos concretos ni el procedimiento</strong> de esta nueva fase. Cuando abra, funcionará por orden de presentación.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO PUEDE FINANCIAR</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/5">
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">SEGMENTO</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">EMPLEADOS</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">BONO MÁXIMO</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Segmento I', '10–49 empleados', '12.000 €'],
+                ['Segmento II', '3–9 empleados', '6.000 €'],
+                ['Segmento III', '0–2 empleados / autónomos', '2.000 €'],
+              ].map(([seg, emp, bono], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{seg}</td>
+                  <td class="px-5 py-3 text-slate-400 border-r border-white/5">{emp}</td>
+                  <td class="px-5 py-3 text-slate-200 font-bold">{bono}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-500 text-xs mt-3">El bono cubre el 100% del coste de la solución implantada hasta el importe máximo del segmento.</p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ FINANCIA</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Web y presencia en internet, tienda online, gestión de redes sociales, CRM, ciberseguridad, business intelligence, automatización e inteligencia artificial aplicada al negocio.
+        </p>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
+        <ul class="space-y-1 text-slate-400 text-xs leading-relaxed">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Haz el test de autodiagnóstico en <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">Acelera Pyme</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Ten claro qué solución digital necesita tu negocio</li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Contacta con RPIdev para planificarlo antes de que abra la convocatoria</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Pyme Digital -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Pyme Digital — Cámara de Comercio de Granada</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Programa local de transformación digital para pymes y autónomos de la provincia de Granada, promovido por Cámara España y cofinanciado con fondos FEDER, Cámara Granada y Diputación de Granada.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
+        <div class="mt-3 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-sm text-slate-300 leading-relaxed">
+          Convocatoria anual, normalmente entre marzo y julio. La última edición fue en 2025. La próxima se espera en <strong>primavera de 2027</strong>.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ['Ayuda máxima', '85% del coste elegible'],
+                ['Importe máximo de ayuda', '6.366,50 €'],
+                ['Coste para la empresa', 'Totalmente gratuito'],
+              ].map(([concepto, detalle], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                  <td class="px-5 py-3 text-slate-400">{detalle}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ INCLUYE</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Diagnóstico TIC personalizado e implantación de soluciones digitales: web, tienda online, gestión, automatización o cualquier herramienta adecuada al negocio.
+        </p>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
+        <p class="text-slate-400 text-xs leading-relaxed mb-3">Contacta con la Cámara para estar en su lista de seguimiento cuando abra la próxima convocatoria:</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Web: <a href="https://www.camaragranada.org" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">camaragranada.org</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Email: info@camaragranada.org</li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Teléfono: 958 53 61 52</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cómo ayuda RPIdev -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO AYUDAMOS</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Lo que hacemos por ti</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Somos desarrolladores web y de aplicaciones especializados en digitalización de pequeñas empresas. Conocemos estos programas y acompañamos en todo el proceso técnico:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-8">
+        {[
+          ['Diagnóstico digital gratuito', 'Definimos qué solución encaja mejor con tu negocio y con la ayuda disponible'],
+          ['Definición del proyecto subvencionable', 'Estructuramos la inversión para que sea elegible y justificable'],
+          ['Presupuesto desglosado', 'Listo para incluir en la memoria o solicitud'],
+          ['Ejecución técnica completa', 'Web, tienda, app, automatización o software'],
+          ['Documentación para justificación', 'Toda la documentación técnica necesaria para acreditar la inversión'],
+        ].map(([titulo, desc]) => (
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <p class="text-slate-200 text-sm font-bold mb-1">{titulo}</p>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-400 text-sm font-bold mb-3">Servicios incluibles en tu proyecto:</p>
+        <ul class="grid sm:grid-cols-2 gap-2">
+          {[
+            'Web corporativa (WordPress, Astro.js)',
+            'Tienda online y comercio electrónico',
+            'Aplicaciones móviles (Android / Flutter)',
+            'Automatización de procesos (n8n)',
+            'CRM y gestión de clientes',
+            'SEO y posicionamiento en buscadores',
+            'Soluciones IoT para entornos agrícolas y rurales',
+          ].map((item) => (
+            <li class="flex items-center gap-2 text-xs text-slate-400">
+              <span class="text-blue-500">→</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">FAQ</h2>
+      <div class="space-y-4">
+        {[
+          {
+            q: '¿Puedo solicitar LEADER yo mismo sin intermediarios?',
+            a: 'Sí. La solicitud la presenta el beneficiario directamente en la sede electrónica del GDR. RPIdev actúa como proveedor técnico de la parte digital, no como gestor administrativo. El equipo técnico del GDR suele ofrecer asesoramiento gratuito para la tramitación documental.',
+          },
+          {
+            q: '¿Qué pasa si mi municipio no es zona LEADER?',
+            a: 'Los núcleos urbanos grandes suelen estar excluidos. El primer paso es verificar con tu GDR local si tu municipio está dentro del ámbito territorial elegible. Si no encaja en LEADER, puede haber otras ayudas aplicables como Kit Digital o Pyme Digital.',
+          },
+          {
+            q: '¿Puedo pedir la ayuda para una actividad que ya tengo en marcha?',
+            a: 'Sí, siempre que la inversión no haya sido ejecutada antes de la resolución. Puedes tener una empresa en funcionamiento y solicitar financiación para una nueva inversión digital.',
+          },
+          {
+            q: '¿Cuánto tiempo tarda en resolverse LEADER?',
+            a: 'Varía por GDR y comunidad autónoma. En Andalucía, el proceso suele llevar varios meses desde la presentación. Por eso es importante entrar pronto — el presupuesto es limitado y funciona por orden de llegada.',
+          },
+          {
+            q: '¿Trabajáis solo en Granada?',
+            a: 'No. Tenemos base en Granada pero trabajamos de forma remota con clientes de toda España. Si tu comarca tiene una convocatoria LEADER activa, podemos acompañarte independientemente de tu ubicación.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Más información</h2>
+      <ul class="space-y-2">
+        {[
+          ['Tramitación ayudas LEADER — Junta de Andalucía', 'https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/desarrollo-rural/tramitacion-ayudas-dr-2023-2027.html'],
+          ['Red Española de Desarrollo Rural (REDR)', 'https://www.redr.es'],
+          ['Acelera Pyme — Kit Digital', 'https://acelerapyme.gob.es'],
+          ['Cámara de Comercio de Granada', 'https://www.camaragranada.org'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Hablamos?</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        Cuéntanos en qué consiste tu negocio y te decimos en 24h qué ayuda encaja mejor y cómo podemos acompañarte.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
+      Contenido actualizado a mayo de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales o contacta con el equipo técnico de tu GDR antes de iniciar cualquier inversión.
+    </p>
+  </main>
+</LayoutStatic>

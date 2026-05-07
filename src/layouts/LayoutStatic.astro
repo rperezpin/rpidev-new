@@ -1,0 +1,178 @@
+---
+import '../styles/global.css';
+import type { Lang } from '../i18n/ui';
+import { getLocalizedPath, t } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noIndex?: boolean;
+  lang?: Lang;
+  activePage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  noIndex = false,
+  lang = 'es',
+  activePage = '',
+} = Astro.props;
+
+const cookieText      = t(lang, 'cookie.text') as string;
+const cookieAccept    = t(lang, 'cookie.accept') as string;
+const cookieDecline   = t(lang, 'cookie.decline') as string;
+const cookieLearnMore = t(lang, 'cookie.learnMore') as string;
+const cookiesHref     = lang === 'es' ? '/cookies' : '/en/cookies';
+
+const siteUrl = 'https://www.rpidev.com';
+const ogImage = `${siteUrl}/images/og-default.jpg`;
+const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.replace(/^\/en/, '') || '/';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="author" content="Rubén Pérez Izuel" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Permissions-Policy" content="accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests"
+    />
+    <style is:inline>#cookie-banner { display: none; }</style>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {noIndex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    }
+
+    <link rel="alternate" hreflang="es" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${getLocalizedPath('en', currentPath)}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:site_name" content="RPI Dev" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="ES-GR" />
+    <meta name="geo.placename" content="Granada" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    {import.meta.env.PROD && (
+      <Fragment set:html={`<script>(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  var c;try{c=localStorage.getItem('cookie_consent');}catch(e){c=null;}
+  w[l].push(['consent','default',{
+    ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',
+    analytics_storage:c==='granted'?'granted':'denied',
+    functionality_storage:'granted',security_storage:'granted'
+  }]);
+  w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W65MZL7G');</script>`} />
+    )}
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:inline>
+      body { overflow: auto !important; }
+    </style>
+
+    <slot name="schema" />
+  </head>
+  <body>
+    {import.meta.env.PROD && (
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-W65MZL7G"
+          height="0" width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        />
+      </noscript>
+    )}
+
+    <slot />
+
+    <!-- Cookie Banner -->
+    <div
+      id="cookie-banner"
+      role="dialog"
+      aria-live="polite"
+      aria-label={lang === 'es' ? 'Aviso de cookies' : 'Cookie notice'}
+      class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-sm bg-[#0f172a] border border-white/10 text-slate-200 shadow-2xl rounded-2xl p-5 z-[9999]"
+    >
+      <p class="text-sm leading-relaxed mb-4">
+        {cookieText}
+        {' '}<a href={cookiesHref} class="underline underline-offset-2 hover:text-white transition-colors">{cookieLearnMore}</a>.
+      </p>
+      <div class="flex gap-2 justify-end">
+        <button id="cookie-decline" type="button" class="text-xs px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10 transition-colors">{cookieDecline}</button>
+        <button id="cookie-accept" type="button" class="text-xs px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors">{cookieAccept}</button>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        function getConsent() { try { return localStorage.getItem('cookie_consent'); } catch (e) { return null; } }
+        function applyConsent(value) {
+          try { localStorage.setItem('cookie_consent', value); } catch (e) {}
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(['consent', 'update', { analytics_storage: value === 'granted' ? 'granted' : 'denied' }]);
+          if (value === 'granted') { window.dataLayer.push({ event: 'cookie_consent_granted' }); }
+        }
+        function show() { banner.style.display = 'block'; }
+        function hide() { banner.style.display = 'none'; }
+        var consent = getConsent();
+        if (consent === 'granted' || consent === 'denied') { applyConsent(consent); }
+        else { requestAnimationFrame(function () { show(); }); }
+        document.getElementById('cookie-accept').addEventListener('click', function () { applyConsent('granted'); hide(); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { applyConsent('denied'); hide(); });
+      })();
+    </script>
+  </body>
+</html>

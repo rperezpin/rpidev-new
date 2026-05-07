@@ -10,18 +10,18 @@ export const defaultLang: Lang = 'es';
 export const ui = {
   es: {
     // Meta SEO
-    'meta.title': 'Desarrollo Web y Automatización para Empresas en Granada | RPI Dev',
+    'meta.title': 'Desarrollo Web y Automatización para Pymes en Granada | RPI Dev',
     'meta.description':
-      'Consultoría digital, desarrollo web y automatización de procesos para autónomos y pymes en Granada. Webs rápidas, integraciones y ahorro de tiempo real. Diagnóstico gratuito.',
+      'Desarrollo web, automatización con n8n/Make y consultoría digital para autónomos y pymes en Granada. Webs rápidas con SEO local, integraciones a medida y ahorro real de tiempo. Diagnóstico gratuito de 30 min.',
 
     // Nav
-    'nav.sections': ['INICIO', 'PROBLEMA', 'SERVICIOS', 'PLAN', 'PORTFOLIO', 'CONTACTO'],
+    'nav.sections': ['INICIO', 'PROBLEMA', 'SERVICIOS', 'PLAN', 'PORTFOLIO', 'SUBVENCIONES', 'CONTACTO'],
     'nav.logoAlt': 'RPI Dev - Desarrollo web y automatización en Granada',
     'nav.goHome': 'Ir al inicio',
 
     // Hero
     'hero.tagline': 'CONSULTOR DIGITAL & DEV',
-    'hero.h1': 'Digitalización, Desarrollo Web y Automatización en Granada',
+    'hero.h1': 'Desarrollo Web, Automatización de Procesos y Consultoría Digital para Pymes en Granada',
     'hero.heading.line1': 'Digitaliza tu negocio.',
     'hero.heading.line2': 'Gana tiempo.',
     'hero.heading.line3': 'Hazlo crecer.',
@@ -48,10 +48,10 @@ export const ui = {
     'services.heading.line1': '¿Qué puedo hacer',
     'services.heading.line2': 'por ti?',
     'services.items': [
-      { title: 'Visibilidad online', desc: 'Webs, landings y tiendas online con SEO local y orgánico para que te encuentren en Google antes que a tu competencia.' },
-      { title: 'Automatización de procesos', desc: 'Flujos automáticos con n8n, Make y Zapier que eliminan tareas manuales y recuperan horas de trabajo cada semana.' },
-      { title: 'Integraciones e IoT', desc: 'Conecto software, hardware e IoT en un solo sistema: agricultura, restauración, almacenes, industria y más.' },
-      { title: 'Consultoría digital', desc: 'Diagnóstico de tu negocio y hoja de ruta personalizada para acompañarte en cada fase de tu transformación digital.' },
+      { title: 'Desarrollo web', desc: 'Webs, landings y tiendas online en Granada con SEO local y orgánico. Astro, React y WooCommerce. Rápidas, seguras y orientadas a convertir visitas en clientes.' },
+      { title: 'Automatización de procesos', desc: 'Flujos automáticos con n8n, Make y Zapier que eliminan tareas manuales y recuperan horas de trabajo cada semana. Facturación, CRM, notificaciones.' },
+      { title: 'Integraciones e IoT', desc: 'Conecto software, hardware e IoT en un solo sistema: TPV, ERP, sensores, almacenes, agricultura de precisión e industria.' },
+      { title: 'Consultoría digital', desc: 'Diagnóstico gratuito de 30 min y hoja de ruta personalizada para digitalizar tu negocio con decisiones claras y presupuesto real.' },
     ],
 
     // Plan
@@ -88,6 +88,20 @@ export const ui = {
       { name: 'VeriFax', type: 'SAAS', desc: 'Landing de facturación electrónica VeriFactu.' },
     ],
 
+    // Grants / Subvenciones
+    'grants.label': '/ SUBVENCIONES',
+    'grants.heading.line1': 'Financia hasta el 65%',
+    'grants.heading.line2': 'de tu digitalización.',
+    'grants.cta': 'VER TODOS LOS PROGRAMAS',
+    'grants.callout.title': 'Primera consulta gratuita',
+    'grants.callout.desc': 'Te orientamos hacia la subvención que mejor encaja con tu perfil y el momento de tu negocio.',
+    'grants.items': [
+      { name: 'LEADER 2023-2027', badge: 'HASTA 65%', desc: 'Fondos europeos para negocios en zona rural. Web, software, automatización e IoT subvencionables.' },
+      { name: 'Kit Digital', badge: 'HASTA 12.000€', desc: 'Para pymes y autónomos (0–49 empleados). Web, tienda online, CRM y ciberseguridad.' },
+      { name: 'Subvenciones autonómicas', badge: 'CC.AA.', desc: 'Convocatorias de la Junta de Andalucía y otras comunidades para digitalización de pymes.' },
+      { name: 'Diputaciones y líneas ICO', badge: 'LOCAL', desc: 'Ayudas provinciales y financiación blanda del ICO y ENISA para startups y microempresas.' },
+    ],
+
     // Contact
     'contact.heading': 'HABLAMOS.',
     'contact.line1': 'Cada día que no automatizas, pierdes horas.',
@@ -119,12 +133,12 @@ export const ui = {
 
   en: {
     // Meta SEO
-    'meta.title': 'Web Development & Business Automation in Granada, Spain | RPI Dev',
+    'meta.title': 'Web Developer & Automation Consultant in Granada, Spain | RPI Dev',
     'meta.description':
-      'Digital consulting, web development, and process automation for freelancers and SMBs in Granada, Spain. Fast websites, integrations, and real time savings. Free consultation.',
+      'Web development and process automation for freelancers and SMBs in Granada, Spain. Fast SEO-optimized websites, n8n/Make integrations and real time savings. Free 30-min consultation.',
 
     // Nav
-    'nav.sections': ['HOME', 'PROBLEM', 'SERVICES', 'PLAN', 'PORTFOLIO', 'CONTACT'],
+    'nav.sections': ['HOME', 'PROBLEM', 'SERVICES', 'PLAN', 'PORTFOLIO', 'GRANTS', 'CONTACT'],
     'nav.logoAlt': 'RPI Dev - Web development and automation in Granada',
     'nav.goHome': 'Go to home',
 
@@ -195,6 +209,20 @@ export const ui = {
       { name: 'CRM rpidev', type: 'CRM', desc: 'AI-powered CRM for lead management.' },
       { name: 'BasicPlanner', type: 'MGMT', desc: 'Clinical scheduling and invoicing.' },
       { name: 'VeriFax', type: 'SAAS', desc: 'Electronic invoicing landing for VeriFactu compliance.' },
+    ],
+
+    // Grants
+    'grants.label': '/ GRANTS',
+    'grants.heading.line1': 'Finance up to 65%',
+    'grants.heading.line2': 'of your digitalization.',
+    'grants.cta': 'SEE ALL PROGRAMS',
+    'grants.callout.title': 'Free first consultation',
+    'grants.callout.desc': 'We help you find the grant that best fits your profile and business stage.',
+    'grants.items': [
+      { name: 'LEADER 2023-2027', badge: 'UP TO 65%', desc: 'European funds for rural businesses. Web, software, automation and IoT are eligible.' },
+      { name: 'Kit Digital', badge: 'UP TO €12,000', desc: 'For SMBs and freelancers (0–49 employees). Website, online store, CRM and cybersecurity.' },
+      { name: 'Regional grants', badge: 'AUTONOMOUS', desc: 'Regional government calls for SMB digitalization across Spain.' },
+      { name: 'Councils & ICO lines', badge: 'LOCAL', desc: 'Provincial grants and soft loans from ICO and ENISA for startups and micro-businesses.' },
     ],
 
     // Contact

@@ -109,7 +109,7 @@ const switchHref = getLocalizedPath(lang === 'es' ? 'en' : 'es', '/');
 
     function updateActive(index: number) {
       document.querySelectorAll('.nav-btn').forEach((btn, i) => {
-        const idx = i % 6;
+        const idx = i % 7;
         if (idx === index) {
           btn.classList.add('bg-blue-600', 'text-white');
           btn.classList.remove('text-slate-400', 'text-slate-500', 'hover:bg-white/5');

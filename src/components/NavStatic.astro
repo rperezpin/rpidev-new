@@ -1,0 +1,99 @@
+---
+import type { Lang } from '../i18n/ui';
+import { t, getLocalizedPath } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+  activePage?: string;
+}
+
+const { lang = 'es', activePage = '' } = Astro.props;
+
+const logoAlt = t(lang, 'nav.logoAlt') as string;
+const switchLabel = t(lang, 'lang.switchLabel') as string;
+const switchText = t(lang, 'lang.switch') as string;
+const switchHref = getLocalizedPath(lang === 'es' ? 'en' : 'es', '/');
+
+const homeHref = lang === 'es' ? '/' : '/en/';
+
+const links = lang === 'es'
+  ? [
+      { href: '/', label: 'INICIO' },
+      { href: '/', label: 'PROBLEMA' },
+      { href: '/', label: 'SERVICIOS' },
+      { href: '/', label: 'PLAN' },
+      { href: '/', label: 'PORTFOLIO' },
+      { href: '/subvenciones', label: 'SUBVENCIONES' },
+      { href: '/', label: 'CONTACTO' },
+    ]
+  : [
+      { href: '/en/', label: 'HOME' },
+      { href: '/en/', label: 'PROBLEM' },
+      { href: '/en/', label: 'SERVICES' },
+      { href: '/en/', label: 'PLAN' },
+      { href: '/en/', label: 'PORTFOLIO' },
+      { href: '/subvenciones', label: 'GRANTS' },
+      { href: '/en/', label: 'CONTACT' },
+    ];
+---
+
+<nav class="fixed top-0 left-0 w-full px-4 py-3 md:px-8 md:py-6 z-50 flex justify-between items-center bg-[#1a1a2e]/80 backdrop-blur-xl border-b border-white/5">
+  <a href={homeHref} aria-label={logoAlt} class="group">
+    <img
+      src="/logo_blanco.webp"
+      alt={logoAlt}
+      class="h-12 md:h-16 w-auto group-hover:scale-105 transition-transform duration-300"
+    />
+  </a>
+
+  <!-- Desktop -->
+  <div class="hidden md:flex items-center gap-2">
+    <div class="flex gap-1 bg-white/5 backdrop-blur-xl p-1 rounded-full border border-white/10">
+      {links.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-4 py-2 rounded-full text-[10px] font-bold tracking-widest transition-all ${
+            activePage === href
+              ? 'bg-blue-600 text-white'
+              : 'text-slate-400 hover:bg-white/5 hover:text-white'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+    <a
+      href={switchHref}
+      class="ml-2 px-3 py-2 rounded-full text-[10px] font-bold tracking-widest text-slate-400 hover:text-white bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all"
+      aria-label={switchLabel}
+    >
+      {switchText}
+    </a>
+  </div>
+
+  <!-- Mobile -->
+  <div class="flex md:hidden items-center gap-2">
+    <div class="flex gap-1 bg-white/5 backdrop-blur-xl px-3 py-2 rounded-full border border-white/10">
+      {links.slice(0, 4).map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-2 py-1 rounded-full text-[9px] font-bold tracking-widest transition-all ${
+            activePage === href
+              ? 'bg-blue-600 text-white'
+              : 'text-slate-500 hover:text-white'
+          }`}
+          aria-label={label}
+        >
+          {label.charAt(0)}
+        </a>
+      ))}
+    </div>
+    <a
+      href={switchHref}
+      class="w-7 h-7 rounded-full text-[9px] font-bold text-slate-500 hover:text-white bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center transition-all"
+      aria-label={switchLabel}
+    >
+      {switchText}
+    </a>
+  </div>
+</nav>

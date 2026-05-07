@@ -1,0 +1,68 @@
+---
+import { Banknote, Globe, Cpu, Building2, ExternalLink } from '@lucide/astro';
+import type { Lang } from '../../i18n/ui';
+import { t } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const grants = t(lang, 'grants.items') as { name: string; desc: string; badge: string }[];
+const icons = [Banknote, Globe, Cpu, Building2];
+---
+
+<section
+  class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 sm:px-10 pt-16 pb-20 md:px-20 lg:px-24 md:pt-0 md:pb-0 overflow-y-auto no-scrollbar"
+  data-index="5"
+  data-scrollable
+>
+  <div class="max-w-6xl mx-auto w-full my-auto md:my-0 section-content">
+
+    <div class="mb-5 md:mb-10 short:mb-3">
+      <p class="text-slate-600 text-xs md:text-sm tracking-[0.2em] mb-2 md:mb-4 short:mb-1">
+        {t(lang, 'grants.label')}
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl short:text-[clamp(1.5rem,6.5vh,2.25rem)] font-bold tracking-tighter">
+        {t(lang, 'grants.heading.line1')}<br />
+        <span class="text-blue-600">{t(lang, 'grants.heading.line2')}</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 mb-5 md:mb-8 short:mb-3 short:gap-2">
+      {grants.map(({ name, desc, badge }, i) => {
+        const Icon = icons[i];
+        return (
+          <div class="group p-4 md:p-6 short:p-3 bg-white/[0.02] border border-white/5 rounded-xl md:rounded-2xl hover:border-blue-600/30 transition-all duration-500">
+            <div class="flex items-start justify-between mb-2 md:mb-4 short:mb-1.5">
+              <div class="w-9 h-9 md:w-12 md:h-12 short:w-7 short:h-7 bg-blue-600/10 text-blue-500 rounded-lg md:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Icon class="w-4 h-4 md:w-5 md:h-5" />
+              </div>
+              <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-blue-400/70 bg-blue-600/5 border border-blue-600/10 px-2 py-0.5 rounded-full">
+                {badge}
+              </span>
+            </div>
+            <h3 class="text-sm md:text-base font-bold mb-1 short:text-xs">{name}</h3>
+            <p class="text-slate-500 text-[11px] md:text-sm leading-relaxed short:text-[10px]">{desc}</p>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3 items-start">
+      <a
+        href="/subvenciones"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold tracking-widest rounded-xl transition-colors"
+      >
+        {t(lang, 'grants.cta')}
+        <ExternalLink class="w-3 h-3" />
+      </a>
+      <div class="p-3 bg-emerald-500/5 border border-emerald-900/30 rounded-xl max-w-sm">
+        <p class="text-emerald-400 text-[11px] md:text-xs font-bold mb-0.5">{t(lang, 'grants.callout.title')}</p>
+        <p class="text-slate-500 text-[10px] md:text-[11px] leading-snug">{t(lang, 'grants.callout.desc')}</p>
+      </div>
+    </div>
+
+  </div>
+</section>
