@@ -75,6 +75,9 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCCIÓN',
     'portfolio.statusDev': 'DESARROLLO',
     'portfolio.projects': [
+      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Web corporativa para empresa de fontanería y climatización en Aragón.' },
+      { name: 'Agropur', type: 'WEB', desc: 'Web corporativa para gestión integral de purines y fertilización agrícola.' },
+      { name: 'RPIoT', type: 'IOT', desc: 'Landing de una plataforma de monitorización IoT, en cualquier sector.' },
       { name: 'Nieves Muriel', type: 'WEB', desc: 'Web personal para escritora y profesora universitaria.' },
       { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Tienda headless de joyería con Astro y WooCommerce.' },
       { name: 'Choose', type: 'APP', desc: 'Asistente IA para elegir tu dispositivo ideal.' },
@@ -198,6 +201,9 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCTION',
     'portfolio.statusDev': 'IN DEVELOPMENT',
     'portfolio.projects': [
+      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Corporate website for a plumbing and HVAC company in Aragon, Spain.' },
+      { name: 'Agropur', type: 'WEB', desc: 'Corporate website for a slurry management and agricultural fertilization company.' },
+      { name: 'RPIoT', type: 'IOT', desc: 'Landing page for an IoT monitoring platform, applicable to any sector.' },
       { name: 'Nieves Muriel', type: 'WEB', desc: 'Personal website for a writer and university professor.' },
       { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Headless jewelry store built with Astro and WooCommerce.' },
       { name: 'Choose', type: 'APP', desc: 'AI assistant to find your ideal device.' },
