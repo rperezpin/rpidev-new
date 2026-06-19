@@ -10,6 +10,7 @@ interface Props {
   noIndex?: boolean;
   lang?: Lang;
   activePage?: string;
+  hreflangEn?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   noIndex = false,
   lang = 'es',
   activePage = '',
+  hreflangEn,
 } = Astro.props;
 
 const cookieText      = t(lang, 'cookie.text') as string;
@@ -59,7 +61,7 @@ const currentPath = lang === 'es' ? Astro.url.pathname : Astro.url.pathname.repl
     }
 
     <link rel="alternate" hreflang="es" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
-    <link rel="alternate" hreflang="en" href={`${siteUrl}${getLocalizedPath('en', currentPath)}`} />
+    <link rel="alternate" hreflang="en" href={hreflangEn ?? `${siteUrl}${getLocalizedPath('en', currentPath)}`} />
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}${getLocalizedPath('es', currentPath)}`} />
 
     <!-- Open Graph -->

@@ -10,9 +10,9 @@ export const defaultLang: Lang = 'es';
 export const ui = {
   es: {
     // Meta SEO
-    'meta.title': 'Desarrollo Web y Automatización para Pymes en Granada | RPI Dev',
+    'meta.title': 'RPIDev — Desarrollo web y automatización para autónomos y pymes en Granada',
     'meta.description':
-      'Desarrollo web, automatización con n8n/Make y consultoría digital para autónomos y pymes en Granada. Webs rápidas con SEO local, integraciones a medida y ahorro real de tiempo. Diagnóstico gratuito de 30 min.',
+      'Desarrollo web y automatización para autónomos y pymes en Granada. Webs rápidas con SEO local, integraciones a medida y ahorro real de tiempo. Diagnóstico gratuito de 30 min.',
 
     // Nav
     'nav.sections': ['INICIO', 'PROBLEMA', 'SERVICIOS', 'PLAN', 'PORTFOLIO', 'SUBVENCIONES', 'CONTACTO'],

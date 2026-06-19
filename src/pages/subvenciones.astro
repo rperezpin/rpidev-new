@@ -1,13 +1,72 @@
 ---
 import LayoutStatic from '../layouts/LayoutStatic.astro';
 import NavStatic from '../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Está abierto el Kit Digital en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE 28/01/2026) reactivó el programa con fondos remanentes, pero a junio de 2026 Red.es aún no ha publicado los plazos concretos para nuevas solicitudes. Cuando abra, funcionará por orden de presentación. Mientras tanto puedes preparar tu solicitud con nosotros para entrar en cuanto abra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué subvenciones hay abiertas ahora para digitalizar mi negocio en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A junio de 2026 las principales ayudas activas son: LEADER 2023-2027 (hasta el 65% para negocios en zona rural, abierta hasta 31/12/2028) y la Cuota Cero de autónomos de la Junta de Andalucía (abierta hasta 30/06/2026). El Kit Digital está pendiente de nueva convocatoria pero se espera apertura próxima. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento hacia la que mejor encaje con tu perfil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo pedir ayudas si mi negocio está en un pueblo de la provincia de Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, y es donde más opciones tienes. El programa LEADER está diseñado específicamente para negocios en zonas rurales y Granada es la provincia con mayor asignación de fondos LEADER de toda Andalucía, casi 22 millones de euros. Cubre hasta el 65% de la inversión en web, software, automatización o tienda online. El primer paso es verificar a qué Grupo de Desarrollo Rural (GDR) pertenece tu municipio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Soy autónomo nuevo, ¿qué ayudas me interesan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si acabas de darte de alta o llevas poco tiempo, la Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año, lo que te libera presupuesto. Además, si tu negocio está en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital. Y cuando abra el Kit Digital (previsto próximamente), como autónomo con menos de 3 empleados podrías acceder a un bono de 2.000-3.000 €."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que adelantar el dinero de la inversión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del programa. En LEADER generalmente sí: primero se ejecuta y paga la inversión, y después se justifica para recibir la subvención. Por eso es fundamental no contratar ni pagar nada antes de que se resuelva la ayuda. En Kit Digital funciona diferente: el bono se aplica directamente al pago al proveedor acreditado, sin necesidad de adelantar. Te explico el funcionamiento exacto de cada programa antes de empezar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Me ayudas con la solicitud o solo con la parte técnica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mi especialidad es la parte técnica: definición del proyecto digital, ejecución (web, automatización, software) y documentación técnica para la justificación. La tramitación administrativa la coordinas con el GDR o el organismo gestor, que suelen tener técnicos de apoyo gratuitos. Sí preparo el presupuesto desglosado necesario para incluir en la solicitud y te explico paso a paso qué necesitas aportar."
+      }
+    }
+  ]
+};
 ---
 
 <LayoutStatic
-  title="Subvenciones para digitalizar tu negocio | RPIdev"
-  description="Ayudas y subvenciones activas y próximas para digitalizar tu negocio en España. LEADER 2023-2027, Kit Digital y Pyme Digital Granada. Te acompañamos en todo el proceso desde Granada."
+  title="Subvenciones para digitalizar tu negocio en Granada (2026)"
+  description="Qué subvenciones hay abiertas ahora para digitalizar tu negocio en Granada. LEADER, Kit Digital, Cuota Cero y más. Guía actualizada junio 2026 con estado de cada programa."
   canonical="https://www.rpidev.com/subvenciones"
+  hreflangEn="https://www.rpidev.com/subvenciones"
 >
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+
   <NavStatic lang="es" activePage="/subvenciones" />
 
   <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
@@ -21,13 +80,13 @@ import NavStatic from '../components/NavStatic.astro';
         SUBVENCIONES &amp; FINANCIACIÓN
       </div>
       <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
-        Ayudas para digitalizar<br class="hidden md:block" /> tu negocio: <span class="text-blue-500">guía mayo 2026</span>
+        ¿Qué ayudas hay abiertas ahora<br class="hidden md:block" /> para digitalizar tu negocio en <span class="text-blue-500">Granada?</span>
       </h1>
       <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-4">
-        Existen fondos públicos y europeos que pueden financiar una parte importante de digitalizar tu negocio. En esta página encontrarás qué ayudas hay, cuáles están activas ahora mismo y cuáles se esperan próximamente.
+        Existen fondos públicos y europeos que pueden financiar una parte importante de digitalizar tu negocio. En esta página encontrarás qué ayudas hay, cuáles están activas ahora mismo y cuáles están pendientes de apertura.
       </p>
       <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
-        En RPIdev te acompañamos en todo el proceso técnico: definición del proyecto, ejecución y documentación para la justificación.
+        En RPIdev me encargo de la parte técnica: definición del proyecto, ejecución y documentación para la justificación.
       </p>
       <a
         href="https://cal.com/ruben-perez-yumwg8/30min"
@@ -57,22 +116,43 @@ import NavStatic from '../components/NavStatic.astro';
               {
                 programa: 'LEADER 2023-2027',
                 dot: 'bg-green-500',
-                estado: 'Activa ahora',
+                estado: 'Activa — hasta 31/12/2028',
                 estadoColor: 'text-green-400',
                 para: 'Autónomos y pymes en zona rural',
               },
               {
+                programa: 'Cuota Cero autónomos (Junta)',
+                dot: 'bg-green-500',
+                estado: 'Activa — cierra 30/06/2026',
+                estadoColor: 'text-green-400',
+                para: 'Autónomos nuevos en Andalucía',
+              },
+              {
                 programa: 'Kit Digital',
                 dot: 'bg-amber-400',
-                estado: 'Próximamente — pendiente de nueva apertura',
+                estado: 'Pendiente nueva convocatoria',
                 estadoColor: 'text-amber-400',
                 para: 'Autónomos y pymes (0–49 empleados)',
               },
               {
-                programa: 'Pyme Digital Cámara Granada',
+                programa: 'Kit Consulting',
                 dot: 'bg-amber-400',
-                estado: 'Próximamente — próxima convocatoria ~primavera 2027',
+                estado: 'Verificar convocatoria abierta',
                 estadoColor: 'text-amber-400',
+                para: 'Pymes de 10 a 250 empleados',
+              },
+              {
+                programa: 'Línea de Innovación (Junta)',
+                dot: 'bg-slate-500',
+                estado: 'Próximamente — sin fecha',
+                estadoColor: 'text-slate-400',
+                para: 'Autónomos y pymes Andalucía',
+              },
+              {
+                programa: 'Pyme Digital — Cámara Granada',
+                dot: 'bg-slate-500',
+                estado: 'Próximamente — ~verano 2026',
+                estadoColor: 'text-slate-400',
                 para: 'Pymes y autónomos de Granada',
               },
             ].map(({ programa, dot, estado, estadoColor, para }, i) => (
@@ -94,13 +174,83 @@ import NavStatic from '../components/NavStatic.astro';
 
     <hr class="border-white/5 mb-16" />
 
+    <!-- Kit Digital -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">PENDIENTE DE APERTURA</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Kit Digital 2026</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          El Kit Digital fue el programa de digitalización para pymes y autónomos más importante de la historia de España: más de 850.000 empresas beneficiadas y más de 3.400 millones de euros concedidos entre 2022 y 2025.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL (junio 2026)</span>
+        <div class="mt-3 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-sm text-slate-300 leading-relaxed">
+          Las convocatorias originales cerraron el 31 de octubre de 2025. En enero de 2026 se publicó la <strong>Orden TDF/39/2026</strong>, que reactivó el programa con fondos remanentes, eliminó la fecha de cierre fija y añadió categorías de IA y automatización. Sin embargo, a junio de 2026 Red.es <strong>aún no ha publicado los plazos concretos ni el procedimiento</strong> para nuevas solicitudes. La apertura se considera inminente por la presión de la UE para ejecutar fondos NextGenerationEU.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO PUEDE FINANCIAR</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/5">
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">SEGMENTO</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">EMPLEADOS</th>
+                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">BONO MÁXIMO</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Segmento I', '10–49 empleados', '12.000 €'],
+                ['Segmento II', '3–9 empleados', '6.000 €'],
+                ['Segmento III', '0–2 empleados / autónomos', '2.000–3.000 €'],
+              ].map(([seg, emp, bono], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{seg}</td>
+                  <td class="px-5 py-3 text-slate-400 border-r border-white/5">{emp}</td>
+                  <td class="px-5 py-3 text-slate-200 font-bold">{bono}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-slate-500 text-xs mt-3">El bono cubre el 100% del coste de la solución implantada hasta el importe máximo del segmento.</p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ FINANCIA</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Web y presencia en internet, tienda online, gestión de redes sociales, CRM, ciberseguridad, business intelligence, automatización e inteligencia artificial aplicada al negocio.
+        </p>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
+        <ul class="space-y-1 text-slate-400 text-xs leading-relaxed">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Haz el test de autodiagnóstico en <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">Acelera Pyme</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Ten claro qué solución digital necesita tu negocio</li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Contáctame para planificarlo antes de que abra la convocatoria</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
     <!-- LEADER -->
     <section class="mb-16">
       <div class="flex items-center gap-3 mb-2">
         <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"></span>
         <span class="text-green-400 text-xs font-bold tracking-widest">ACTIVA AHORA</span>
       </div>
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">LEADER 2023-2027</h2>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">LEADER 2023-2027 (PEPAC)</h2>
 
       <!-- Qué es -->
       <div class="mb-8">
@@ -112,7 +262,7 @@ import NavStatic from '../components/NavStatic.astro';
           <strong class="text-slate-200">No funciona por concurso ni por puntuación</strong>: las solicitudes se resuelven por orden de presentación. Quien antes entra con un proyecto bien preparado, antes accede al dinero.
         </p>
         <div class="p-4 bg-blue-600/5 border border-blue-600/20 rounded-xl text-sm text-blue-300">
-          Convocatoria en Andalucía: <strong>abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028</strong>, salvo agotamiento de fondos.
+          Convocatoria en Andalucía: <strong>abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028</strong>, salvo agotamiento de fondos. Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€).
         </div>
       </div>
 
@@ -263,71 +413,84 @@ import NavStatic from '../components/NavStatic.astro';
 
     <hr class="border-white/5 mb-16" />
 
-    <!-- Kit Digital -->
+    <!-- Cuota Cero autónomos -->
     <section class="mb-16">
       <div class="flex items-center gap-3 mb-2">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
-        <span class="text-amber-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"></span>
+        <span class="text-green-400 text-xs font-bold tracking-widest">ACTIVA — CIERRA 30/06/2026</span>
       </div>
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Kit Digital</h2>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Cuota Cero y Fomento del Trabajo Autónomo (Junta de Andalucía)</h2>
 
       <div class="mb-6">
         <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
         <p class="text-slate-400 text-sm leading-relaxed mt-3">
-          El Kit Digital fue el programa de digitalización para pymes y autónomos más importante de la historia de España: más de 850.000 empresas beneficiadas y más de 3.400 millones de euros concedidos entre 2022 y 2025.
+          La Junta de Andalucía tiene abiertas dos líneas dirigidas a autónomos que inician actividad o llevan poco tiempo dados de alta. No son ayudas de digitalización directamente, pero liberan presupuesto que puedes destinar a tu web y herramientas digitales.
         </p>
       </div>
 
       <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
-        <div class="mt-3 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-sm text-slate-300 leading-relaxed">
-          Las convocatorias originales cerraron el 31 de octubre de 2025. En enero de 2026 se publicó la <strong>Orden TDF/39/2026</strong>, que modifica las bases reguladoras para permitir redistribuir los fondos no ejecutados en nuevas solicitudes, sin fecha de cierre fija. Sin embargo, a mayo de 2026 Red.es <strong>aún no ha publicado los plazos concretos ni el procedimiento</strong> de esta nueva fase. Cuando abra, funcionará por orden de presentación.
+        <span class="text-blue-500 text-xs font-bold tracking-widest">LAS DOS LÍNEAS</span>
+        <div class="grid sm:grid-cols-2 gap-4 mt-3">
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <p class="text-slate-200 text-sm font-bold mb-2">Línea 1 — Cuota Cero</p>
+            <p class="text-slate-400 text-xs leading-relaxed">Subvención de prácticamente el 100% de la cuota de autónomos durante el primer año (ampliable). Para quien se da de alta como trabajador autónomo en Andalucía.</p>
+          </div>
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <p class="text-slate-200 text-sm font-bold mb-2">Línea 2 — Inicio de actividad</p>
+            <p class="text-slate-400 text-xs leading-relaxed">Ayuda para cubrir gastos del inicio: asesoría, herramientas y otros costes de arranque. Complementaria a la Cuota Cero.</p>
+          </div>
         </div>
       </div>
 
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300 mb-6">
+        <strong>Atención al plazo:</strong> esta convocatoria cierra el <strong>30 de junio de 2026</strong>. Si eres autónomo nuevo o llevas poco tiempo, solicítala cuanto antes. Consulta las condiciones vigentes en la Junta de Andalucía antes de presentar.
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Por qué te interesa como futuro cliente</p>
+        <p class="text-slate-400 text-xs leading-relaxed">Si la Cuota Cero te cubre la seguridad social el primer año, ese dinero puede ir a tu web, tu posicionamiento en Google o a automatizar tus procesos desde el primer día. Te ayudo a planificarlo.</p>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Kit Consulting -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Kit Consulting (Red.es) — para pymes de 10 a 250 empleados</h2>
+
       <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO PUEDE FINANCIAR</span>
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Programa de Red.es dotado con 300 M€ de fondos NextGenerationEU para asesoramiento digital especializado en pymes de tamaño medio. Financia consultoría en IA, ciberseguridad, análisis de datos y ventas digitales — no la implantación técnica en sí, sino el diagnóstico y la hoja de ruta.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
         <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
           <table class="w-full text-sm">
-            <thead>
-              <tr class="border-b border-white/5">
-                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">SEGMENTO</th>
-                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">EMPLEADOS</th>
-                <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">BONO MÁXIMO</th>
-              </tr>
-            </thead>
             <tbody>
               {[
-                ['Segmento I', '10–49 empleados', '12.000 €'],
-                ['Segmento II', '3–9 empleados', '6.000 €'],
-                ['Segmento III', '0–2 empleados / autónomos', '2.000 €'],
-              ].map(([seg, emp, bono], i) => (
+                ['10–49 empleados', '12.000 € en bonos de consultoría'],
+                ['50–99 empleados', '18.000 € en bonos de consultoría'],
+                ['100–250 empleados', '24.000 € en bonos de consultoría'],
+              ].map(([seg, bono], i) => (
                 <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
-                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{seg}</td>
-                  <td class="px-5 py-3 text-slate-400 border-r border-white/5">{emp}</td>
-                  <td class="px-5 py-3 text-slate-200 font-bold">{bono}</td>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{seg}</td>
+                  <td class="px-5 py-3 text-slate-400">{bono}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p class="text-slate-500 text-xs mt-3">El bono cubre el 100% del coste de la solución implantada hasta el importe máximo del segmento.</p>
       </div>
 
-      <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ FINANCIA</span>
-        <p class="text-slate-400 text-sm leading-relaxed mt-3">
-          Web y presencia en internet, tienda online, gestión de redes sociales, CRM, ciberseguridad, business intelligence, automatización e inteligencia artificial aplicada al negocio.
-        </p>
-      </div>
-
-      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-        <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
-        <ul class="space-y-1 text-slate-400 text-xs leading-relaxed">
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Haz el test de autodiagnóstico en <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">Acelera Pyme</a></li>
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Ten claro qué solución digital necesita tu negocio</li>
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Contacta con RPIdev para planificarlo antes de que abra la convocatoria</li>
-        </ul>
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300">
+        <strong>Nota:</strong> verifica en <a href="https://sede.red.gob.es" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">sede.red.gob.es</a> si hay convocatoria activa antes de iniciar cualquier trámite.
       </div>
     </section>
 
@@ -336,8 +499,8 @@ import NavStatic from '../components/NavStatic.astro';
     <!-- Pyme Digital -->
     <section class="mb-16">
       <div class="flex items-center gap-3 mb-2">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
-        <span class="text-amber-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-500 shrink-0"></span>
+        <span class="text-slate-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
       </div>
       <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Pyme Digital — Cámara de Comercio de Granada</h2>
 
@@ -350,8 +513,8 @@ import NavStatic from '../components/NavStatic.astro';
 
       <div class="mb-6">
         <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
-        <div class="mt-3 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-sm text-slate-300 leading-relaxed">
-          Convocatoria anual, normalmente entre marzo y julio. La última edición fue en 2025. La próxima se espera en <strong>primavera de 2027</strong>.
+        <div class="mt-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300 leading-relaxed">
+          Convocatoria anual, normalmente entre marzo y julio. La última edición fue en 2025. La próxima se espera en <strong>verano de 2026</strong>. Contacta con la Cámara para estar en su lista de seguimiento.
         </div>
       </div>
 
@@ -375,16 +538,8 @@ import NavStatic from '../components/NavStatic.astro';
         </div>
       </div>
 
-      <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ INCLUYE</span>
-        <p class="text-slate-400 text-sm leading-relaxed mt-3">
-          Diagnóstico TIC personalizado e implantación de soluciones digitales: web, tienda online, gestión, automatización o cualquier herramienta adecuada al negocio.
-        </p>
-      </div>
-
       <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
         <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Contacta con la Cámara para estar en su lista de seguimiento cuando abra la próxima convocatoria:</p>
         <ul class="space-y-1 text-slate-400 text-xs">
           <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Web: <a href="https://www.camaragranada.org" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">camaragranada.org</a></li>
           <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Email: info@camaragranada.org</li>
@@ -395,12 +550,49 @@ import NavStatic from '../components/NavStatic.astro';
 
     <hr class="border-white/5 mb-16" />
 
+    <!-- Línea de Innovación + Ayudas IA -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">OTRAS VÍAS</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Más ayudas a seguir</h2>
+
+      <div class="space-y-4">
+        <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-slate-500 shrink-0"></span>
+            <span class="text-slate-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
+          </div>
+          <p class="text-slate-200 text-sm font-bold mb-1">Línea de Innovación y Digitalización — Junta de Andalucía</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Incluye integración de tecnologías digitales para autónomos y pymes andaluzas. La convocatoria 2026 está pendiente de publicación. Merece la pena seguirla si estás en Andalucía y no encajas en LEADER.</p>
+        </div>
+
+        <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
+            <span class="text-blue-400 text-xs font-bold tracking-widest">SI TU PROYECTO ES DE IA</span>
+          </div>
+          <p class="text-slate-200 text-sm font-bold mb-2">Ayudas nacionales a inteligencia artificial</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <p class="text-slate-300 text-xs font-bold mb-0.5">Ticket Innova</p>
+              <p class="text-slate-500 text-xs leading-relaxed">Hasta ~7.000 € para proyectos de IA y automatización en pymes. Tramitación a través de proveedores acreditados.</p>
+            </div>
+            <div>
+              <p class="text-slate-300 text-xs font-bold mb-0.5">CDTI Express IA</p>
+              <p class="text-slate-500 text-xs leading-relaxed">Convocatoria continua, hasta ~250.000 € (préstamo blando + tramo de subvención) para proyectos de IA más ambiciosos. Gestionado por el CDTI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
     <!-- Cómo ayuda RPIdev -->
     <section class="mb-16">
-      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO AYUDAMOS</span>
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Lo que hacemos por ti</h2>
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO AYUDO</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Lo que hago por ti</h2>
       <p class="text-slate-400 text-sm leading-relaxed mb-6">
-        Somos desarrolladores web y de aplicaciones especializados en digitalización de pequeñas empresas. Conocemos estos programas y acompañamos en todo el proceso técnico:
+        Soy desarrollador web y de aplicaciones especializado en digitalización de pequeñas empresas. Conozco estos programas y acompaño en todo el proceso técnico:
       </p>
       <div class="grid sm:grid-cols-2 gap-3 mb-8">
         {[
@@ -444,24 +636,28 @@ import NavStatic from '../components/NavStatic.astro';
       <div class="space-y-4">
         {[
           {
-            q: '¿Puedo solicitar LEADER yo mismo sin intermediarios?',
-            a: 'Sí. La solicitud la presenta el beneficiario directamente en la sede electrónica del GDR. RPIdev actúa como proveedor técnico de la parte digital, no como gestor administrativo. El equipo técnico del GDR suele ofrecer asesoramiento gratuito para la tramitación documental.',
+            q: '¿Está abierto el Kit Digital en 2026?',
+            a: 'Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE enero 2026) reactivó el programa con fondos remanentes y sin fecha de cierre fija, pero a junio de 2026 Red.es aún no ha publicado los plazos para nuevas solicitudes. La apertura se considera inminente. Mientras tanto, puedes preparar tu solicitud conmigo para entrar en cuanto abra.',
           },
           {
-            q: '¿Qué pasa si mi municipio no es zona LEADER?',
-            a: 'Los núcleos urbanos grandes suelen estar excluidos. El primer paso es verificar con tu GDR local si tu municipio está dentro del ámbito territorial elegible. Si no encaja en LEADER, puede haber otras ayudas aplicables como Kit Digital o Pyme Digital.',
+            q: '¿Qué subvenciones hay abiertas ahora para digitalizar mi negocio en Granada?',
+            a: 'A junio de 2026 las principales activas son LEADER 2023-2027 (hasta 65% para negocios en zona rural, abierta hasta fin de 2028) y la Cuota Cero de autónomos de la Junta de Andalucía (cierra el 30/06/2026). El Kit Digital se espera próximamente. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento según tu perfil.',
           },
           {
-            q: '¿Puedo pedir la ayuda para una actividad que ya tengo en marcha?',
-            a: 'Sí, siempre que la inversión no haya sido ejecutada antes de la resolución. Puedes tener una empresa en funcionamiento y solicitar financiación para una nueva inversión digital.',
+            q: '¿Puedo pedir ayudas si mi negocio está en un pueblo de la provincia de Granada?',
+            a: 'Sí, y es donde más opciones tienes. LEADER está diseñado específicamente para zonas rurales y Granada es la provincia con mayor asignación de toda Andalucía. Cubre hasta el 65% de la inversión en web, software, automatización o tienda online. El primer paso es verificar a qué Grupo de Desarrollo Rural pertenece tu municipio.',
           },
           {
-            q: '¿Cuánto tiempo tarda en resolverse LEADER?',
-            a: 'Varía por GDR y comunidad autónoma. En Andalucía, el proceso suele llevar varios meses desde la presentación. Por eso es importante entrar pronto — el presupuesto es limitado y funciona por orden de llegada.',
+            q: 'Soy autónomo nuevo, ¿qué ayudas me interesan?',
+            a: 'La Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año — libera presupuesto para invertir en tu presencia digital. Si además estás en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital. Y cuando abra el Kit Digital, como autónomo con menos de 3 empleados tendrías acceso a un bono de 2.000-3.000 €.',
           },
           {
-            q: '¿Trabajáis solo en Granada?',
-            a: 'No. Tenemos base en Granada pero trabajamos de forma remota con clientes de toda España. Si tu comarca tiene una convocatoria LEADER activa, podemos acompañarte independientemente de tu ubicación.',
+            q: '¿Tengo que adelantar el dinero de la inversión?',
+            a: 'Depende del programa. En LEADER generalmente sí: primero ejecutas y pagas la inversión, y después justificas para recibir la subvención. En Kit Digital funciona diferente: el bono se aplica directamente al pago al proveedor, sin necesidad de adelantar. Te explico el funcionamiento de cada programa antes de empezar para que no haya sorpresas.',
+          },
+          {
+            q: '¿Me ayudas con la solicitud o solo con la parte técnica?',
+            a: 'Me especializo en la parte técnica: definición del proyecto digital, ejecución (web, automatización, software) y documentación técnica para la justificación. La tramitación administrativa la coordinas con el GDR o el organismo gestor, que tienen técnicos de apoyo gratuitos. Sí preparo el presupuesto desglosado para la solicitud y te explico paso a paso qué necesitas aportar.',
           },
         ].map(({ q, a }) => (
           <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
@@ -484,7 +680,9 @@ import NavStatic from '../components/NavStatic.astro';
           ['Tramitación ayudas LEADER — Junta de Andalucía', 'https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/desarrollo-rural/tramitacion-ayudas-dr-2023-2027.html'],
           ['Red Española de Desarrollo Rural (REDR)', 'https://www.redr.es'],
           ['Acelera Pyme — Kit Digital', 'https://acelerapyme.gob.es'],
+          ['Red.es — Kit Digital y Kit Consulting', 'https://sede.red.gob.es'],
           ['Cámara de Comercio de Granada', 'https://www.camaragranada.org'],
+          ['Fomento del Trabajo Autónomo — Junta de Andalucía', 'https://www.juntadeandalucia.es/organismos/empleoformacionytrabajautonomo/areas/trabajo-autonomo/fomento.html'],
         ].map(([label, url]) => (
           <li>
             <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
@@ -499,7 +697,7 @@ import NavStatic from '../components/NavStatic.astro';
     <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
       <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Hablamos?</h2>
       <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
-        Cuéntanos en qué consiste tu negocio y te decimos en 24h qué ayuda encaja mejor y cómo podemos acompañarte.
+        Cuéntame en qué consiste tu negocio y te digo qué ayuda encaja mejor y cómo puedo acompañarte en la parte técnica.
       </p>
       <a
         href="https://cal.com/ruben-perez-yumwg8/30min"
@@ -510,7 +708,7 @@ import NavStatic from '../components/NavStatic.astro';
     </section>
 
     <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
-      Contenido actualizado a mayo de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales o contacta con el equipo técnico de tu GDR antes de iniciar cualquier inversión.
+      Última actualización: junio de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales o contacta con el equipo técnico de tu GDR antes de iniciar cualquier inversión.
     </p>
   </main>
 </LayoutStatic>
