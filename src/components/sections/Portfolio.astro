@@ -10,20 +10,17 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 
 const projectData = [
-  { tech: ['Astro', 'Node.js'], url: 'https://fpcinstalaciones.com', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://www.agropur.es', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://rpiot.es', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://www.nievesmuriel.com', status: 'production' },
-  { tech: ['Astro', 'WooCommerce', 'Tailwind'], url: 'https://www.amacapricci.com', status: 'production' },
-  { tech: ['Python', 'Reflex', 'Gemini AI'], url: 'https://www.easychoose.es', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://desguacesvaldeferrin.es', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://casvisol.com', status: 'production' },
-  { tech: ['Astro', 'Tailwind'], url: 'https://www.hebepsicologa.com', status: 'production' },
-  { tech: ['Python', 'React', 'FastAPI'], url: 'https://www.seopilot.es', status: 'production' },
-  { tech: ['Astro', 'React'], url: 'https://rpidev-astro.vercel.app/', status: 'production' },
-  { tech: ['Next.js', 'PostgreSQL'], url: 'https://crm-rpidev.vercel.app/', status: 'production' },
-  { tech: ['React', 'Firebase'], url: 'https://landing-basic-planner.vercel.app/', status: 'dev' },
-  { tech: ['Next.js', 'MUI'], url: 'https://landing-verifax.vercel.app/', status: 'dev' },
+  { tech: ['Astro', 'Node.js'], url: 'https://fpcinstalaciones.com', status: 'production', logo: '/fpc_instalaciones.png', imgClass: '' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://www.agropur.es', status: 'production', logo: '/logo-agropur.png', imgClass: 'bg-white rounded-xl p-2' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://rpiot.es', status: 'production', logo: '/rpIot.png', imgClass: '' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://www.nievesmuriel.com', status: 'production', logo: '/nieves_muriel.svg', imgClass: '' },
+  { tech: ['Astro', 'WooCommerce', 'Tailwind'], url: 'https://www.amacapricci.com', status: 'production', logo: '/amacapricci.jpeg', imgClass: 'scale-[1.25]' },
+  { tech: ['Python', 'Reflex', 'Gemini AI'], url: 'https://www.easychoose.es', status: 'production', logo: '/choose-removebg-preview.png', imgClass: '' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://desguacesvaldeferrin.es', status: 'production', logo: '/logo_desguaces_valdeferrin.png', imgClass: '' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://casvisol.com', status: 'production', logo: '/casvisol.png', imgClass: '' },
+  { tech: ['Astro', 'Tailwind'], url: 'https://www.hebepsicologa.com', status: 'production', logo: '/logo_hebe.png', imgClass: '' },
+  { tech: ['Python', 'React', 'FastAPI'], url: 'https://www.seopilot.es', status: 'production', logo: '/SEOPilot.png', imgClass: '' },
+  { tech: ['Astro', 'React'], url: 'https://rpidev-astro.vercel.app/', status: 'production', logo: '/logo_azul1.webp', imgClass: '' },
 ];
 
 const projectTexts = t(lang, 'portfolio.projects') as { name: string; type: string; desc: string }[];
@@ -35,7 +32,7 @@ const projects = projectData.map((data, i) => ({
   ...data,
   ...projectTexts[i],
   statusLabel: data.status === 'production' ? statusProd : statusDev,
-}));
+})) as Array<typeof projectData[0] & { name: string; type: string; desc: string; statusLabel: string }>;
 ---
 
 <section class="section w-screen h-full shrink-0 snap-start flex flex-col justify-center px-5 sm:px-10 pb-20 md:px-20 lg:px-24 md:pb-16 overflow-y-auto no-scrollbar" style="padding-top: max(4rem, calc(var(--nav-h, 4rem) + 1.5rem))" data-index="4" data-scrollable>
@@ -50,8 +47,14 @@ const projects = projectData.map((data, i) => ({
 
     <!-- Mobile: lista vertical compacta con scroll -->
     <div class="flex md:hidden flex-col gap-2 flex-1 min-h-0 overflow-y-auto no-scrollbar w-full overscroll-contain" data-scrollable>
-      {projects.map(({ name, type, desc, url, status, statusLabel }) => (
+      {projects.map(({ name, type, desc, url, status, statusLabel, logo }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" class="project-card-link flex items-center gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl active:border-blue-600/30 transition-all w-full min-w-0">
+          <div class="w-12 h-12 rounded-xl overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+            {logo
+              ? <img src={logo} alt={`${name} logo`} class="w-full h-full object-contain p-1" />
+              : <span class="text-slate-400 font-bold text-lg">{name[0]}</span>
+            }
+          </div>
           <div class="min-w-0 flex-1">
             <span class="text-blue-500 text-[9px] font-bold tracking-[0.15em]">{type}</span>
             <h3 class="text-sm font-bold">{name}</h3>
@@ -71,39 +74,59 @@ const projects = projectData.map((data, i) => ({
       ))}
     </div>
 
-    <!-- Desktop: grid -->
+    <!-- Desktop: grid con flip cards -->
     <div class="hidden md:flex flex-col flex-1 min-h-0 overflow-y-auto no-scrollbar" data-scrollable>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 pb-4">
-      {projects.map(({ name, type, desc, tech, url, status, statusLabel }) => (
-        <article class="group relative p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-blue-600/30 transition-all duration-300">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-blue-500 text-xs font-bold tracking-[0.2em]">{type}</span>
-            <span class={`text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full ${
-              status === 'production'
-                ? 'bg-emerald-500/10 text-emerald-400'
-                : 'bg-amber-500/10 text-amber-400'
-            }`}>
-              {statusLabel}
-            </span>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 pb-4">
+        {projects.map(({ name, type, desc, tech, url, status, statusLabel, logo, imgClass }) => (
+          <div class="flip-card group" style="perspective: 1000px; height: 260px;">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+              <!-- Cara frontal: logo -->
+              <div class="absolute inset-0 [backface-visibility:hidden] bg-white/[0.03] border border-white/8 rounded-2xl overflow-hidden flex flex-col">
+                <div class="flex-1 flex items-center justify-center p-6 min-h-0 overflow-hidden">
+                  {logo
+                    ? <img src={logo} alt={`${name} logo`} class={`max-w-full max-h-full object-contain ${imgClass}`} />
+                    : <span class="text-7xl font-bold text-slate-400">{name[0]}</span>
+                  }
+                </div>
+                <div class="shrink-0 px-4 py-2.5 border-t border-white/5">
+                  <p class="text-white/50 font-semibold text-xs text-center tracking-widest uppercase">{name}</p>
+                </div>
+              </div>
+
+              <!-- Cara trasera: info -->
+              <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0d1b2e] border border-blue-600/25 rounded-2xl p-5 flex flex-col">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="text-blue-400 text-xs font-bold tracking-[0.2em]">{type}</span>
+                  <span class={`text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full ${
+                    status === 'production'
+                      ? 'bg-emerald-500/10 text-emerald-400'
+                      : 'bg-amber-500/10 text-amber-400'
+                  }`}>
+                    {statusLabel}
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-white">{name}</h3>
+                <p class="text-slate-400 text-sm leading-relaxed flex-1">{desc}</p>
+                <div class="flex flex-wrap gap-1.5 my-3">
+                  {tech.map((techName) => (
+                    <span class="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">{techName}</span>
+                  ))}
+                </div>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-white font-bold tracking-widest transition-colors"
+                >
+                  {viewProject} <ExternalLink class="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+            </div>
           </div>
-          <h3 class="text-xl font-bold mb-2">{name}</h3>
-          <p class="text-slate-500 text-sm leading-relaxed mb-4">{desc}</p>
-          <div class="flex flex-wrap gap-1.5 mb-4">
-            {tech.map((techName) => (
-              <span class="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">{techName}</span>
-            ))}
-          </div>
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-white font-bold tracking-widest transition-colors"
-          >
-            {viewProject} <ExternalLink class="w-3.5 h-3.5" />
-          </a>
-        </article>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

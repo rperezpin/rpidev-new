@@ -1,0 +1,383 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/subvenciones/kit-digital-granada`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 3, "name": "Kit Digital Granada", "item": pageUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${pageUrl}#article`,
+  "headline": "Kit Digital en Granada 2026: estado, convocatoria y cómo prepararse",
+  "description": "¿Está abierto el Kit Digital en Granada en 2026? Estado real: pendiente de nueva convocatoria. Bonos de hasta 12.000 €, qué financia y cómo preparar tu solicitud para entrar en cuanto abra.",
+  "datePublished": "2026-04-23",
+  "dateModified": "2026-07-02",
+  "author": { "@id": `${siteUrl}/#founder` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": pageUrl,
+  "inLanguage": "es-ES"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Está abierto el Kit Digital en Granada en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para nuevas solicitudes a fecha julio de 2026. Las convocatorias originales cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE 28/01/2026) reactivó el programa con fondos remanentes y añadió categorías de IA y automatización, pero Red.es aún no ha publicado los plazos concretos para nuevas solicitudes. La apertura se considera inminente. Las alternativas activas ahora son LEADER (hasta 65%, zonas rurales) y convocatorias autonómicas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto financia el Kit Digital en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Kit Digital financia el 100% del coste de la solución hasta el máximo del segmento: 12.000 € para empresas de 10-49 empleados (Segmento I), 6.000 € para 3-9 empleados (Segmento II), y 2.000-3.000 € para autónomos y empresas de 0-2 empleados (Segmento III). En Granada el programa funciona igual que en el resto de España — no hay diferencia geográfica en el bono."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué financia el Kit Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Kit Digital financia soluciones de digitalización implantadas por agentes digitalizadores acreditados: sitio web y presencia en internet, comercio electrónico, gestión de redes sociales, CRM, gestión de clientes, ciberseguridad, business intelligence, automatización de procesos, e inteligencia artificial aplicada al negocio (nueva categoría desde la Orden TDF/39/2026)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es un agente digitalizador del Kit Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un agente digitalizador es una empresa o profesional acreditado por Red.es para ofrecer soluciones dentro del catálogo del Kit Digital. Los beneficiarios del bono solo pueden contratar con agentes digitalizadores registrados en el programa. RPIdev puede actuar como proveedor técnico de soluciones de desarrollo web y automatización en colaboración con agentes digitalizadores acreditados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo prepararme para el Kit Digital antes de que abra la convocatoria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tres pasos: primero, haz el test de autodiagnóstico en Acelera Pyme (acelerapyme.gob.es) para conocer tu nivel de digitalización y confirmar que cumples los requisitos básicos. Segundo, define qué solución necesita tu negocio (web, CRM, automatización...) y qué presupuesto manejas. Tercero, contacta con un proveedor técnico de confianza para preparar el proyecto antes de que abra — cuando abre, se resuelve por orden de presentación y los bonos se agotan rápido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay otras ayudas abiertas ahora para digitalización en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Mientras esperas al Kit Digital, la alternativa más potente es LEADER 2023-2027: hasta el 65% de la inversión (hasta 200.000 €) para negocios en zonas rurales de Granada, abierta hasta diciembre de 2028. Granada es la provincia con mayor dotación LEADER de toda Andalucía (~22 M€). No es concurso — se resuelve por orden de presentación."
+      }
+    }
+  ]
+};
+---
+
+<LayoutStatic
+  title="Kit Digital en Granada 2026: estado, convocatoria y cómo prepararse"
+  description="¿Está abierto el Kit Digital en Granada en 2026? No para nuevas solicitudes. Bonos de hasta 12.000 €, qué financia y cómo prepararte para entrar en cuanto abra. Asesoramiento gratuito."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
+
+  <NavStatic lang="es" activePage="/subvenciones" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
+      <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <span>/</span>
+      <span class="text-slate-400">Kit Digital Granada</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold tracking-widest mb-6">
+        KIT DIGITAL · GRANADA 2026
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Kit Digital en Granada:<br class="hidden md:block" /> <span class="text-blue-500">estado, convocatoria y cómo prepararse</span>
+      </h1>
+
+      <!-- Respuesta directa — lo que las IA extraen -->
+      <div class="p-5 bg-amber-500/5 border border-amber-500/20 rounded-xl mb-6">
+        <p class="text-slate-200 text-sm leading-relaxed font-bold mb-1">¿Está abierto el Kit Digital en Granada en 2026?</p>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          No para nuevas solicitudes a fecha <strong>julio de 2026</strong>. La Orden TDF/39/2026 reactivó el programa con fondos remanentes, pero Red.es aún no ha publicado los plazos para nuevas convocatorias. La apertura se considera inminente. Las alternativas activas ahora son <a href="/subvenciones/leader-digitalizacion" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">LEADER</a> (hasta 65%, zonas rurales) y convocatorias autonómicas.
+        </p>
+      </div>
+
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        El Kit Digital fue el mayor programa de digitalización de la historia de España: más de 850.000 empresas beneficiadas y más de 3.400 millones de euros concedidos entre 2022 y 2025. En Granada puedes usarlo para financiar una web profesional, una tienda online, un CRM o la automatización de procesos de tu negocio.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          PREPÁRATE AHORA — CONSULTA GRATUITA →
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%2C%20quiero%20prepararme%20para%20el%20Kit%20Digital%20en%20Granada"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-600/30 text-emerald-400 text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Estado actual -->
+    <section class="mb-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+        <div>
+          <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2">Kit Digital 2026 — lo que sabemos</h2>
+        </div>
+        <span class="text-slate-500 text-xs font-mono">Última verificación: 2 julio 2026</span>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+          <p class="text-slate-200 text-sm font-bold mb-1">Convocatorias originales</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Cerraron el <strong class="text-slate-300">31 de octubre de 2025</strong>. Tres segmentos, por orden de mayor a menor empresa.</p>
+        </div>
+        <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl">
+          <p class="text-amber-300 text-sm font-bold mb-1">Orden TDF/39/2026 — reactivación</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Publicada en BOE el <strong class="text-slate-300">28 de enero de 2026</strong>. Reactivó el programa con fondos remanentes de expedientes anteriores, eliminó la fecha de cierre fija y añadió dos nuevas categorías: <strong class="text-slate-300">inteligencia artificial</strong> y <strong class="text-slate-300">automatización avanzada</strong>. La apertura de la nueva convocatoria está condicionada a que Red.es publique los plazos concretos.</p>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+          <p class="text-slate-200 text-sm font-bold mb-1">A julio de 2026</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Red.es <strong class="text-slate-300">aún no ha publicado plazos ni procedimiento</strong> para nuevas solicitudes. La presión de la UE para ejecutar fondos NextGenerationEU antes de agosto de 2026 hace que la apertura sea inminente. Conviene estar preparado para entrar en cuanto abra — cuando abre, se agota rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cuánto financia -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Bonos por segmento</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        El bono cubre el <strong class="text-slate-200">100% del coste de la solución</strong> hasta el importe máximo del segmento. No hay que adelantar: el pago va directamente al agente digitalizador.
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">SEGMENTO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">EMPLEADOS</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">BONO MÁXIMO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Segmento I', '10–49 empleados', '12.000 €'],
+              ['Segmento II', '3–9 empleados', '6.000 €'],
+              ['Segmento III', '0–2 empleados / autónomos', '2.000–3.000 €'],
+            ].map(([seg, emp, bono], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{seg}</td>
+                <td class="px-5 py-3 text-slate-400 border-r border-white/5">{emp}</td>
+                <td class="px-5 py-3 text-slate-200 font-bold">{bono}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-slate-500 text-xs">En Granada no hay bonificación geográfica adicional — el bono es igual que en el resto de España.</p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Qué financia -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ FINANCIA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Soluciones cubiertas por el bono</h2>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {[
+          { cat: 'Sitio web y presencia en internet', desc: 'Web corporativa, landing page, dominio, hosting y posicionamiento básico.' },
+          { cat: 'Comercio electrónico', desc: 'Tienda online con pasarela de pago, catálogo y gestión de pedidos.' },
+          { cat: 'Gestión de redes sociales', desc: 'Publicación, monitorización y estrategia en redes.' },
+          { cat: 'CRM y gestión de clientes', desc: 'Software para gestionar leads, seguimiento comercial y fidelización.' },
+          { cat: 'Ciberseguridad', desc: 'Protección antivirus, VPN, copias de seguridad y seguridad en la nube.' },
+          { cat: 'Business intelligence', desc: 'Herramientas de análisis de datos y cuadros de mando.' },
+          { cat: 'Automatización e IA', desc: 'Nueva desde Orden TDF/39/2026: automatización de procesos e inteligencia artificial aplicada al negocio.' },
+          { cat: 'Gestión de procesos', desc: 'ERP, digitalización de flujos de trabajo y operaciones internas.' },
+        ].map(({ cat, desc }) => (
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <p class="text-slate-200 text-sm font-bold mb-1">{cat}</p>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cómo prepararse -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO PREPARARTE AHORA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Qué hacer antes de que abra la convocatoria en Granada</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        El Kit Digital se resuelve por orden de presentación. Quienes llegan preparados desde el primer día tienen ventaja. Estos son los tres pasos:
+      </p>
+      <div class="space-y-3 mb-6">
+        {[
+          ['Haz el autodiagnóstico digital', 'Entra en acelerapyme.gob.es, completa el test de diagnóstico y confirma que tu empresa cumple los requisitos básicos (estar al corriente con Hacienda y Seguridad Social, tener CIF/NIF, no ser empresa en crisis).'],
+          ['Define qué necesita tu negocio', 'Decide qué categoría de solución se ajusta mejor a tu situación: web, tienda online, CRM, automatización... El bono lo decides tú, siempre dentro del catálogo aprobado.'],
+          ['Prepara el proyecto técnico', 'Trabaja con un proveedor de confianza para dimensionar la solución, definir el alcance y tener todo listo para presentar en cuanto abra la convocatoria. Así entras el primer día.'],
+        ].map(([titulo, desc], i) => (
+          <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <div>
+              <p class="text-slate-200 text-sm font-bold mb-0.5">{titulo}</p>
+              <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="p-5 bg-blue-600/5 border border-blue-600/20 rounded-xl">
+        <p class="text-slate-200 text-sm font-bold mb-2">Cómo puedo ayudarte desde RPIdev</p>
+        <p class="text-slate-400 text-xs leading-relaxed mb-3">
+          Me encargo de la parte técnica: definición del proyecto (qué solución y con qué alcance), presupuesto desglosado para incluir en la solicitud, y ejecución completa una vez concedido el bono (web, automatización, CRM...). La tramitación con Red.es la lleva el agente digitalizador.
+        </p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          {['Web corporativa y landing pages optimizadas para SEO local en Granada', 'Tienda online (Astro + WooCommerce, Shopify)', 'Automatización de procesos con n8n y Make', 'CRM y gestión de clientes', 'Integraciones con herramientas existentes (TPV, ERP, facturación)'].map((item) => (
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Alternativas mientras esperas -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">MIENTRAS ESPERAS</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Alternativas activas ahora para digitalizar en Granada</h2>
+      <div class="space-y-4">
+        <div class="p-5 bg-green-500/5 border border-green-500/20 rounded-xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-green-500 shrink-0"></span>
+            <span class="text-green-400 text-xs font-bold tracking-widest">ACTIVA AHORA</span>
+          </div>
+          <p class="text-slate-200 text-sm font-bold mb-1">LEADER 2023-2027 — hasta el 65%</p>
+          <p class="text-slate-400 text-xs leading-relaxed mb-3">Si tu negocio está en zona rural de Granada, LEADER puede financiar hasta el 65% de la inversión en web, software o automatización. Abierta hasta diciembre de 2028. Granada tiene la mayor asignación LEADER de Andalucía (~22 M€). No es concurso: se resuelve por orden de presentación.</p>
+          <a href="/subvenciones/leader-digitalizacion" class="text-blue-400 hover:text-blue-300 text-xs font-bold transition-colors">Ver guía completa de LEADER →</a>
+        </div>
+        <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
+            <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO</span>
+          </div>
+          <p class="text-slate-200 text-sm font-bold mb-1">Kit Consulting — para pymes de 10 a 250 empleados</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Financia consultoría digital especializada (IA, ciberseguridad, análisis de datos). Hasta 24.000 € en bonos. Verifica el estado en <a href="https://sede.red.gob.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">sede.red.gob.es</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Kit Digital en Granada — FAQ</h2>
+      <div class="space-y-4">
+        {[
+          {
+            q: '¿Está abierto el Kit Digital en Granada en 2026?',
+            a: 'No para nuevas solicitudes a julio de 2026. La Orden TDF/39/2026 reactivó el programa con fondos remanentes, pero Red.es aún no ha publicado los plazos concretos. La apertura se considera inminente. Mientras tanto, la alternativa activa más potente es LEADER (hasta 65%, zonas rurales) o convocatorias autonómicas.',
+          },
+          {
+            q: '¿Cuánto financia el Kit Digital en Granada?',
+            a: 'El bono es igual en toda España: hasta 12.000 € para 10-49 empleados, 6.000 € para 3-9 empleados, y 2.000-3.000 € para autónomos y empresas de 0-2 empleados. Cubre el 100% del coste de la solución hasta ese importe máximo.',
+          },
+          {
+            q: '¿Qué financia el Kit Digital?',
+            a: 'Web y presencia en internet, tienda online, redes sociales, CRM, ciberseguridad, business intelligence, automatización e inteligencia artificial aplicada al negocio (nueva categoría desde la Orden TDF/39/2026).',
+          },
+          {
+            q: '¿Qué es un agente digitalizador del Kit Digital?',
+            a: 'Es una empresa o profesional acreditado por Red.es para implantar soluciones dentro del catálogo del Kit Digital. Solo puedes usar el bono con agentes registrados. RPIdev puede colaborar en la parte técnica junto con un agente digitalizador acreditado.',
+          },
+          {
+            q: '¿Cómo puedo prepararme para el Kit Digital antes de que abra?',
+            a: 'Haz el test de autodiagnóstico en Acelera Pyme, define qué solución digital necesita tu negocio, y trabaja con un proveedor de confianza para tener el proyecto definido antes de que abra la convocatoria. Cuando abre, los bonos se agotan rápido.',
+          },
+          {
+            q: '¿Hay otras ayudas abiertas ahora para digitalización en Granada?',
+            a: 'Sí. LEADER 2023-2027 está activa hasta diciembre de 2028 y cubre hasta el 65% para negocios en zonas rurales de Granada — la provincia con más fondos LEADER de Andalucía. No es concurso: se resuelve por orden de presentación.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Más información</h2>
+      <ul class="space-y-2">
+        {[
+          ['Acelera Pyme — autodiagnóstico y registro Kit Digital', 'https://acelerapyme.gob.es'],
+          ['Red.es — convocatorias Kit Digital y Kit Consulting', 'https://sede.red.gob.es'],
+          ['Orden TDF/39/2026 — BOE 28/01/2026', 'https://www.boe.es/buscar/doc.php?id=BOE-A-2026-1426'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">Prepárate para el Kit Digital en Granada</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        Cuando abra la convocatoria, las plazas se asignan por orden de presentación. Cuéntame qué necesita tu negocio y lo dejamos listo antes de que abra.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
+      Última actualización: 2 de julio de 2026. Los plazos y condiciones pueden cambiar. Consulta siempre <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">Acelera Pyme</a> o <a href="https://sede.red.gob.es" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">sede.red.gob.es</a> para información actualizada.
+    </p>
+  </main>
+</LayoutStatic>

@@ -1,0 +1,399 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/subvenciones/ayudas-aragon`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 3, "name": "Ayudas Aragón", "item": pageUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${pageUrl}#article`,
+  "headline": "Ayudas para digitalización de pymes en Aragón 2026 — IAF y convocatorias autonómicas",
+  "description": "Guía de ayudas para digitalizar tu negocio en Aragón: líneas del IAF, comercio electrónico y convocatorias autonómicas. Estado verificado, requisitos y cómo solicitarlas.",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "author": { "@id": `${siteUrl}/#founder` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": pageUrl,
+  "inLanguage": "es-ES"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué ayudas hay para digitalización de pymes en Aragón?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En Aragón las principales líneas de ayuda para digitalización son: las convocatorias de digitalización del IAF (Instituto Aragonés de Fomento), el programa de pequeño comercio y artesanía de Aragón, y las ayudas de la Cámara de Comercio para transformación digital. Además, el Kit Digital (Red.es) aplica en Aragón igual que en el resto de España. Para zonas rurales aragonesas también es aplicable el programa LEADER a través de los Grupos de Acción Local (GAL) de cada comarca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el IAF y qué ayudas da para digitalización en Aragón?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Instituto Aragonés de Fomento (IAF) es el organismo dependiente del Gobierno de Aragón que gestiona las ayudas a la empresa aragonesa. Sus líneas de apoyo a la digitalización incluyen subvenciones para la implantación de soluciones digitales, comercio electrónico, presencia en internet y transformación de procesos. Las convocatorias se abren periódicamente — hay que estar al tanto de la web del IAF para no perder la ventana de solicitud."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El Kit Digital aplica en Aragón?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El Kit Digital es un programa nacional de Red.es que aplica en todo el territorio español, incluido Aragón. Los bonos son los mismos: hasta 12.000 € para 10-49 empleados, 6.000 € para 3-9 empleados, y 2.000-3.000 € para autónomos. A julio de 2026 el programa está pendiente de nueva convocatoria tras la Orden TDF/39/2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué ayudas hay para el pequeño comercio de Aragón que quiere digitalizarse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Gobierno de Aragón tiene líneas específicas para el pequeño comercio y la artesanía que incluyen apoyo a la digitalización: presencia online, tienda electrónica y herramientas de gestión. Estas convocatorias las gestiona el Departamento de Economía, Comercio y Empresa de Aragón. Es necesario verificar el estado de cada convocatoria en el momento de solicitar, ya que los plazos varían cada año."
+      }
+    }
+  ]
+};
+---
+
+<LayoutStatic
+  title="Ayudas para digitalización de pymes en Aragón 2026 — IAF y convocatorias"
+  description="Guía de ayudas para digitalizar tu negocio en Aragón: IAF, comercio electrónico y convocatorias autonómicas. Estado verificado a julio 2026. Asesoramiento gratuito."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
+
+  <NavStatic lang="es" activePage="/subvenciones" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
+      <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <span>/</span>
+      <span class="text-slate-400">Ayudas Aragón</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold tracking-widest mb-6">
+        ARAGÓN · AYUDAS DIGITALIZACIÓN
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Ayudas para digitalizar<br class="hidden md:block" /> tu negocio en <span class="text-blue-500">Aragón</span>
+      </h1>
+
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-4">
+        Si tu negocio está en Aragón, tienes acceso a varias líneas de ayuda para digitalización: convocatorias del IAF (Instituto Aragonés de Fomento), programas específicos para comercio, artesanía y hostelería, y el Kit Digital de Red.es — que aplica en todo el territorio nacional.
+      </p>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        En esta página encontrarás las principales opciones disponibles para pymes y autónomos aragoneses, con estado verificado y fuentes oficiales para que puedas confirmar la situación actual antes de solicitar.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          CONSULTA GRATUITA → QUÉ ENCAJA CON TU NEGOCIO
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%2C%20tengo%20un%20negocio%20en%20Arag%C3%B3n%20y%20quiero%20saber%20qu%C3%A9%20ayudas%20tengo%20disponibles"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-600/30 text-emerald-400 text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Tabla de estado -->
+    <section class="mb-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+        <div>
+          <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2">Ayudas disponibles en Aragón</h2>
+        </div>
+        <span class="text-slate-500 text-xs font-mono">Última verificación: 2 julio 2026</span>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PROGRAMA</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">ESTADO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PARA QUIÉN</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                programa: 'LEADER 2023-2027 (zonas rurales Aragón)',
+                estado: '🟢 Activa — hasta 2028',
+                estadoColor: 'text-green-400',
+                para: 'Negocios en zonas rurales aragonesas',
+              },
+              {
+                programa: 'Kit Digital (Red.es)',
+                estado: '🟡 Pendiente nueva convocatoria',
+                estadoColor: 'text-amber-400',
+                para: 'Autónomos y pymes (0–49 empleados)',
+              },
+              {
+                programa: 'IAF — Digitalización empresarial',
+                estado: '🟡 Verificar convocatoria vigente',
+                estadoColor: 'text-amber-400',
+                para: 'Pymes aragonesas',
+              },
+              {
+                programa: 'Pequeño comercio y artesanía Aragón',
+                estado: '🟡 Verificar convocatoria vigente',
+                estadoColor: 'text-amber-400',
+                para: 'Comercios y artesanos de Aragón',
+              },
+            ].map(({ programa, estado, estadoColor, para }, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-200 font-bold border-r border-white/5 whitespace-nowrap">{programa}</td>
+                <td class={`px-5 py-3 font-bold border-r border-white/5 ${estadoColor}`}>{estado}</td>
+                <td class="px-5 py-3 text-slate-400">{para}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-slate-500 text-xs">Los estados de convocatorias del IAF y pequeño comercio deben verificarse directamente en las fuentes oficiales antes de solicitar — las ventanas abren y cierran periódicamente.</p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- IAF -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO ACTUAL</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">IAF — Instituto Aragonés de Fomento</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          El <strong class="text-slate-200">Instituto Aragonés de Fomento (IAF)</strong> es el organismo público dependiente del Gobierno de Aragón que gestiona los programas de apoyo a la empresa aragonesa. Incluye líneas específicas para la digitalización empresarial: implantación de soluciones digitales, comercio electrónico y transformación de procesos.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ PUEDE FINANCIAR</span>
+        <ul class="grid sm:grid-cols-2 gap-3 mt-3">
+          {[
+            'Web corporativa y presencia digital profesional',
+            'Tienda online y comercio electrónico',
+            'Software de gestión empresarial (ERP, CRM)',
+            'Automatización de procesos de negocio',
+            'Herramientas de marketing digital',
+            'Ciberseguridad y protección de datos',
+          ].map((item) => (
+            <li class="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300">
+              <span class="text-blue-500 mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300 mb-4">
+        <strong>Cómo verificar el estado actual:</strong> las convocatorias del IAF se abren periódicamente y tienen plazos propios. Consulta el estado en <a href="https://www.iaf.es" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">iaf.es</a> o suscríbete a sus alertas de convocatorias para no perder la ventana de solicitud.
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Contacto IAF</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Web: <a href="https://www.iaf.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">iaf.es</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Sede: Paseo María Agustín 36, Zaragoza</li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Teléfono: 976 702 100</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Pequeño comercio Aragón -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO ACTUAL</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Ayudas pequeño comercio y artesanía de Aragón</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          El Gobierno de Aragón, a través del Departamento de Economía, Comercio y Empresa, tiene líneas específicas de ayuda para el <strong class="text-slate-200">pequeño comercio y la artesanía aragonesa</strong>. Entre las líneas de apoyo se incluyen la digitalización: creación de tienda online, presencia en internet y herramientas de gestión digital para comercios.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CARACTERÍSTICAS HABITUALES</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ['Beneficiarios', 'Pequeños comercios minoristas y artesanos de Aragón'],
+                ['Porcentaje de ayuda', 'Hasta el 50-80% de la inversión subvencionable (según convocatoria)'],
+                ['Gastos elegibles', 'Tienda online, web, software de gestión, herramientas digitales'],
+                ['Gestión', 'Departamento de Economía, Comercio y Empresa del Gobierno de Aragón'],
+              ].map(([concepto, detalle], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                  <td class="px-5 py-3 text-slate-400">{detalle}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Cómo estar al tanto</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Portal del Gobierno de Aragón: <a href="https://www.aragon.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">aragon.es</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Cámara de Comercio de Zaragoza: <a href="https://www.camarazaragoza.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">camarazaragoza.com</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>CEPYME Aragón (para pymes): <a href="https://www.cepymearagon.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">cepymearagon.es</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Kit Digital en Aragón -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">PENDIENTE DE APERTURA</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Kit Digital en Aragón — hasta 12.000 €</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">
+        El Kit Digital es un programa nacional de Red.es que aplica en Aragón igual que en el resto de España. A julio de 2026 está pendiente de nueva convocatoria — la Orden TDF/39/2026 lo reactivó con fondos remanentes pero aún no hay plazos publicados para nuevas solicitudes.
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">SEGMENTO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">EMPLEADOS</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">BONO MÁXIMO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Segmento I', '10–49 empleados', '12.000 €'],
+              ['Segmento II', '3–9 empleados', '6.000 €'],
+              ['Segmento III', '0–2 empleados / autónomos', '2.000–3.000 €'],
+            ].map(([seg, emp, bono], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{seg}</td>
+                <td class="px-5 py-3 text-slate-400 border-r border-white/5">{emp}</td>
+                <td class="px-5 py-3 text-slate-200 font-bold">{bono}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <a href="/subvenciones/kit-digital-granada" class="text-blue-400 hover:text-blue-300 text-xs font-bold transition-colors">Ver guía completa del Kit Digital — estado, qué financia y cómo prepararse →</a>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Ayudas digitalización Aragón — FAQ</h2>
+      <div class="space-y-4">
+        {[
+          {
+            q: '¿Qué ayudas hay para digitalización de pymes en Aragón?',
+            a: 'Las principales líneas son: convocatorias de digitalización del IAF, ayudas para pequeño comercio y artesanía del Gobierno de Aragón, el Kit Digital de Red.es (pendiente de nueva convocatoria) y LEADER para negocios en zonas rurales aragonesas.',
+          },
+          {
+            q: '¿Qué es el IAF y qué ayudas da para digitalización?',
+            a: 'El Instituto Aragonés de Fomento gestiona los programas de apoyo a la empresa aragonesa. Sus líneas de digitalización incluyen subvenciones para web, tienda online, software de gestión y automatización. Las convocatorias se abren periódicamente — hay que verificar el estado en iaf.es.',
+          },
+          {
+            q: '¿El Kit Digital aplica en Aragón?',
+            a: 'Sí. Es un programa nacional de Red.es que aplica en todo el territorio. Los bonos son hasta 12.000 € para 10-49 empleados, 6.000 € para 3-9, y 2.000-3.000 € para autónomos. A julio de 2026 está pendiente de nueva convocatoria.',
+          },
+          {
+            q: '¿Qué ayudas hay para el pequeño comercio de Aragón que quiere digitalizarse?',
+            a: 'El Gobierno de Aragón tiene líneas específicas para comercio y artesanía que incluyen apoyo a la digitalización: web, tienda electrónica y herramientas de gestión. Conviene verificar el estado en el portal de Aragón o en la Cámara de Comercio de Zaragoza.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Más información</h2>
+      <ul class="space-y-2">
+        {[
+          ['IAF — Instituto Aragonés de Fomento', 'https://www.iaf.es'],
+          ['Gobierno de Aragón — Comercio y empresa', 'https://www.aragon.es'],
+          ['Cámara de Comercio de Zaragoza', 'https://www.camarazaragoza.com'],
+          ['Kit Digital (Red.es)', 'https://sede.red.gob.es'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Negocio en Aragón? Vemos qué encaja</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        Cuéntame en qué consiste tu negocio y en qué parte de Aragón estás. Te digo qué ayuda tiene más sentido solicitar ahora y qué necesitas preparar.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
+      Última actualización: 2 de julio de 2026. Los plazos y condiciones de cada programa pueden cambiar. Verifica siempre el estado actual en las fuentes oficiales antes de iniciar cualquier inversión.
+    </p>
+  </main>
+</LayoutStatic>

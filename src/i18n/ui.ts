@@ -86,9 +86,6 @@ export const ui = {
       { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Web profesional con SEO optimizado.' },
       { name: 'SEO Pilot', type: 'SAAS', desc: 'Auditoría SEO automatizada con IA.' },
       { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Antigua web corporativa de rpidev.' },
-      { name: 'CRM rpidev', type: 'CRM', desc: 'CRM con IA para gestión de leads.' },
-      { name: 'BasicPlanner', type: 'GESTIÓN', desc: 'Agenda y facturación clínica.' },
-      { name: 'VeriFax', type: 'SAAS', desc: 'Landing de facturación electrónica VeriFactu.' },
     ],
 
     // Grants / Subvenciones
@@ -212,9 +209,6 @@ export const ui = {
       { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Professional website with optimized SEO.' },
       { name: 'SEO Pilot', type: 'SAAS', desc: 'AI-powered automated SEO audit.' },
       { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Previous version of the rpidev corporate website.' },
-      { name: 'CRM rpidev', type: 'CRM', desc: 'AI-powered CRM for lead management.' },
-      { name: 'BasicPlanner', type: 'MGMT', desc: 'Clinical scheduling and invoicing.' },
-      { name: 'VeriFax', type: 'SAAS', desc: 'Electronic invoicing landing for VeriFactu compliance.' },
     ],
 
     // Grants

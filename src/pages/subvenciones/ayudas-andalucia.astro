@@ -1,0 +1,443 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/subvenciones/ayudas-andalucia`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 3, "name": "Ayudas Andalucía", "item": pageUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${pageUrl}#article`,
+  "headline": "Ayudas para digitalización de pymes en Andalucía 2026 — comercio, RETECH y Pymetur",
+  "description": "Guía de ayudas para digitalizar tu negocio en Andalucía: comercio y artesanía (hasta 100%), RETECH, Pymetur y convocatorias de la Junta. Estado verificado a julio 2026.",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "author": { "@id": `${siteUrl}/#founder` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": pageUrl,
+  "inLanguage": "es-ES"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué ayudas hay para digitalización de pymes en Andalucía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En Andalucía las principales líneas de ayuda para digitalización de pymes son: las ayudas para comercio y artesanía de la Junta de Andalucía (hasta el 100% de cobertura), el programa RETECH de transformación tecnológica, Pymetur para empresas turísticas, y LEADER para negocios en zonas rurales (hasta el 65%, activo hasta 2028). El Kit Digital de Red.es también aplica en Andalucía igual que en el resto de España, aunque está pendiente de nueva convocatoria a julio de 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué financia la línea de comercio y artesanía de Andalucía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La línea de apoyo al comercio y artesanía de la Junta de Andalucía financia proyectos de digitalización del comercio minorista y la artesanía: creación de tienda online, desarrollo de página web comercial, implantación de software de gestión, herramientas de marketing digital y presencia en marketplaces. La cobertura puede llegar hasta el 100% en determinados perfiles. Las convocatorias las gestiona la Consejería de Empresa, Comercio y Trabajo de la Junta de Andalucía."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es RETECH y cómo puede ayudar a mi negocio en Andalucía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RETECH es el programa de transformación tecnológica de la Junta de Andalucía, dirigido a pymes y autónomos andaluces que quieran incorporar tecnología en sus procesos productivos o de gestión. Financia proyectos de digitalización, automatización e implantación de tecnologías avanzadas. Los plazos y porcentajes de cobertura varían según convocatoria — hay que verificar el estado en el momento de solicitar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es Pymetur y qué financia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pymetur es el programa de la Junta de Andalucía de apoyo a la competitividad de las pymes turísticas andaluzas. Financia proyectos de mejora de la calidad, digitalización y modernización de empresas turísticas: hoteles, restaurantes, agencias de viajes, guías, alojamientos rurales y actividades de ocio. La digitalización es una línea elegible dentro del programa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es compatible pedir varias ayudas a la vez para el mismo proyecto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de las bases de cada convocatoria. En general, las ayudas de la Junta de Andalucía son compatibles entre sí y con el Kit Digital, siempre que no se supere el 100% del coste del proyecto subvencionable. LEADER y Kit Digital tienen reglas de compatibilidad propias que hay que verificar con el organismo gestor antes de solicitar. Es importante declarar todas las ayudas solicitadas o concedidas para el mismo proyecto."
+      }
+    }
+  ]
+};
+---
+
+<LayoutStatic
+  title="Ayudas para digitalización de pymes en Andalucía 2026 — comercio, RETECH y Pymetur"
+  description="Guía de ayudas para digitalizar tu negocio en Andalucía: comercio y artesanía (hasta 100%), RETECH, Pymetur y convocatorias de la Junta. Estado verificado julio 2026."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
+
+  <NavStatic lang="es" activePage="/subvenciones" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
+      <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <span>/</span>
+      <span class="text-slate-400">Ayudas Andalucía</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold tracking-widest mb-6">
+        ANDALUCÍA · AYUDAS DIGITALIZACIÓN
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Ayudas para digitalizar<br class="hidden md:block" /> tu negocio en <span class="text-blue-500">Andalucía</span>
+      </h1>
+
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-4">
+        La Junta de Andalucía gestiona varias líneas de ayuda para digitalización de pymes y autónomos andaluces: comercio y artesanía (hasta el 100% de cobertura en algunos casos), RETECH para transformación tecnológica, Pymetur para empresas turísticas, y el Kit Digital de Red.es — que aplica en todo el territorio nacional.
+      </p>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        Si tu negocio está en zona rural de Andalucía, también tienes acceso a <a href="/subvenciones/leader-digitalizacion" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">LEADER 2023-2027</a> — activo hasta diciembre de 2028, hasta el 65% de cobertura — que es la opción más potente disponible ahora mismo.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          CONSULTA GRATUITA → QUÉ ENCAJA CON TU NEGOCIO
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%2C%20tengo%20un%20negocio%20en%20Andaluc%C3%ADa%20y%20quiero%20saber%20qu%C3%A9%20ayudas%20tengo%20disponibles"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-600/30 text-emerald-400 text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Tabla de estado -->
+    <section class="mb-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+        <div>
+          <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2">Ayudas disponibles en Andalucía</h2>
+        </div>
+        <span class="text-slate-500 text-xs font-mono">Última verificación: 2 julio 2026</span>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PROGRAMA</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">ESTADO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PARA QUIÉN</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                programa: 'LEADER 2023-2027 (zonas rurales Andalucía)',
+                estado: '🟢 Activa — hasta 31/12/2028',
+                estadoColor: 'text-green-400',
+                para: 'Negocios en zonas rurales de Andalucía',
+              },
+              {
+                programa: 'Kit Digital (Red.es)',
+                estado: '🟡 Pendiente nueva convocatoria',
+                estadoColor: 'text-amber-400',
+                para: 'Autónomos y pymes (0–49 empleados)',
+              },
+              {
+                programa: 'Comercio y artesanía Junta de Andalucía',
+                estado: '🟡 Verificar convocatoria vigente',
+                estadoColor: 'text-amber-400',
+                para: 'Comercios minoristas y artesanos andaluces',
+              },
+              {
+                programa: 'RETECH — transformación tecnológica',
+                estado: '🟡 Verificar convocatoria vigente',
+                estadoColor: 'text-amber-400',
+                para: 'Pymes y autónomos de Andalucía',
+              },
+              {
+                programa: 'Pymetur — pymes turísticas',
+                estado: '🟡 Verificar convocatoria vigente',
+                estadoColor: 'text-amber-400',
+                para: 'Empresas turísticas de Andalucía',
+              },
+              {
+                programa: 'Cuota Cero autónomos (Junta)',
+                estado: '🔴 Cerrada — plazo 30/06/2026',
+                estadoColor: 'text-red-400',
+                para: 'Autónomos nuevos en Andalucía',
+              },
+            ].map(({ programa, estado, estadoColor, para }, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-200 font-bold border-r border-white/5 whitespace-nowrap">{programa}</td>
+                <td class={`px-5 py-3 font-bold border-r border-white/5 ${estadoColor}`}>{estado}</td>
+                <td class="px-5 py-3 text-slate-400">{para}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-slate-500 text-xs">Las convocatorias de la Junta de Andalucía tienen plazos propios — deben verificarse en las fuentes oficiales antes de solicitar.</p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Comercio y artesanía -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO ACTUAL</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Ayudas comercio y artesanía — Junta de Andalucía</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3 mb-4">
+          La Junta de Andalucía, a través de la Consejería de Empresa, Comercio y Trabajo, tiene líneas de ayuda específicas para el <strong class="text-slate-200">comercio minorista y la artesanía andaluza</strong>. La digitalización es una de las líneas elegibles: web comercial, tienda online, software de gestión y herramientas digitales.
+        </p>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          En algunos perfiles y convocatorias la cobertura puede llegar hasta el <strong class="text-slate-200">100% del coste del proyecto</strong>, especialmente para pequeños comercios y artesanos con menos recursos.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ PUEDE FINANCIAR</span>
+        <ul class="grid sm:grid-cols-2 gap-3 mt-3">
+          {[
+            'Web comercial y presencia online',
+            'Tienda online y venta por internet',
+            'Herramientas de gestión del punto de venta',
+            'Marketing digital y posicionamiento',
+            'Pasarelas de pago y sistemas TPV',
+            'Integración con marketplaces',
+          ].map((item) => (
+            <li class="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300">
+              <span class="text-blue-500 mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Cómo verificar y solicitar</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Portal de la Junta: <a href="https://www.juntadeandalucia.es/organismos/empresacomercioytrabajo.html" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">juntadeandalucia.es</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Cámara de Comercio de Granada: <a href="https://www.camaragranada.org" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">camaragranada.org</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Confederación de Empresarios de Andalucía (CEA): <a href="https://www.cea.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">cea.es</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- RETECH -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO ACTUAL</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">RETECH — Transformación tecnológica de pymes andaluzas</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          RETECH es el programa de la Junta de Andalucía para la <strong class="text-slate-200">transformación tecnológica de pymes y autónomos</strong> andaluces. Financia proyectos de digitalización, automatización e incorporación de tecnologías avanzadas a los procesos productivos y de gestión.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">CARACTERÍSTICAS HABITUALES</span>
+        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ['Beneficiarios', 'Pymes y autónomos con actividad en Andalucía'],
+                ['Proyectos elegibles', 'Digitalización, automatización, implantación de tecnologías avanzadas'],
+                ['Porcentaje de ayuda', 'Variable según convocatoria — verificar en la Junta de Andalucía'],
+                ['Gestión', 'Junta de Andalucía — Consejería de Universidad, Investigación e Innovación'],
+              ].map(([concepto, detalle], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                  <td class="px-5 py-3 text-slate-400">{detalle}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300">
+        <strong>Verificar estado:</strong> las convocatorias RETECH tienen calendarios propios. Consulta el estado actualizado en el <a href="https://www.juntadeandalucia.es" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">portal de la Junta de Andalucía</a>.
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Pymetur -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+        <span class="text-amber-400 text-xs font-bold tracking-widest">VERIFICAR ESTADO ACTUAL</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Pymetur — pymes turísticas de Andalucía</h2>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+        <p class="text-slate-400 text-sm leading-relaxed mt-3">
+          Pymetur es el programa de la Junta de Andalucía de apoyo a la <strong class="text-slate-200">competitividad de las pymes turísticas andaluzas</strong>. Financia proyectos de mejora de la calidad, digitalización y modernización de hoteles, restaurantes, alojamientos rurales, agencias, guías y actividades de ocio.
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ PUEDE FINANCIAR</span>
+        <ul class="grid sm:grid-cols-2 gap-3 mt-3">
+          {[
+            'Web y reservas online para alojamientos',
+            'Sistema de gestión hotelera (PMS)',
+            'Digitalización de procesos de restauración',
+            'Marketing digital y presencia en canales online',
+            'Herramientas de experiencia del visitante',
+            'Conectividad y automatización de servicios',
+          ].map((item) => (
+            <li class="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300">
+              <span class="text-blue-500 mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">Más información</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Turismo Andaluz: <a href="https://www.turismoandaluz.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">turismoandaluz.com</a></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>Junta de Andalucía — Turismo: <a href="https://www.juntadeandalucia.es/organismos/turismoculturaydeporte.html" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">juntadeandalucia.es</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- LEADER en Andalucía -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"></span>
+        <span class="text-green-400 text-xs font-bold tracking-widest">ACTIVA AHORA — HASTA 31/12/2028</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">LEADER — la mejor opción para zonas rurales de Andalucía</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">
+        Si tu negocio está en zona rural de Andalucía, LEADER 2023-2027 es la opción más potente disponible ahora mismo: hasta el <strong class="text-slate-200">65% de la inversión</strong> (hasta 200.000 €) en web, software, automatización o tienda online. Abierto hasta diciembre de 2028. No es concurso: se resuelve por orden de presentación.
+      </p>
+      <div class="p-4 bg-blue-600/5 border border-blue-600/20 rounded-xl text-sm text-blue-300 mb-4">
+        Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€). Si tu negocio es de Granada, el impacto puede ser especialmente grande.
+      </div>
+      <a href="/subvenciones/leader-digitalizacion" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+        Ver guía completa de LEADER — GDRs, proceso y qué financia →
+      </a>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Ayudas digitalización Andalucía — FAQ</h2>
+      <div class="space-y-4">
+        {[
+          {
+            q: '¿Qué ayudas hay para digitalización de pymes en Andalucía?',
+            a: 'Las principales líneas son: comercio y artesanía de la Junta (hasta 100%), RETECH para transformación tecnológica, Pymetur para empresas turísticas, y LEADER para zonas rurales (hasta 65%, activo hasta 2028). El Kit Digital de Red.es también aplica, aunque está pendiente de nueva convocatoria a julio de 2026.',
+          },
+          {
+            q: '¿Qué financia la línea de comercio y artesanía de Andalucía?',
+            a: 'Web comercial, tienda online, software de gestión, herramientas de marketing digital, pasarelas de pago y presencia en marketplaces. En algunos perfiles la cobertura puede llegar al 100%.',
+          },
+          {
+            q: '¿Qué es RETECH y cómo puede ayudar a mi negocio?',
+            a: 'RETECH es el programa de transformación tecnológica de la Junta de Andalucía. Financia digitalización, automatización e implantación de tecnologías avanzadas en pymes y autónomos andaluces. Los plazos varían según convocatoria.',
+          },
+          {
+            q: '¿Qué es Pymetur y qué financia?',
+            a: 'Pymetur apoya la competitividad de pymes turísticas andaluzas. Financia digitalización de hoteles, restaurantes, alojamientos rurales, agencias y actividades de ocio: reservas online, sistemas de gestión, marketing digital y más.',
+          },
+          {
+            q: '¿Es compatible pedir varias ayudas a la vez para el mismo proyecto?',
+            a: 'Depende de las bases de cada convocatoria. En general las ayudas de la Junta son compatibles entre sí y con el Kit Digital, siempre que no se supere el 100% del coste. Es importante declarar todas las ayudas solicitadas o concedidas.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Más información</h2>
+      <ul class="space-y-2">
+        {[
+          ['Junta de Andalucía — Empresa, Comercio y Trabajo', 'https://www.juntadeandalucia.es/organismos/empresacomercioytrabajo.html'],
+          ['Junta de Andalucía — Turismo y Cultura', 'https://www.juntadeandalucia.es/organismos/turismoculturaydeporte.html'],
+          ['Tramitación ayudas LEADER — Junta de Andalucía', 'https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/desarrollo-rural/tramitacion-ayudas-dr-2023-2027.html'],
+          ['Kit Digital (Red.es)', 'https://sede.red.gob.es'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Negocio en Andalucía? Te oriento</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        Hay varias líneas con plazos distintos. Cuéntame en qué consiste tu negocio, dónde estás y qué quieres digitalizar — te digo cuál tiene más sentido solicitar ahora y qué hay que preparar.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
+      Última actualización: 2 de julio de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales antes de iniciar cualquier inversión.
+    </p>
+  </main>
+</LayoutStatic>

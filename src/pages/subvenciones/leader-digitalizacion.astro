@@ -1,0 +1,411 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/subvenciones/leader-digitalizacion`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 3, "name": "LEADER Digitalización", "item": pageUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${pageUrl}#article`,
+  "headline": "Ayudas LEADER para digitalizar tu negocio en Granada 2026 — hasta el 65%",
+  "description": "Guía completa del programa LEADER 2023-2027 para digitalización en zonas rurales de Granada. Hasta el 65% de cobertura, abierto hasta 2028. GDRs de Granada, qué financia y cómo solicitarlo.",
+  "datePublished": "2026-04-23",
+  "dateModified": "2026-07-02",
+  "author": { "@id": `${siteUrl}/#founder` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": pageUrl,
+  "inLanguage": "es-ES"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el programa LEADER para digitalización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LEADER es una iniciativa europea de fondos FEADER para el desarrollo de zonas rurales, integrada en el Plan Estratégico de la PAC 2023-2027 como la Intervención 7119. En España la gestionan localmente los Grupos de Desarrollo Rural (GDR) de cada comarca. No funciona por concurso ni puntuación: las solicitudes se resuelven por orden de presentación. Quien entra primero con un proyecto bien preparado accede al dinero primero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto financia LEADER para digitalización en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LEADER cubre hasta el 65% de la inversión subvencionable, con un máximo de 200.000 € por proyecto. Las entidades públicas y asociaciones sin ánimo de lucro pueden recibir hasta el 100%. En Andalucía la convocatoria está abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028, salvo agotamiento de fondos. Granada es la provincia con mayor asignación LEADER de toda Andalucía, con casi 22 millones de euros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Mi negocio en Granada puede pedir ayudas LEADER?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si tu municipio está en zona rural elegible, sí. El primer paso es identificar a qué Grupo de Desarrollo Rural (GDR) pertenece tu municipio. En Granada hay 8 GDRs que cubren la práctica totalidad de la provincia rural: Alfanevada, Promovega, Altiplano de Granada, Poniente Granadino, Valle de Lecrín Temple y Costa, Alpujarra-Sierra Nevada, Los Montes de Granada y Comarca de Guadix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué puede incluir un proyecto LEADER de digitalización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un proyecto LEADER de digitalización puede incluir: desarrollo de software y aplicaciones a medida, creación o mejora de página web profesional, tienda online y comercio electrónico, digitalización del proceso productivo, herramientas de automatización de procesos, CRM y gestión de clientes, soluciones IoT para monitorización agrícola o industrial, y honorarios de consultores técnicos vinculados al proyecto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que adelantar el dinero en el programa LEADER?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. En LEADER la mecánica es: primero se concede la ayuda, después ejecutas la inversión (pagas tú), y después justificas para recibir el reembolso. Es fundamental no contratar ni pagar nada antes de que se resuelva la ayuda: los gastos previos a la resolución no son subvencionables. Por eso es importante preparar bien la solicitud antes de iniciar cualquier inversión."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona el proceso para pedir una ayuda LEADER en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El proceso tiene 6 pasos: 1) Verificar que tu municipio está en zona LEADER y a qué GDR pertenece. 2) Contactar con el GDR para una valoración previa. 3) Definir el proyecto digital (qué vas a digitalizar, con qué inversión). 4) Preparar la memoria descriptiva y el plan económico. 5) Presentar la solicitud en la sede electrónica del GDR. 6) Una vez concedida la ayuda: ejecutar, pagar y justificar con facturas y documentación técnica."
+      }
+    }
+  ]
+};
+---
+
+<LayoutStatic
+  title="Ayudas LEADER para digitalizar tu negocio en Granada 2026 — hasta el 65%"
+  description="Guía LEADER 2023-2027 para digitalización en Granada: hasta el 65% de cobertura, abierto hasta 2028. GDRs de Granada, qué financia y cómo solicitarlo. Asesoramiento gratuito."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
+
+  <NavStatic lang="es" activePage="/subvenciones" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
+      <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <span>/</span>
+      <span class="text-slate-400">LEADER Digitalización</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold tracking-widest mb-6">
+        LEADER · ACTIVA HASTA 31/12/2028
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Ayuda LEADER para digitalizar<br class="hidden md:block" /> tu negocio en <span class="text-blue-500">Granada</span> — hasta el 65%
+      </h1>
+
+      <!-- Respuesta directa -->
+      <div class="p-5 bg-green-500/5 border border-green-500/20 rounded-xl mb-6">
+        <p class="text-slate-200 text-sm leading-relaxed font-bold mb-1">Estado a julio de 2026</p>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          <strong>Activa.</strong> La convocatoria en Andalucía está abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028, salvo agotamiento de fondos. No funciona por concurso: se resuelve por orden de presentación. Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€ hasta 2029).
+        </p>
+      </div>
+
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        LEADER es la opción más potente disponible ahora mismo para digitalizar un negocio en zonas rurales de Granada. Cubre hasta el 65% de la inversión — sin necesidad de esperar a que abra el Kit Digital. Si tu municipio está en zona rural elegible, este programa puede financiar tu web, software de gestión, tienda online o automatización.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          CONSULTA GRATUITA → VERIFICAR ELEGIBILIDAD
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%2C%20quiero%20saber%20si%20mi%20negocio%20en%20Granada%20puede%20pedir%20LEADER"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-600/30 text-emerald-400 text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Qué es -->
+    <section class="mb-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+        <div>
+          <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2">El programa LEADER</h2>
+        </div>
+        <span class="text-slate-500 text-xs font-mono">Última verificación: 2 julio 2026</span>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">
+        LEADER es una iniciativa europea para el desarrollo de zonas rurales, financiada con fondos FEADER. En España está integrada en el <strong class="text-slate-200">Plan Estratégico de la PAC 2023-2027</strong> como la Intervención 7119, y la gestionan localmente los <strong class="text-slate-200">Grupos de Desarrollo Rural (GDR)</strong> de cada comarca.
+      </p>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        <strong class="text-slate-200">No funciona por concurso ni por puntuación.</strong> Las solicitudes se resuelven por orden de presentación. Quien antes entra con un proyecto bien preparado, antes accede al dinero — y los fondos no son inagotables.
+      </p>
+      <div class="p-4 bg-blue-600/5 border border-blue-600/20 rounded-xl text-sm text-blue-300">
+        Convocatoria en Andalucía: <strong>abierta desde el 23 de abril de 2026 hasta el 31 de diciembre de 2028</strong>, salvo agotamiento de fondos. Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€).
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cuánto financia -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Importe y condiciones</h2>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-6">
+        <table class="w-full text-sm">
+          <tbody>
+            {[
+              ['Porcentaje de ayuda', 'Hasta el 65% de la inversión subvencionable'],
+              ['Importe máximo por proyecto', '200.000 €'],
+              ['Entidades públicas y asociaciones', 'Hasta el 100%'],
+              ['Tipo de concurrencia', 'No competitiva — por orden de presentación'],
+              ['Plazo en Andalucía', 'Abierto hasta el 31 de diciembre de 2028'],
+              ['Gestión', 'GDR local de cada comarca'],
+            ].map(([concepto, detalle], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                <td class="px-5 py-3 text-slate-400">{detalle}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-amber-300">
+        <strong>Importante:</strong> en LEADER primero se concede la ayuda, después ejecutas la inversión y después justificas para recibir el reembolso. No puedes contratar ni pagar nada antes de la resolución — ese gasto no sería subvencionable.
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Qué puede incluir -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ FINANCIA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Qué puede incluir tu proyecto digital</h2>
+      <ul class="grid sm:grid-cols-2 gap-3">
+        {[
+          'Desarrollo de software y aplicaciones a medida',
+          'Creación o mejora de tu página web profesional',
+          'Tienda online y comercio electrónico',
+          'Digitalización del proceso productivo o de gestión',
+          'Herramientas de automatización de procesos',
+          'CRM y sistemas de gestión de clientes',
+          'Soluciones IoT para monitorización agrícola o industrial',
+          'Honorarios de consultores técnicos vinculados al proyecto',
+        ].map((item) => (
+          <li class="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300">
+            <span class="text-blue-500 mt-0.5 shrink-0">✓</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- A quién va dirigido -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">A QUIÉN VA DIRIGIDO</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Sectores que más encajan con LEADER</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">Autónomos y pymes en zonas rurales elegibles de Granada. Encaja especialmente con:</p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {[
+          { emoji: '🌿', label: 'Turismo rural y hostelería', desc: 'Reservas online, web, gestión de alojamientos rurales y casas de turismo rural.' },
+          { emoji: '🌾', label: 'Agroalimentario', desc: 'Trazabilidad, tienda de venta directa, software de gestión de explotación.' },
+          { emoji: '🛒', label: 'Comercio local en pueblos', desc: 'Catálogo digital, pasarela de pago, presencia online para comercios rurales.' },
+          { emoji: '🏥', label: 'Servicios profesionales rurales', desc: 'Clínicas, despachos, gestorías y consultorios en municipios rurales.' },
+          { emoji: '🏗️', label: 'Industria y artesanía', desc: 'Automatización, digitalización de producción, presencia en internet.' },
+          { emoji: '🌱', label: 'Emprendedores rurales', desc: 'Nuevas actividades con base digital sólida desde el primer día.' },
+        ].map(({ emoji, label, desc }) => (
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <div class="flex items-center gap-2 mb-1">
+              <span>{emoji}</span>
+              <span class="text-slate-200 text-sm font-bold">{label}</span>
+            </div>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Proceso -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO FUNCIONA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Proceso paso a paso</h2>
+      <div class="space-y-3 mb-6">
+        {[
+          ['Verificar elegibilidad', 'Comprobar que tu municipio pertenece a una zona LEADER y a qué GDR corresponde. El GDR puede orientarte antes de presentar nada.'],
+          ['Contactar con el GDR', 'Una llamada o email al equipo técnico del GDR para una valoración previa. Son gratuitos y están para ayudar.'],
+          ['Definir el proyecto', 'Qué vas a digitalizar, con qué inversión y qué impacto tendrá en tu actividad.'],
+          ['Preparar la memoria descriptiva', 'Documento técnico del proyecto + plan económico con presupuestos desglosados.'],
+          ['Presentar la solicitud', 'En la sede electrónica del GDR correspondiente. A partir de aquí empieza el plazo de resolución.'],
+          ['Ejecutar la inversión', 'Solo una vez concedida la ayuda. Ningún gasto anterior a la resolución es subvencionable.'],
+          ['Justificar la inversión', 'Con facturas, pagos y documentación técnica para recibir el reembolso de la parte subvencionada.'],
+        ].map(([titulo, desc], i) => (
+          <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <div>
+              <p class="text-slate-200 text-sm font-bold mb-0.5">{titulo}</p>
+              <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- GDRs Granada -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">GRUPOS DE DESARROLLO RURAL</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">GDRs de Granada</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Granada es la provincia con <strong class="text-slate-200">mayor asignación LEADER de toda Andalucía</strong>, con casi 22 millones de euros hasta 2029 repartidos entre 8 Grupos de Desarrollo Rural:
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">GDR</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">TERRITORIO</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">CONTACTO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Alfanevada', 'https://www.alfanevada.info/', 'Arco Noreste de la Vega (Alfacar, Monachil, Güéjar Sierra…)', 'alfanevada@alfanevada.info'],
+              ['Promovega', 'https://promovega.org/', 'Vega-Sierra Elvira (Atarfe, Cúllar Vega, Pinos Puente…)', 'info@promovega.org'],
+              ['GDR Altiplano de Granada', 'https://altiplanogranada.org/', 'Altiplano (Baza, Huéscar, Benamaurel, Caniles…)', 'altiplanogranada.org'],
+              ['Poniente Granadino', 'https://ponientegranadino.org/', 'Poniente (Loja, Alhama, Montefrío, Íllora…)', 'asociacion@ponientegranadino.org'],
+              ['Valle de Lecrín, Temple y Costa', 'https://lecrintemplecosta.com/', 'Valle de Lecrín, Temple y Costa (Padul, Dúrcal, Almuñécar…)', 'lecrintemplecosta.com'],
+              ['Alpujarra-Sierra Nevada', 'https://www.alpujarradegranada.com/', 'Alpujarra y Sierra Nevada (Órgiva, Lanjarón, Trevélez…)', 'alpujarradegranada.com'],
+              ['GDR Los Montes de Granada', 'https://www.losmontes.org/', 'Montes de Granada (Iznalloz, Guadahortuna, Montejícar…)', 'losmontes.org'],
+              ['GDR Comarca de Guadix', 'https://www.comarcadeguadix.com/', 'Comarca de Guadix (Guadix, Purullena, La Calahorra…)', 'comarcadeguadix.com'],
+            ].map(([nombre, url, territorio, contacto], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 border-r border-white/5">
+                  <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-bold transition-colors text-xs">{nombre}</a>
+                </td>
+                <td class="px-5 py-3 text-slate-400 text-xs border-r border-white/5">{territorio}</td>
+                <td class="px-5 py-3 text-slate-500 text-xs">{contacto}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-slate-500 text-xs">El primer paso es identificar a qué GDR pertenece tu municipio y contactar con su equipo técnico para una valoración previa gratuita.</p>
+
+      <div class="mt-6 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+        <p class="text-slate-300 text-sm font-bold mb-2">¿Tu negocio está fuera de Granada?</p>
+        <p class="text-slate-400 text-xs leading-relaxed">
+          El programa LEADER opera en todas las comunidades autónomas a través de más de 250 Grupos de Acción Local. Para encontrar el GDR de tu comarca consulta la <a href="https://www.redr.es" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">Red Española de Desarrollo Rural (REDR)</a>.
+        </p>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">LEADER digitalización — FAQ</h2>
+      <div class="space-y-4">
+        {[
+          {
+            q: '¿Qué es el programa LEADER para digitalización?',
+            a: 'LEADER es una iniciativa europea de fondos FEADER para el desarrollo de zonas rurales, integrada en el Plan Estratégico de la PAC 2023-2027. La gestionan localmente los GDRs de cada comarca. No funciona por concurso: se resuelve por orden de presentación.',
+          },
+          {
+            q: '¿Cuánto financia LEADER para digitalización en Granada?',
+            a: 'Hasta el 65% de la inversión subvencionable, con un máximo de 200.000 € por proyecto. Entidades públicas y asociaciones pueden recibir hasta el 100%. En Andalucía la convocatoria está abierta hasta el 31 de diciembre de 2028. Granada tiene la mayor asignación LEADER de Andalucía (~22 M€).',
+          },
+          {
+            q: '¿Mi negocio en Granada puede pedir ayudas LEADER?',
+            a: 'Si tu municipio está en zona rural elegible, sí. El primer paso es identificar a qué GDR pertenece tu municipio. En Granada hay 8 GDRs que cubren la práctica totalidad de la provincia rural.',
+          },
+          {
+            q: '¿Qué puede incluir un proyecto LEADER de digitalización?',
+            a: 'Web profesional, tienda online, software a medida, digitalización de procesos productivos, automatización, CRM, IoT agrícola o industrial, y honorarios de consultores técnicos vinculados al proyecto.',
+          },
+          {
+            q: '¿Tengo que adelantar el dinero en el programa LEADER?',
+            a: 'Sí. En LEADER primero se concede la ayuda, después ejecutas la inversión (pagas tú) y después justificas para recibir el reembolso. Es fundamental no contratar ni pagar nada antes de la resolución — esos gastos no serían subvencionables.',
+          },
+          {
+            q: '¿Cómo funciona el proceso para pedir LEADER en Granada?',
+            a: 'Verificar elegibilidad → contactar con el GDR → definir el proyecto → preparar memoria técnica → presentar solicitud → esperar resolución → ejecutar y justificar. El GDR tiene técnicos de apoyo gratuitos para acompañar el proceso.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Más información</h2>
+      <ul class="space-y-2">
+        {[
+          ['Tramitación ayudas LEADER — Junta de Andalucía', 'https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/desarrollo-rural/tramitacion-ayudas-dr-2023-2027.html'],
+          ['Red Española de Desarrollo Rural (REDR)', 'https://www.redr.es'],
+          ['Portal FEADER — Ministerio de Agricultura', 'https://www.mapa.gob.es/es/desarrollo-rural/temas/programas-ue/periodo-de-programacion-2023-2027/pepac/'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Tu negocio está en zona rural de Granada?</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        LEADER funciona por orden de presentación — no esperes a que se agoten los fondos. Cuéntame en qué consiste tu negocio y verificamos juntos si tu municipio es elegible y qué proyecto tiene más sentido solicitar.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
+      Última actualización: 2 de julio de 2026. Verifica siempre el estado actual con el GDR de tu comarca antes de iniciar cualquier inversión.
+    </p>
+  </main>
+</LayoutStatic>
