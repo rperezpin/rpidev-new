@@ -1,0 +1,539 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/subvenciones/pyme-digital-granada/`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${siteUrl}/` },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones/` },
+    { "@type": "ListItem", "position": 3, "name": "Pyme Digital Granada 2026", "item": pageUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${pageUrl}#article`,
+  "headline": "Pyme Digital Granada 2026: ayudas de hasta 6.366,50 € para digitalizar tu negocio",
+  "description": "Convocatoria 2026 de Cámara Granada y Diputación. 75 ayudas de hasta 6.366,50 € para web, comercio electrónico y marketing digital. Por orden de registro desde el 27 de julio.",
+  "datePublished": "2026-07-21T09:00:00+02:00",
+  "dateModified": "2026-07-21T09:00:00+02:00",
+  "inLanguage": "es-ES",
+  "author": { "@id": `${siteUrl}/#founder` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "about": {
+    "@type": "Thing",
+    "name": "Programa Pyme Digital, Cámara de Comercio de Granada"
+  },
+  "spatialCoverage": {
+    "@type": "AdministrativeArea",
+    "name": "Provincia de Granada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Andalucía",
+      "addressCountry": "ES"
+    }
+  },
+  "mainEntityOfPage": pageUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuándo abre el plazo de Pyme Digital en Granada en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El 27 de julio de 2026 a las 09:00 h, en la sede electrónica de la Cámara de Comercio de Granada. El plazo cierra el 30 de octubre de 2026 a las 14:00 h, salvo que se agote antes el presupuesto de 624.009,51 euros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto dinero da realmente Pyme Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La base máxima financiable es de 7.490 euros: 7.000 euros de coste directo más 490 euros de costes indirectos. Se subvenciona el 85%, por lo que la ayuda máxima es de 6.366,50 euros. La cifra de 7.000 euros que suele circular corresponde al coste del proyecto, no a la ayuda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que adelantar el dinero de la inversión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La empresa prefinancia el 100% del proyecto y recibe la ayuda del 85% después de justificarlo. No funciona como el bono del Kit Digital, que se descuenta directamente de la factura del proveedor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay sorteo en la convocatoria de 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A diferencia de 2025, en la edición de 2026 las ayudas se conceden por estricto orden de registro de las solicitudes, hasta agotar la cuantía de cada programa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mi empresa está en un pueblo de la provincia de Granada, ¿tengo menos opciones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al contrario. Cerca del 69% de las 150 ayudas de la convocatoria está reservado para empresas situadas fuera de Granada capital, gracias a la colaboración con la Diputación de Granada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo pedir Pyme Digital si mi empresa está en Motril?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El municipio de Motril no forma parte de la demarcación de Cámara Granada a efectos de esta convocatoria. Conviene confirmarlo directamente con la Cámara antes de preparar la solicitud."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede financiar una página web con Pyme Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, dentro de las líneas de marketing digital y comercio electrónico, siempre que el diagnóstico previo de la Cámara lo recomiende para tu caso concreto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia Pyme Digital del Kit Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pyme Digital lo gestiona Cámara Granada y solo aplica a la provincia, con una ayuda máxima de 6.366,50 euros que la empresa adelanta y cobra después. El Kit Digital es nacional, lo gestiona Red.es, va de 2.000 a 12.000 euros según el tamaño de la empresa y funciona como bono aplicado a la factura. A julio de 2026 el Kit Digital no tiene plazos publicados y Pyme Digital sí."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el diagnóstico de la Fase I?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un análisis gratuito del nivel de digitalización de la empresa que realiza un técnico de la Cámara, y que concluye con un plan personalizado de implantación. Es obligatorio antes de acceder a la fase de ayudas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas ayudas Pyme Digital hay disponibles en Granada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "75 ayudas para el programa Pyme Digital. La convocatoria completa de 2026 reparte 150 ayudas entre Pyme Innova (49), Pyme Digital (75), Pyme Sostenible (15) y Xpande Digital (10), con un millón de euros de fondos FEDER."
+      }
+    }
+  ]
+};
+---
+
+<LayoutStatic
+  title="Pyme Digital Granada 2026: hasta 6.366,50 € — abre el 27 de julio"
+  description="Convocatoria 2026 de Cámara Granada: 75 ayudas de hasta 6.366,50 € para web, tienda online y marketing digital. Se concede por orden de registro desde el 27 de julio. Requisitos, plazos y qué gastos entran."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <Fragment slot="schema">
+    <meta property="article:published_time" content="2026-07-21T09:00:00+02:00" />
+    <meta property="article:modified_time" content="2026-07-21T09:00:00+02:00" />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <NavStatic lang="es" activePage="/subvenciones/" />
+
+  <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
+      <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/subvenciones/" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <span>/</span>
+      <span class="text-slate-400">Pyme Digital Granada</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold tracking-widest mb-6">
+        CÁMARA GRANADA · CONVOCATORIA 2026
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
+        Pyme Digital Granada 2026: ayudas de hasta <span class="text-blue-500">6.366,50 €</span> para digitalizar tu negocio
+      </h1>
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        75 ayudas de Cámara Granada y la Diputación para pymes y autónomos de la provincia. Financia web, tienda online, marketing digital y herramientas de gestión en la nube. Se concede por estricto orden de registro, no por sorteo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          CONSULTA GRATUITA → ¿ENCAJA MI PROYECTO?
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Pyme%20Digital%20en%20Granada"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-600/30 text-emerald-400 text-xs font-bold tracking-widest rounded-xl transition-colors"
+        >
+          WHATSAPP
+        </a>
+      </div>
+    </div>
+
+    <!-- Caja de estado -->
+    <div class="mb-16 p-5 md:p-6 bg-green-500/5 border border-green-500/20 rounded-xl">
+      <p class="text-green-400 text-xs font-bold tracking-widest mb-3">ESTADO DE LA CONVOCATORIA</p>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm">
+        <div>
+          <p class="text-slate-500 text-xs mb-0.5">Apertura</p>
+          <p class="text-slate-200 font-bold">27 de julio de 2026, 09:00 h</p>
+        </div>
+        <div>
+          <p class="text-slate-500 text-xs mb-0.5">Cierre</p>
+          <p class="text-slate-200 font-bold">30 de octubre de 2026, 14:00 h (o antes si se agota el presupuesto)</p>
+        </div>
+        <div>
+          <p class="text-slate-500 text-xs mb-0.5">Concesión</p>
+          <p class="text-slate-200 font-bold">Por estricto orden de registro</p>
+        </div>
+        <div>
+          <p class="text-slate-500 text-xs mb-0.5">Última verificación en Cámara Granada</p>
+          <p class="text-slate-200 font-bold">20 de julio de 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Qué es -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Qué es exactamente Pyme Digital</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">
+        Es un programa de Cámara España, financiado con fondos FEDER y cofinanciado por Cámara Granada y la Diputación, para que pymes y autónomos de la provincia se digitalicen con dinero público.
+      </p>
+      <p class="text-slate-400 text-sm leading-relaxed mb-4">
+        Este año la convocatoria de Granada moviliza un millón de euros repartido en cuatro programas: Pyme Innova, Pyme Digital, Pyme Sostenible y Xpande Digital. En total 150 ayudas, de las cuales <strong class="text-slate-200">75 son de Pyme Digital</strong>, con un presupuesto de 624.009,51 € para esa línea.
+      </p>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Lo importante de la edición de 2026: cambia el sistema. En 2025 había sorteo ante notario para ordenar a los admitidos. Este año se resuelve por <strong class="text-slate-200">estricto orden de registro</strong> hasta agotar los fondos.
+      </p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cuánto dinero -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO DINERO ES EN REALIDAD</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Cuánto dinero es en realidad (y cuándo lo cobras)</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Vas a ver por ahí que son "7.000 €". Esa cifra es el coste directo máximo del proyecto, no la ayuda.
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-6">
+        <table class="w-full text-sm">
+          <tbody>
+            {[
+              ['Coste directo máximo del proyecto', '7.000,00 €'],
+              ['Costes indirectos asociados (7%)', '490,00 €'],
+              ['Base máxima financiable', '7.490,00 €'],
+              ['Porcentaje subvencionado', '85%'],
+              ['Ayuda máxima que recibes', '6.366,50 €'],
+            ].map(([concepto, importe], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5">{concepto}</td>
+                <td class={`px-5 py-3 ${i === 4 ? 'text-blue-400 font-bold' : 'text-slate-400'}`}>{importe}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl mb-4">
+        <p class="text-slate-200 text-sm font-bold mb-2">Y hay un detalle que casi nadie menciona</p>
+        <p class="text-slate-400 text-xs leading-relaxed">
+          La empresa prefinancia el 100%. Pagas tú el proyecto entero, lo justificas, y después cobras el 85%. No es un bono que se descuenta de la factura como en Kit Digital.
+        </p>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Con la ayuda máxima, un proyecto de 7.490 € te acaba costando <strong class="text-slate-200">1.123,50 €</strong> de tu bolsillo. Pero necesitas tener los 7.490 € disponibles primero. Si eso no te encaja ahora mismo, mejor saberlo antes de empezar el trámite que después.
+      </p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Quién puede pedirla -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">QUIÉN PUEDE PEDIRLA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Quién puede pedirla</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Pymes y autónomos dados de alta en el censo del IAE dentro de la demarcación de Cámara Granada.
+      </p>
+      <div class="space-y-4">
+        <div class="p-4 bg-green-500/5 border border-green-500/20 rounded-xl">
+          <p class="text-slate-200 text-sm font-bold mb-1">La reserva del 69% para la provincia</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Cerca del 70% de las 150 ayudas está reservado para empresas de fuera de Granada capital. Si tu negocio está en un pueblo de la provincia, juegas con ventaja real: menos competencia por una bolsa mayor.</p>
+        </div>
+        <div class="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl">
+          <p class="text-slate-200 text-sm font-bold mb-1">Si estás en Motril</p>
+          <p class="text-slate-400 text-xs leading-relaxed">El municipio de Motril no entra en la demarcación de Cámara Granada para estas ayudas. Compruébalo con la Cámara antes de preparar nada.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Qué puedes financiar -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ PUEDES FINANCIAR</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Qué puedes financiar con ella</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Las implantaciones se agrupan en tres líneas. Estas son las que tienen sentido para la mayoría de negocios pequeños:
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { cat: 'Comercio electrónico', desc: 'Tienda online, pasarela de pago, catálogo, integración con tu gestión de stock, sincronización con marketplaces.' },
+          { cat: 'Marketing digital', desc: 'Web corporativa orientada a captar clientes, SEO, campañas de SEM, email marketing, presencia en buscadores locales.' },
+          { cat: 'Herramientas de gestión en la nube', desc: 'CRM, facturación, gestión de proyectos, automatización de tareas repetitivas entre las herramientas que ya usas.' },
+        ].map(({ cat, desc }) => (
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <p class="text-slate-200 text-sm font-bold mb-1">{cat}</p>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed mt-6">
+        En la práctica, si lo que quieres es una web que traiga clientes, una tienda online o quitarte de encima trabajo administrativo repetitivo, encaja.
+      </p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Fases -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO FUNCIONA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Las dos fases del programa</h2>
+      <div class="space-y-3">
+        <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+          <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">I</span>
+          <div>
+            <p class="text-slate-200 text-sm font-bold mb-0.5">Fase I — Diagnóstico</p>
+            <p class="text-slate-500 text-xs leading-relaxed">Un técnico de la Cámara analiza el nivel de digitalización de tu empresa y su cadena de valor, y te entrega un plan personalizado con las soluciones recomendadas. Es gratuito y no consume la ayuda.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+          <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">II</span>
+          <div>
+            <p class="text-slate-200 text-sm font-bold mb-0.5">Fase II — Implantación</p>
+            <p class="text-slate-500 text-xs leading-relaxed">Contratas a un proveedor externo que ejecuta lo que salió del diagnóstico y redacta la memoria del proyecto. Aquí es donde entra la ayuda del 85%.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-slate-500 text-xs mt-4">El orden importa: no puedes ir directamente a la Fase II. El diagnóstico define qué es elegible en tu caso.</p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Cómo solicitarla -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO SOLICITARLA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Cómo solicitarla paso a paso</h2>
+      <div class="space-y-3">
+        {[
+          ['Regístrate desde el 27 de julio', 'La solicitud se presenta en la sede electrónica de Cámara Granada. Al concederse por orden de registro, cuanto antes entres, más opciones tienes.'],
+          ['Pasa el diagnóstico de la Fase I', 'Un técnico de la Cámara evalúa tu negocio y define qué soluciones son elegibles para tu proyecto.'],
+          ['Ejecuta el proyecto con un proveedor', 'Contratas la implantación (web, tienda online, marketing digital o herramientas de gestión) y prefinancias el 100% del coste.'],
+          ['Justifica y cobra la ayuda', 'Presentas la documentación justificativa y recibes el 85% subvencionado, hasta 6.366,50 €.'],
+        ].map(([titulo, desc], i) => (
+          <div class="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <div>
+              <p class="text-slate-200 text-sm font-bold mb-0.5">{titulo}</p>
+              <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Otros tres programas -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">MISMA CONVOCATORIA</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Los otros tres programas de la misma convocatoria</h2>
+      <div class="overflow-x-auto rounded-xl border border-white/5">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PROGRAMA</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">AYUDAS</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PARA QUÉ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Pyme Innova', '49', 'Proyectos de innovación en pymes de Granada'],
+              ['Pyme Digital', '75', 'Web, comercio electrónico y marketing digital (esta página)'],
+              ['Pyme Sostenible', '15', 'Proyectos de sostenibilidad y eficiencia'],
+              ['Xpande Digital', '10', 'Digitalización orientada a la venta internacional'],
+            ].map(([programa, ayudas, para], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-200 font-bold border-r border-white/5 whitespace-nowrap">{programa}</td>
+                <td class="px-5 py-3 text-slate-300 border-r border-white/5">{ayudas}</td>
+                <td class="px-5 py-3 text-slate-400">{para}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- Comparativa Kit Digital -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PYME DIGITAL VS KIT DIGITAL</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Pyme Digital y Kit Digital: en qué se diferencian</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Mucha gente llega buscando el Kit Digital. No son lo mismo:
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-white/5 mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/5">
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500"></th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">PYME DIGITAL (CÁMARA GRANADA)</th>
+              <th class="px-5 py-3 text-left text-xs font-bold tracking-widest text-slate-500">KIT DIGITAL (RED.ES)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Ámbito', 'Provincia de Granada', 'Toda España'],
+              ['Estado hoy', 'Abierta 27 jul – 30 oct 2026', 'Sin plazos publicados'],
+              ['Cuantía', 'Hasta 6.366,50 €', '2.000 – 12.000 € según tamaño'],
+              ['Cómo cobras', 'Adelantas tú y cobras después', 'Bono aplicado a la factura'],
+              ['Criterio', 'Orden de registro', 'Orden de solicitud'],
+              ['Diagnóstico previo', 'Obligatorio y gratuito', 'No'],
+            ].map(([concepto, pd, kd], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
+                <td class="px-5 py-3 text-slate-200 border-r border-white/5">{pd}</td>
+                <td class="px-5 py-3 text-slate-400">{kd}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Si estás en Granada y llevas meses esperando a que reabra el <a href="/subvenciones/kit-digital-granada/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kit Digital</a>, esta convocatoria está abierta ahora. Y son compatibles con matices: consúltalo en la Cámara antes de asumir nada.
+      </p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- En qué te puedo ayudar -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">CÓMO TE AYUDO</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">En qué te puedo ayudar yo</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">
+        Soy desarrollador. Hago la parte técnica: definimos el proyecto, lo ejecuto y preparo la documentación que necesitas para justificarlo. La tramitación administrativa la llevas tú con la Cámara, que tiene técnicos de apoyo gratuitos para eso.
+      </p>
+      <div class="p-5 bg-blue-600/5 border border-blue-600/20 rounded-xl mb-4">
+        <p class="text-slate-200 text-sm font-bold mb-3">Lo que te doy:</p>
+        <ul class="space-y-1 text-slate-400 text-xs">
+          {[
+            'Presupuesto desglosado y listo para la memoria del proyecto',
+            'Ejecución: web, tienda online, automatización, CRM',
+            'Toda la documentación técnica para la justificación',
+            'Una respuesta honesta sobre si te compensa o no',
+          ].map((item) => (
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <p class="text-slate-500 text-xs leading-relaxed">
+        Si el diagnóstico de la Cámara recomienda algo que yo no hago, te lo digo y te ayudo a buscar a quien lo haga.
+      </p>
+    </section>
+
+    <hr class="border-white/5 mb-16" />
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">PREGUNTAS FRECUENTES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-6">Pyme Digital Granada — FAQ</h2>
+      <div class="space-y-4">
+        {[
+          { q: '¿Cuándo abre el plazo de Pyme Digital en Granada en 2026?', a: 'El 27 de julio de 2026 a las 09:00 h, en la sede electrónica de la Cámara. Cierra el 30 de octubre a las 14:00 h, salvo que se agote antes el presupuesto de 624.009,51 €.' },
+          { q: '¿Cuánto dinero da realmente Pyme Digital?', a: 'La base máxima financiable es de 7.490 € (7.000 € de coste directo más 490 € de costes indirectos). Se subvenciona el 85%, así que la ayuda máxima es de 6.366,50 €. La cifra de "7.000 €" que circula es el coste del proyecto, no la ayuda.' },
+          { q: '¿Tengo que adelantar el dinero?', a: 'Sí. La empresa prefinancia el 100% del proyecto y recibe la ayuda después de justificarlo. No funciona como el bono del Kit Digital.' },
+          { q: '¿Hay sorteo como en 2025?', a: 'No. En la edición de 2026 se concede por estricto orden de registro de las solicitudes, hasta agotar la cuantía de cada programa.' },
+          { q: 'Mi empresa está en un pueblo de la provincia, ¿tengo menos opciones?', a: 'Al contrario. Cerca del 69% de las ayudas está reservado para empresas de fuera de Granada capital.' },
+          { q: '¿Puedo pedirla si estoy en Motril?', a: 'El municipio de Motril no forma parte de la demarcación de Cámara Granada a efectos de esta convocatoria. Confírmalo directamente con la Cámara.' },
+          { q: '¿Entra una página web en Pyme Digital?', a: 'Sí, dentro de las líneas de marketing digital y comercio electrónico, siempre que el diagnóstico previo de la Cámara lo recomiende para tu caso.' },
+          { q: '¿Es compatible con el Kit Digital?', a: 'Son programas distintos con financiación distinta. Hay matices de compatibilidad según el gasto concreto. Pregúntalo en la Cámara antes de dar nada por hecho.' },
+          { q: '¿Qué es el diagnóstico de la Fase I?', a: 'Un análisis gratuito de tu nivel de digitalización que hace un técnico de la Cámara y que termina en un plan personalizado. Es obligatorio antes de la fase de implantación.' },
+          { q: '¿Cuántas ayudas hay disponibles?', a: '75 para Pyme Digital. La convocatoria completa reparte 150 entre Pyme Innova (49), Pyme Digital (75), Pyme Sostenible (15) y Xpande Digital (10).' },
+        ].map(({ q, a }) => (
+          <details class="group p-4 bg-white/[0.02] border border-white/5 rounded-xl cursor-pointer">
+            <summary class="text-slate-200 text-sm font-bold list-none flex justify-between items-center gap-4">
+              {q}
+              <span class="text-slate-500 group-open:rotate-45 transition-transform shrink-0 text-lg leading-none">+</span>
+            </summary>
+            <p class="text-slate-400 text-xs leading-relaxed mt-3 pt-3 border-t border-white/5">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Fuentes -->
+    <section class="mb-16">
+      <span class="text-blue-500 text-xs font-bold tracking-widest">FUENTES OFICIALES</span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2 mb-4">Fuentes oficiales</h2>
+      <ul class="space-y-2">
+        {[
+          ['Programa Pyme Digital — Cámara Granada', 'https://www.camaragranada.org/subservicio/subvenciones-y-programas/ayudas-a-empresas-pymes-y-autonomos/programa-pyme-digital'],
+          ['Sede electrónica — trámite de solicitud', 'https://sede.camara.es/sede/granada/tramites/TR0000006706'],
+          ['Nota de prensa — edición 2026', 'https://granadaeconomica.es/camara-granada-y-la-diputacion-lanzan-la-edicion-de-2026-de-las-ayudas-empresariales-para-impulsar-la-competitividad-de-las-pymes-de-la-provincia/'],
+          ['Cobertura complementaria', 'https://www.ahoragranada.com/noticias/un-millon-de-euros-para-impulsar-la-competitividad-de-las-empresas-de-granada/'],
+        ].map(([label, url]) => (
+          <li>
+            <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-xs transition-colors underline underline-offset-4">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="mb-16 p-8 bg-blue-600/5 border border-blue-600/20 rounded-2xl text-center">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tighter mb-3">¿Encaja tu negocio en Pyme Digital?</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
+        Cuéntame en qué consiste tu proyecto y te digo si tiene sentido pedirla, qué presupuesto necesitas tener disponible y cómo preparar el registro antes del 27 de julio.
+      </p>
+      <a
+        href="https://cal.com/ruben-perez-yumwg8/30min"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold tracking-widest rounded-xl transition-colors"
+      >
+        CONSULTA GRATUITA Y SIN COMPROMISO →
+      </a>
+    </section>
+
+    <!-- Portfolio / contacto -->
+    <p class="text-slate-500 text-xs text-center mb-10">
+      <a href="/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Ver trabajos anteriores</a>
+      {' · '}
+      <a href="https://cal.com/ruben-perez-yumwg8/30min" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Contactar</a>
+    </p>
+
+    <p class="text-slate-600 text-xs text-center leading-relaxed">
+      Última verificación: 20 de julio de 2026. Los plazos y condiciones pueden cambiar. Consulta siempre las fuentes oficiales de Cámara Granada antes de iniciar cualquier inversión.
+    </p>
+  </main>
+</LayoutStatic>

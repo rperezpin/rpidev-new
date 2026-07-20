@@ -3,7 +3,7 @@ import LayoutStatic from '../../layouts/LayoutStatic.astro';
 import NavStatic from '../../components/NavStatic.astro';
 
 const siteUrl = 'https://www.rpidev.com';
-const pageUrl = `${siteUrl}/subvenciones`;
+const pageUrl = `${siteUrl}/subvenciones/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,7 +21,7 @@ const articleSchema = {
   "headline": "Ayudas y Subvenciones para Digitalizar tu Negocio [2026] | Granada y Aragón",
   "description": "Estado real y verificado de las ayudas de digitalización: Kit Digital, LEADER, ayudas de Andalucía y Aragón. Qué está abierto hoy, cuánto cubre cada una y cómo solicitarlas.",
   "datePublished": "2026-04-23",
-  "dateModified": "2026-07-02",
+  "dateModified": "2026-07-20",
   "author": { "@id": `${siteUrl}/#founder` },
   "publisher": { "@id": `${siteUrl}/#organization` },
   "mainEntityOfPage": pageUrl,
@@ -34,10 +34,18 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "¿Qué es Pyme Digital Granada 2026 y cuándo abre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pyme Digital es la convocatoria 2026 de Cámara Granada y la Diputación: 75 ayudas de hasta 6.366,50 € para pymes y autónomos de la provincia. Abre el 27 de julio de 2026 a las 09:00 h y cierra el 30 de octubre a las 14:00 h, concedidas por estricto orden de registro. Financia web, tienda online, marketing digital y herramientas de gestión en la nube."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Está abierto el Kit Digital en 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE 28/01/2026) reactivó el programa con fondos remanentes, pero a junio de 2026 Red.es aún no ha publicado los plazos concretos para nuevas solicitudes. Cuando abra, funcionará por orden de presentación. Mientras tanto puedes preparar tu solicitud con nosotros para entrar en cuanto abra."
+        "text": "Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE 28/01/2026) reactivó el programa con fondos remanentes, pero a julio de 2026 Red.es aún no ha publicado los plazos concretos para nuevas solicitudes. Cuando abra, funcionará por orden de presentación. Mientras tanto, la alternativa activa en Granada es Pyme Digital (Cámara Granada), abierta desde el 27 de julio de 2026."
       }
     },
     {
@@ -45,7 +53,7 @@ const faqSchema = {
       "name": "¿Qué subvenciones hay abiertas ahora para digitalizar mi negocio en Granada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A junio de 2026 las principales ayudas activas son: LEADER 2023-2027 (hasta el 65% para negocios en zona rural, abierta hasta 31/12/2028) y la Cuota Cero de autónomos de la Junta de Andalucía (abierta hasta 30/06/2026). El Kit Digital está pendiente de nueva convocatoria pero se espera apertura próxima. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento hacia la que mejor encaje con tu perfil."
+        "text": "A julio de 2026 las principales ayudas activas son: Pyme Digital de Cámara Granada (hasta 6.366,50 €, abierta del 27 de julio al 30 de octubre de 2026) y LEADER 2023-2027 (hasta el 65% para negocios en zona rural, abierta hasta 31/12/2028). El Kit Digital está pendiente de nueva convocatoria. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento hacia la que mejor encaje con tu perfil."
       }
     },
     {
@@ -61,7 +69,7 @@ const faqSchema = {
       "name": "Soy autónomo nuevo, ¿qué ayudas me interesan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Si acabas de darte de alta o llevas poco tiempo, la Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año, lo que te libera presupuesto. Además, si tu negocio está en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital. Y cuando abra el Kit Digital (previsto próximamente), como autónomo con menos de 3 empleados podrías acceder a un bono de 2.000-3.000 €."
+        "text": "Si acabas de darte de alta o llevas poco tiempo, la Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año, lo que te libera presupuesto. Si estás en la provincia de Granada, Pyme Digital (Cámara Granada) financia hasta 6.366,50 € desde el 27 de julio de 2026. Y si tu negocio está en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital."
       }
     },
     {
@@ -87,14 +95,14 @@ const faqSchema = {
 <LayoutStatic
   title="Ayudas y Subvenciones para Digitalizar tu Negocio [2026] | Granada y Aragón"
   description="Estado real y verificado de las ayudas de digitalización: Kit Digital, LEADER, ayudas de Andalucía y Aragón. Qué está abierto hoy, cuánto cubre cada una y cómo solicitarlas. Valoración gratuita."
-  canonical="https://www.rpidev.com/subvenciones"
-  hreflangEn="https://www.rpidev.com/subvenciones"
+  canonical="https://www.rpidev.com/subvenciones/"
+  hreflangEn="https://www.rpidev.com/subvenciones/"
 >
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
 
-  <NavStatic lang="es" activePage="/subvenciones" />
+  <NavStatic lang="es" activePage="/subvenciones/" />
 
   <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
 
@@ -123,6 +131,15 @@ const faqSchema = {
       </a>
     </div>
 
+    <!-- Banner nueva convocatoria -->
+    <div class="mb-16 p-5 md:p-6 bg-green-500/5 border border-green-500/20 rounded-xl">
+      <p class="text-green-400 text-xs font-bold tracking-widest mb-2">NUEVO (17 JULIO 2026)</p>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Cámara Granada y la Diputación han publicado la convocatoria 2026 de ayudas para pymes de la provincia. Un millón de euros, 150 ayudas, solicitudes desde el 27 de julio y por orden de registro.
+        {' '}<a href="/subvenciones/pyme-digital-granada/" class="text-green-400 hover:text-green-300 font-bold underline underline-offset-2">Ver qué es y si encajas →</a>
+      </p>
+    </div>
+
     <hr class="border-white/5 mb-16" />
 
     <!-- Estado de ayudas -->
@@ -132,7 +149,7 @@ const faqSchema = {
           <span class="text-blue-500 text-xs font-bold tracking-widest">RESUMEN</span>
           <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mt-2">Estado de las ayudas disponibles</h2>
         </div>
-        <span class="text-slate-500 text-xs font-mono">Última verificación: 2 julio 2026</span>
+        <span class="text-slate-500 text-xs font-mono">Última verificación: 20 julio 2026</span>
       </div>
       <div class="overflow-x-auto rounded-xl border border-white/5">
         <table class="w-full text-sm">
@@ -147,18 +164,46 @@ const faqSchema = {
           <tbody>
             {[
               {
+                programa: 'Pyme Digital — Cámara Granada',
+                estado: '🟢 Abre 27/07/2026 — cierra 30/10/2026',
+                estadoColor: 'text-green-400',
+                para: 'Pymes y autónomos de la provincia de Granada',
+                href: '/subvenciones/pyme-digital-granada/',
+              },
+              {
+                programa: 'Pyme Innova — Cámara Granada',
+                estado: '🟢 Abre 27/07/2026',
+                estadoColor: 'text-green-400',
+                para: 'Pymes de Granada con proyectos de innovación',
+                href: '/subvenciones/pyme-digital-granada/',
+              },
+              {
+                programa: 'Pyme Sostenible — Cámara Granada',
+                estado: '🟢 Abre 27/07/2026',
+                estadoColor: 'text-green-400',
+                para: 'Pymes de Granada, proyectos de sostenibilidad',
+                href: '/subvenciones/pyme-digital-granada/',
+              },
+              {
+                programa: 'Xpande Digital — Cámara Granada',
+                estado: '🟢 Abre 27/07/2026',
+                estadoColor: 'text-green-400',
+                para: 'Pymes de Granada que venden fuera de España',
+                href: '/subvenciones/pyme-digital-granada/',
+              },
+              {
                 programa: 'LEADER 2023-2027',
                 estado: '🟢 Activa — hasta 31/12/2028',
                 estadoColor: 'text-green-400',
                 para: 'Autónomos y pymes en zona rural',
-                href: '/subvenciones/leader-digitalizacion',
+                href: '/subvenciones/leader-digitalizacion/',
               },
               {
                 programa: 'Kit Digital',
                 estado: '🟡 Pendiente nueva convocatoria',
                 estadoColor: 'text-amber-400',
                 para: 'Autónomos y pymes (0–49 empleados)',
-                href: '/subvenciones/kit-digital-granada',
+                href: '/subvenciones/kit-digital-granada/',
               },
               {
                 programa: 'Kit Consulting',
@@ -172,27 +217,20 @@ const faqSchema = {
                 estado: '🟡 Verificar convocatoria abierta',
                 estadoColor: 'text-amber-400',
                 para: 'Autónomos y pymes en Aragón',
-                href: '/subvenciones/ayudas-aragon',
+                href: '/subvenciones/ayudas-aragon/',
               },
               {
                 programa: 'Ayudas digitalización Andalucía',
                 estado: '🟡 Verificar convocatoria abierta',
                 estadoColor: 'text-amber-400',
                 para: 'Autónomos y pymes en Andalucía',
-                href: '/subvenciones/ayudas-andalucia',
+                href: '/subvenciones/ayudas-andalucia/',
               },
               {
                 programa: 'Cuota Cero autónomos (Junta)',
                 estado: '🔴 Cerrada — plazo 30/06/2026',
                 estadoColor: 'text-red-400',
                 para: 'Autónomos nuevos en Andalucía',
-                href: null,
-              },
-              {
-                programa: 'Pyme Digital — Cámara Granada',
-                estado: 'Próximamente — ~verano 2026',
-                estadoColor: 'text-slate-400',
-                para: 'Pymes y autónomos de Granada',
                 href: null,
               },
             ].map(({ programa, estado, estadoColor, para, href }, i) => (
@@ -239,6 +277,26 @@ const faqSchema = {
     <!-- Programas: resúmenes con enlace a página hija -->
     <div class="space-y-6 mb-16">
 
+      <!-- Pyme Digital -->
+      <div class="p-6 bg-white/[0.02] border border-green-500/20 rounded-2xl hover:border-green-500/40 transition-colors">
+        <div class="flex items-start justify-between gap-4 mb-3">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-green-500 shrink-0"></span>
+              <span class="text-green-400 text-xs font-bold tracking-widest">ABRE 27/07/2026 — CIERRA 30/10/2026</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tighter">Pyme Digital Granada 2026 — hasta 6.366,50 €</h2>
+          </div>
+          <a href="/subvenciones/pyme-digital-granada/" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          75 ayudas de Cámara Granada y la Diputación para pymes y autónomos de la provincia: hasta <strong class="text-slate-200">6.366,50 €</strong> (85% de un proyecto de 7.490 €) para web, tienda online, marketing digital y herramientas de gestión en la nube. Se concede por <strong class="text-slate-200">estricto orden de registro</strong>, no por sorteo. Cerca del 69% de las ayudas está reservado a empresas fuera de Granada capital.
+        </p>
+        <a href="/subvenciones/pyme-digital-granada/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+          Cuánto dan, requisitos y cómo solicitarla desde el 27 de julio →
+        </a>
+      </div>
+
       <!-- Kit Digital -->
       <div class="p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-amber-500/20 transition-colors">
         <div class="flex items-start justify-between gap-4 mb-3">
@@ -249,12 +307,12 @@ const faqSchema = {
             </div>
             <h2 class="text-xl md:text-2xl font-bold tracking-tighter">Kit Digital en Granada 2026</h2>
           </div>
-          <a href="/subvenciones/kit-digital-granada" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
+          <a href="/subvenciones/kit-digital-granada/" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-          El mayor programa de digitalización de la historia de España: hasta <strong class="text-slate-200">12.000 € por empresa</strong> para web, tienda online, CRM, IA y automatización. Las convocatorias originales cerraron en octubre de 2025; la Orden TDF/39/2026 lo reactivó con fondos remanentes y nuevas categorías de IA. A julio de 2026 Red.es aún no ha publicado plazos — pero la apertura se considera inminente.
+          El mayor programa de digitalización de la historia de España: hasta <strong class="text-slate-200">12.000 € por empresa</strong> para web, tienda online, CRM, IA y automatización. Las convocatorias originales cerraron en octubre de 2025; la Orden TDF/39/2026 lo reactivó con fondos remanentes y nuevas categorías de IA. A julio de 2026 Red.es aún no ha publicado plazos. Mientras esperas, <a href="/subvenciones/pyme-digital-granada/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Pyme Digital</a> es la alternativa local que sí está abierta.
         </p>
-        <a href="/subvenciones/kit-digital-granada" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/subvenciones/kit-digital-granada/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
           Estado actualizado, bonos por segmento y cómo prepararte ahora →
         </a>
       </div>
@@ -269,12 +327,12 @@ const faqSchema = {
             </div>
             <h2 class="text-xl md:text-2xl font-bold tracking-tighter">LEADER 2023-2027 — Hasta el 65%</h2>
           </div>
-          <a href="/subvenciones/leader-digitalizacion" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
+          <a href="/subvenciones/leader-digitalizacion/" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-4">
           Fondos europeos FEADER para zonas rurales, gestionados por los Grupos de Desarrollo Rural (GDR) locales. Cubre hasta el <strong class="text-slate-200">65% de la inversión</strong> (hasta 200.000 €) en web, software, automatización o tienda online. <strong class="text-slate-200">No es concurso: se resuelve por orden de presentación.</strong> Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€).
         </p>
-        <a href="/subvenciones/leader-digitalizacion" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/subvenciones/leader-digitalizacion/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
           GDRs de Granada, qué financia y cómo solicitarlo →
         </a>
       </div>
@@ -289,12 +347,12 @@ const faqSchema = {
             </div>
             <h2 class="text-xl md:text-2xl font-bold tracking-tighter">Ayudas digitalización pymes Aragón</h2>
           </div>
-          <a href="/subvenciones/ayudas-aragon" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
+          <a href="/subvenciones/ayudas-aragon/" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-4">
           El IAF (Instituto Aragonés de Fomento) gestiona líneas de digitalización para pymes aragonesas: hasta el <strong class="text-slate-200">50-80% de cofinanciación</strong> para proyectos de presencia digital, comercio electrónico y automatización. Las convocatorias se abren periódicamente — conviene estar preparado.
         </p>
-        <a href="/subvenciones/ayudas-aragon" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/subvenciones/ayudas-aragon/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
           Líneas IAF, requisitos y estado de convocatorias →
         </a>
       </div>
@@ -309,12 +367,12 @@ const faqSchema = {
             </div>
             <h2 class="text-xl md:text-2xl font-bold tracking-tighter">Ayudas digitalización Andalucía</h2>
           </div>
-          <a href="/subvenciones/ayudas-andalucia" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
+          <a href="/subvenciones/ayudas-andalucia/" class="shrink-0 text-blue-400 hover:text-blue-300 text-xs font-bold tracking-widest transition-colors whitespace-nowrap">Ver guía →</a>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-4">
           La Junta de Andalucía tiene varias líneas de ayudas para digitalización: comercio y artesanía (hasta el <strong class="text-slate-200">100% de cobertura</strong>), RETECH para transformación tecnológica y Pymetur para turismo. Distintos organismos, distintos plazos — hay que seguirlas por separado.
         </p>
-        <a href="/subvenciones/ayudas-andalucia" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/subvenciones/ayudas-andalucia/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
           Programas disponibles, plazos verificados y requisitos →
         </a>
       </div>
@@ -406,58 +464,6 @@ const faqSchema = {
 
     <hr class="border-white/5 mb-16" />
 
-    <!-- Pyme Digital -->
-    <section class="mb-16">
-      <div class="flex items-center gap-3 mb-2">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-500 shrink-0"></span>
-        <span class="text-slate-400 text-xs font-bold tracking-widest">PRÓXIMAMENTE</span>
-      </div>
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tighter mb-6">Pyme Digital — Cámara de Comercio de Granada</h2>
-
-      <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">QUÉ ES</span>
-        <p class="text-slate-400 text-sm leading-relaxed mt-3">
-          Programa local de transformación digital para pymes y autónomos de la provincia de Granada, promovido por Cámara España y cofinanciado con fondos FEDER, Cámara Granada y Diputación de Granada.
-        </p>
-      </div>
-
-      <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">ESTADO ACTUAL</span>
-        <div class="mt-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl text-sm text-slate-300 leading-relaxed">
-          Convocatoria anual, normalmente entre marzo y julio. La última edición fue en 2025. La próxima se espera en <strong>verano de 2026</strong>. Contacta con la Cámara para estar en su lista de seguimiento.
-        </div>
-      </div>
-
-      <div class="mb-6">
-        <span class="text-blue-500 text-xs font-bold tracking-widest">CUÁNTO FINANCIA</span>
-        <div class="overflow-x-auto rounded-xl border border-white/5 mt-3">
-          <table class="w-full text-sm">
-            <tbody>
-              {[
-                ['Ayuda máxima', '85% del coste elegible'],
-                ['Importe máximo de ayuda', '6.366,50 €'],
-                ['Coste para la empresa', 'Totalmente gratuito'],
-              ].map(([concepto, detalle], i) => (
-                <tr class={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
-                  <td class="px-5 py-3 text-slate-300 font-bold border-r border-white/5 whitespace-nowrap">{concepto}</td>
-                  <td class="px-5 py-3 text-slate-400">{detalle}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-        <p class="text-slate-300 text-sm font-bold mb-2">Cómo prepararte ahora</p>
-        <ul class="space-y-1 text-slate-400 text-xs">
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Web: <a href="https://www.camaragranada.org" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors">camaragranada.org</a></li>
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Email: info@camaragranada.org</li>
-          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 shrink-0">→</span> Teléfono: 958 53 61 52</li>
-        </ul>
-      </div>
-    </section>
-
     <hr class="border-white/5 mb-16" />
 
     <!-- Línea de Innovación + Ayudas IA -->
@@ -546,20 +552,24 @@ const faqSchema = {
       <div class="space-y-4">
         {[
           {
+            q: '¿Qué es Pyme Digital Granada 2026 y cuándo abre?',
+            a: 'Pyme Digital es la convocatoria 2026 de Cámara Granada y la Diputación: 75 ayudas de hasta 6.366,50 € para pymes y autónomos de la provincia. Abre el 27 de julio de 2026 a las 09:00 h y cierra el 30 de octubre a las 14:00 h, concedidas por estricto orden de registro. Financia web, tienda online, marketing digital y herramientas de gestión en la nube.',
+          },
+          {
             q: '¿Está abierto el Kit Digital en 2026?',
-            a: 'Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE enero 2026) reactivó el programa con fondos remanentes y sin fecha de cierre fija, pero a junio de 2026 Red.es aún no ha publicado los plazos para nuevas solicitudes. La apertura se considera inminente. Mientras tanto, puedes preparar tu solicitud conmigo para entrar en cuanto abra.',
+            a: 'Las convocatorias masivas del Kit Digital cerraron el 31 de octubre de 2025. La Orden TDF/39/2026 (BOE enero 2026) reactivó el programa con fondos remanentes y sin fecha de cierre fija, pero a julio de 2026 Red.es aún no ha publicado los plazos para nuevas solicitudes. Mientras tanto, la alternativa activa en Granada es Pyme Digital (Cámara Granada), abierta desde el 27 de julio de 2026.',
           },
           {
             q: '¿Qué subvenciones hay abiertas ahora para digitalizar mi negocio en Granada?',
-            a: 'A junio de 2026 las principales activas son LEADER 2023-2027 (hasta 65% para negocios en zona rural, abierta hasta fin de 2028) y la Cuota Cero de autónomos de la Junta de Andalucía (cierra el 30/06/2026). El Kit Digital se espera próximamente. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento según tu perfil.',
+            a: 'A julio de 2026 las principales activas son Pyme Digital de Cámara Granada (hasta 6.366,50 €, del 27 de julio al 30 de octubre de 2026) y LEADER 2023-2027 (hasta 65% para negocios en zona rural, abierta hasta fin de 2028). El Kit Digital se espera próximamente. Para pymes de 10-250 empleados también existe Kit Consulting. Contáctame y te oriento según tu perfil.',
           },
           {
             q: '¿Puedo pedir ayudas si mi negocio está en un pueblo de la provincia de Granada?',
-            a: 'Sí, y es donde más opciones tienes. LEADER está diseñado específicamente para zonas rurales y Granada es la provincia con mayor asignación de toda Andalucía. Cubre hasta el 65% de la inversión en web, software, automatización o tienda online. El primer paso es verificar a qué Grupo de Desarrollo Rural pertenece tu municipio.',
+            a: 'Sí, y es donde más opciones tienes. En Pyme Digital, cerca del 69% de las ayudas está reservado a empresas fuera de Granada capital. Además, LEADER está diseñado específicamente para zonas rurales y Granada es la provincia con mayor asignación de toda Andalucía, cubriendo hasta el 65% de la inversión en web, software, automatización o tienda online.',
           },
           {
             q: 'Soy autónomo nuevo, ¿qué ayudas me interesan?',
-            a: 'La Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año — libera presupuesto para invertir en tu presencia digital. Si además estás en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital. Y cuando abra el Kit Digital, como autónomo con menos de 3 empleados tendrías acceso a un bono de 2.000-3.000 €.',
+            a: 'La Cuota Cero de la Junta de Andalucía cubre prácticamente el 100% de tu cuota de autónomos el primer año — libera presupuesto para invertir en tu presencia digital. Si estás en la provincia de Granada, Pyme Digital financia hasta 6.366,50 € desde el 27 de julio de 2026. Y si además estás en zona rural, LEADER puede financiar hasta el 65% de tu web o sistema digital.',
           },
           {
             q: '¿Tengo que adelantar el dinero de la inversión?',
@@ -618,7 +628,7 @@ const faqSchema = {
     </section>
 
     <p class="text-slate-600 text-xs mt-10 text-center leading-relaxed">
-      Última actualización: 2 de julio de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales o contacta con el equipo técnico de tu GDR antes de iniciar cualquier inversión.
+      Última actualización: 20 de julio de 2026. Los plazos y condiciones de cada programa pueden cambiar. Consulta siempre las fuentes oficiales o contacta con el equipo técnico de tu GDR antes de iniciar cualquier inversión.
     </p>
   </main>
 </LayoutStatic>

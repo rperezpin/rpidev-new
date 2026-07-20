@@ -3,14 +3,14 @@ import LayoutStatic from '../../layouts/LayoutStatic.astro';
 import NavStatic from '../../components/NavStatic.astro';
 
 const siteUrl = 'https://www.rpidev.com';
-const pageUrl = `${siteUrl}/subvenciones/ayudas-andalucia`;
+const pageUrl = `${siteUrl}/subvenciones/ayudas-andalucia/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
-    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones/` },
     { "@type": "ListItem", "position": 3, "name": "Ayudas Andalucía", "item": pageUrl }
   ]
 };
@@ -87,7 +87,7 @@ const faqSchema = {
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
 
-  <NavStatic lang="es" activePage="/subvenciones" />
+  <NavStatic lang="es" activePage="/subvenciones/" />
 
   <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
 
@@ -95,7 +95,7 @@ const faqSchema = {
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
       <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
       <span>/</span>
-      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <a href="/subvenciones/" class="hover:text-slate-300 transition-colors">Subvenciones</a>
       <span>/</span>
       <span class="text-slate-400">Ayudas Andalucía</span>
     </nav>
@@ -113,7 +113,7 @@ const faqSchema = {
         La Junta de Andalucía gestiona varias líneas de ayuda para digitalización de pymes y autónomos andaluces: comercio y artesanía (hasta el 100% de cobertura en algunos casos), RETECH para transformación tecnológica, Pymetur para empresas turísticas, y el Kit Digital de Red.es — que aplica en todo el territorio nacional.
       </p>
       <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
-        Si tu negocio está en zona rural de Andalucía, también tienes acceso a <a href="/subvenciones/leader-digitalizacion" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">LEADER 2023-2027</a> — activo hasta diciembre de 2028, hasta el 65% de cobertura — que es la opción más potente disponible ahora mismo.
+        Si tu negocio está en zona rural de Andalucía, también tienes acceso a <a href="/subvenciones/leader-digitalizacion/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">LEADER 2023-2027</a> — activo hasta diciembre de 2028, hasta el 65% de cobertura. Y si estás en la provincia de Granada, no te pierdas las <a href="/subvenciones/pyme-digital-granada/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">ayudas de Cámara Granada para la provincia</a>: hasta 6.366,50 €, abiertas del 27 de julio al 30 de octubre de 2026.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3">
@@ -357,7 +357,7 @@ const faqSchema = {
       <div class="p-4 bg-blue-600/5 border border-blue-600/20 rounded-xl text-sm text-blue-300 mb-4">
         Granada es la provincia con mayor asignación LEADER de toda Andalucía (~22 M€). Si tu negocio es de Granada, el impacto puede ser especialmente grande.
       </div>
-      <a href="/subvenciones/leader-digitalizacion" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+      <a href="/subvenciones/leader-digitalizacion/" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
         Ver guía completa de LEADER — GDRs, proceso y qué financia →
       </a>
     </section>

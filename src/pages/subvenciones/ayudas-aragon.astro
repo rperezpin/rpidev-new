@@ -3,14 +3,14 @@ import LayoutStatic from '../../layouts/LayoutStatic.astro';
 import NavStatic from '../../components/NavStatic.astro';
 
 const siteUrl = 'https://www.rpidev.com';
-const pageUrl = `${siteUrl}/subvenciones/ayudas-aragon`;
+const pageUrl = `${siteUrl}/subvenciones/ayudas-aragon/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
-    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones` },
+    { "@type": "ListItem", "position": 2, "name": "Subvenciones", "item": `${siteUrl}/subvenciones/` },
     { "@type": "ListItem", "position": 3, "name": "Ayudas Aragón", "item": pageUrl }
   ]
 };
@@ -79,7 +79,7 @@ const faqSchema = {
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(articleSchema)} />
 
-  <NavStatic lang="es" activePage="/subvenciones" />
+  <NavStatic lang="es" activePage="/subvenciones/" />
 
   <main class="pt-28 pb-24 px-5 md:px-10 max-w-4xl mx-auto">
 
@@ -87,7 +87,7 @@ const faqSchema = {
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-10">
       <a href="/" class="hover:text-slate-300 transition-colors">Inicio</a>
       <span>/</span>
-      <a href="/subvenciones" class="hover:text-slate-300 transition-colors">Subvenciones</a>
+      <a href="/subvenciones/" class="hover:text-slate-300 transition-colors">Subvenciones</a>
       <span>/</span>
       <span class="text-slate-400">Ayudas Aragón</span>
     </nav>
@@ -319,7 +319,7 @@ const faqSchema = {
           </tbody>
         </table>
       </div>
-      <a href="/subvenciones/kit-digital-granada" class="text-blue-400 hover:text-blue-300 text-xs font-bold transition-colors">Ver guía completa del Kit Digital — estado, qué financia y cómo prepararse →</a>
+      <a href="/subvenciones/kit-digital-granada/" class="text-blue-400 hover:text-blue-300 text-xs font-bold transition-colors">Ver guía completa del Kit Digital — estado, qué financia y cómo prepararse →</a>
     </section>
 
     <hr class="border-white/5 mb-16" />

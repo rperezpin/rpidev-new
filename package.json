@@ -12,10 +12,10 @@
     "esbuild": "0.28.1"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/sitemap": "^3.7.3",
     "@lucide/astro": "^1.14.0",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^6.3.0",
+    "astro": "^7.1.1",
     "tailwindcss": "^4.1.18"
   }
 }

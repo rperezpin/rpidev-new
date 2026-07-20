@@ -1,21 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    tags: z.array(z.string()).default([]),
-    author: z.string().default('Rubén Pérez Izuel'),
-    draft: z.boolean().default(false),
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
-  }),
-});
-
 const proyectos = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/proyectos' }),
   schema: z.object({
@@ -40,4 +25,4 @@ const proyectos = defineCollection({
   }),
 });
 
-export const collections = { blog, proyectos };
+export const collections = { proyectos };

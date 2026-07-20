@@ -6,6 +6,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.rpidev.com',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],
