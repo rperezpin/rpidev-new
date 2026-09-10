@@ -1,0 +1,58 @@
+[
+  {
+    "path": "/",
+    "score": 0.96,
+    "performance": 0.96,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/",
+    "score": 0.97,
+    "performance": 0.97,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/ayudas-andalucia/",
+    "score": 0.97,
+    "performance": 0.98,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/ayudas-aragon/",
+    "score": 0.96,
+    "performance": 0.98,
+    "accessibility": 0.92,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/kit-digital-granada/",
+    "score": 0.96,
+    "performance": 0.94,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/leader-digitalizacion/",
+    "score": 0.97,
+    "performance": 0.97,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  },
+  {
+    "path": "/subvenciones/pyme-digital-granada/",
+    "score": 0.96,
+    "performance": 0.96,
+    "accessibility": 0.96,
+    "best-practices": 0.93,
+    "seo": 1
+  }
+]

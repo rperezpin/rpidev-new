@@ -10,9 +10,9 @@ export const defaultLang: Lang = 'es';
 export const ui = {
   es: {
     // Meta SEO
-    'meta.title': 'RPIDev — Desarrollo web y automatización para autónomos y pymes en Granada',
+    'meta.title': 'Desarrollo Web y Automatización en Granada | RPI Dev',
     'meta.description':
-      'Desarrollo web y automatización para autónomos y pymes en Granada. Webs rápidas con SEO local, integraciones a medida y ahorro real de tiempo. Diagnóstico gratuito de 30 min.',
+      'Webs rápidas con SEO local y automatización de procesos con n8n para pymes en Granada. Astro, WooCommerce, Make. Diagnóstico gratuito de 30 min — sin compromiso.',
 
     // Nav
     'nav.sections': ['INICIO', 'PROBLEMA', 'SERVICIOS', 'PLAN', 'PORTFOLIO', 'SUBVENCIONES', 'CONTACTO'],
@@ -75,17 +75,18 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCCIÓN',
     'portfolio.statusDev': 'DESARROLLO',
     'portfolio.projects': [
-      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Web corporativa para empresa de fontanería y climatización en Aragón.' },
-      { name: 'Agropur', type: 'WEB', desc: 'Web corporativa para gestión integral de purines y fertilización agrícola.' },
-      { name: 'RPIoT', type: 'IOT', desc: 'Landing de una plataforma de monitorización IoT, en cualquier sector.' },
-      { name: 'Nieves Muriel', type: 'WEB', desc: 'Web personal para escritora y profesora universitaria.' },
-      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Tienda headless de joyería con Astro y WooCommerce.' },
-      { name: 'Choose', type: 'APP', desc: 'Asistente IA para elegir tu dispositivo ideal.' },
-      { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Web con catálogo de piezas y bajas de vehículos.' },
-      { name: 'Casvisol', type: 'WEB', desc: 'Web corporativa para empresa de energía solar.' },
-      { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Web profesional con SEO optimizado.' },
-      { name: 'SEO Pilot', type: 'SAAS', desc: 'Auditoría SEO automatizada con IA.' },
-      { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Antigua web corporativa de rpidev.' },
+      { name: 'Espacio Negua', type: 'WEB', desc: 'Astro SSR + WordPress headless + PostgreSQL. Blog gestionable y formulario con Brevo.' },
+      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Astro + Node.js. Web corporativa con SEO local para empresa de fontanería en Aragón.' },
+      { name: 'Agropur', type: 'WEB', desc: 'Astro + Tailwind. Web corporativa para gestión integral de purines y fertilización.' },
+      { name: 'RPIoT', type: 'IOT', desc: 'Astro + Tailwind. Landing para plataforma de monitorización IoT industrial.' },
+      { name: 'Nieves Muriel', type: 'WEB', desc: 'Astro + Tailwind. Web personal con SEO local para escritora y profesora universitaria.' },
+      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Astro + WooCommerce headless. Tienda de joyería con Lighthouse 98+ y TTFB <200ms.' },
+      { name: 'Choose', type: 'APP', desc: 'Python + Reflex + Gemini AI. Asistente IA para elegir dispositivo. Respuesta <3s.' },
+      { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Astro + Tailwind. Web con catálogo de piezas y gestión de bajas de vehículos.' },
+      { name: 'Casvisol', type: 'WEB', desc: 'Astro + Tailwind. Web corporativa con SEO local para empresa de energía solar.' },
+      { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Astro + Tailwind. Web profesional con SEO local optimizado en Granada.' },
+      { name: 'SEO Pilot', type: 'SAAS', desc: 'Python + React + FastAPI. Auditoría SEO automatizada con IA.' },
+      { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Astro + React. Anterior versión de la web corporativa de RPI Dev.' },
     ],
 
     // Grants / Subvenciones
@@ -198,17 +199,18 @@ export const ui = {
     'portfolio.statusProduction': 'PRODUCTION',
     'portfolio.statusDev': 'IN DEVELOPMENT',
     'portfolio.projects': [
-      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Corporate website for a plumbing and HVAC company in Aragon, Spain.' },
-      { name: 'Agropur', type: 'WEB', desc: 'Corporate website for a slurry management and agricultural fertilization company.' },
-      { name: 'RPIoT', type: 'IOT', desc: 'Landing page for an IoT monitoring platform, applicable to any sector.' },
-      { name: 'Nieves Muriel', type: 'WEB', desc: 'Personal website for a writer and university professor.' },
-      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Headless jewelry store built with Astro and WooCommerce.' },
-      { name: 'Choose', type: 'APP', desc: 'AI assistant to find your ideal device.' },
-      { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Website with parts catalog and vehicle deregistration.' },
-      { name: 'Casvisol', type: 'WEB', desc: 'Corporate website for a solar energy company.' },
-      { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Professional website with optimized SEO.' },
-      { name: 'SEO Pilot', type: 'SAAS', desc: 'AI-powered automated SEO audit.' },
-      { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Previous version of the rpidev corporate website.' },
+      { name: 'Espacio Negua', type: 'WEB', desc: 'Astro SSR + WordPress headless + PostgreSQL. Manageable blog and Brevo contact form.' },
+      { name: 'FPC Instalaciones', type: 'WEB', desc: 'Astro + Node.js. Corporate site with local SEO for a plumbing company in Aragon.' },
+      { name: 'Agropur', type: 'WEB', desc: 'Astro + Tailwind. Corporate site for agricultural slurry management company.' },
+      { name: 'RPIoT', type: 'IOT', desc: 'Astro + Tailwind. Landing for an industrial IoT monitoring platform.' },
+      { name: 'Nieves Muriel', type: 'WEB', desc: 'Astro + Tailwind. Local SEO personal site for a writer and university professor.' },
+      { name: 'Amacapricci', type: 'E-COMMERCE', desc: 'Astro + WooCommerce headless. Jewelry store with Lighthouse 98+ and TTFB <200ms.' },
+      { name: 'Choose', type: 'APP', desc: 'Python + Reflex + Gemini AI. AI device recommendation assistant. Response <3s.' },
+      { name: 'Desguaces Valdeferrín', type: 'WEB', desc: 'Astro + Tailwind. Site with parts catalog and vehicle deregistration.' },
+      { name: 'Casvisol', type: 'WEB', desc: 'Astro + Tailwind. Corporate site with local SEO for a solar energy company.' },
+      { name: 'Hebe Psicóloga', type: 'WEB', desc: 'Astro + Tailwind. Professional website with optimized local SEO in Granada.' },
+      { name: 'SEO Pilot', type: 'SAAS', desc: 'Python + React + FastAPI. AI-powered automated SEO audit platform.' },
+      { name: 'RPI Dev (v1)', type: 'WEB', desc: 'Astro + React. Previous version of the RPI Dev corporate website.' },
     ],
 
     // Grants

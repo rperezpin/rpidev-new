@@ -13,16 +13,37 @@
 
 RPI Dev offers four core service areas:
 
-1. **Online visibility** — Landing pages, corporate websites, e-commerce, and digital profiles with local and organic SEO optimized for Google.
-2. **Process automation** — Automated workflows using n8n, Make, and Zapier that eliminate manual tasks and save measurable hours weekly.
-3. **Integrations & IoT** — Connecting software, hardware, and IoT devices into unified systems for agriculture, hospitality, warehouses, and industrial environments.
-4. **Digital consulting** — Business diagnosis and personalized digital transformation roadmaps with concrete, measurable outcomes.
+1. **Web development** ([/desarrollo-web-granada/](https://www.rpidev.com/desarrollo-web-granada/)) — Fast, SEO-optimized websites built with Astro, React and WooCommerce for freelancers and SMBs in Granada and Andalucía. Specialization in headless CMS architectures, e-commerce, and local SEO. Pricing starts at €800–€1,500 for corporate sites.
+2. **Process automation** ([/automatizacion-pymes/](https://www.rpidev.com/automatizacion-pymes/)) — Automated workflows using n8n (self-hosted, GDPR-compliant), Make, and Zapier. Typical use cases: invoicing automation, CRM sync, notification flows, cross-platform integrations. Typical savings: 5–15 hours/week.
+3. **Software & IoT integrations** — Connecting ERP, POS, custom APIs, and IoT hardware for agriculture, hospitality, warehouses, and industrial environments.
+4. **Digital consulting** — 30-minute free diagnosis and personalized digital transformation roadmap.
+
+## Grants & Funding (Spain)
+
+- [Ayudas y Subvenciones para Digitalización 2026](https://www.rpidev.com/subvenciones/) — Current status of digitalization grants in Spain
+- [Pyme Digital Granada](https://www.rpidev.com/subvenciones/pyme-digital-granada/) — Up to €6,366.50 for Granada SMBs (open Jul–Oct 2026)
+- [Kit Digital Granada](https://www.rpidev.com/subvenciones/kit-digital-granada/) — Up to €12,000 for businesses with 0–49 employees
+- [LEADER Digitalización](https://www.rpidev.com/subvenciones/leader-digitalizacion/) — Up to 65% for rural businesses (open until 2028)
+- [Ayudas Digitalización Andalucía](https://www.rpidev.com/subvenciones/ayudas-andalucia/)
+- [Ayudas Digitalización Aragón](https://www.rpidev.com/subvenciones/ayudas-aragon/)
+
+## Portfolio highlights
+
+- [Espacio Negua](https://espacionegua.com) — Therapeutic center website (Astro SSR + WordPress headless CMS + PostgreSQL blog + Brevo email)
+- [FPC Instalaciones](https://fpcinstalaciones.com) — Corporate web for plumbing/HVAC company (Astro + Node.js)
+- [Amacapricci](https://www.amacapricci.com) — Headless WooCommerce jewelry e-commerce (Astro frontend + WooCommerce REST API)
+- [Agropur](https://www.agropur.es) — Corporate web for agricultural waste management company
+- [RPIoT](https://rpiot.es) — IoT monitoring platform landing (Astro + Tailwind)
+- [Nieves Muriel](https://www.nievesmuriel.com) — Personal web for writer and university professor
+- [SEO Pilot](https://www.seopilot.es) — AI-powered SEO audit SaaS (Python + React + FastAPI)
+- [Choose](https://www.easychoose.es) — AI device recommendation app (Python + Reflex + Gemini AI)
 
 ## About
 
 - **Studio:** RPI Dev
 - **Founder:** Rubén Pérez Izuel, Web Developer & Digital Consultant
 - **Location:** Huétor Vega, Granada, Spain (18198)
+- **Service area:** Granada, Andalucía, Aragón and all Spain (remote)
 - **Contact:** ruben@rpidev.com · +34 614 830 864
 - **Languages:** Spanish (default), English
 - **Free consultation:** 30-minute diagnostic session available

@@ -1,0 +1,339 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+import { ExternalLink, ArrowRight, CheckCircle, Phone } from '@lucide/astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/desarrollo-web-granada/`;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      "name": "Desarrollo Web en Granada",
+      "serviceType": "Web Development",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "areaServed": [
+        { "@type": "City", "name": "Granada" },
+        { "@type": "AdministrativeArea", "name": "Andalucía" },
+        { "@type": "Country", "name": "Spain" }
+      ],
+      "description": "Diseño y desarrollo de sitios web rápidos, optimizados para SEO local y orientados a convertir visitas en clientes. Especialización en Astro, WooCommerce headless y React para pymes y autónomos en Granada.",
+      "url": pageUrl,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "priceRange": "800-5000",
+        "eligibleRegion": "ES"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Desarrollo Web en Granada", "item": pageUrl }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta una web profesional en Granada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una web corporativa sencilla parte de 800–1.500 €. Proyectos con tienda online (WooCommerce) o funcionalidades avanzadas oscilan entre 2.000–5.000 €. Siempre trabajamos con precio fijo y plazos definidos desde el inicio, sin sorpresas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda en estar lista la web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una web corporativa suele estar lista en 3–5 semanas desde el primer briefing. Proyectos de e-commerce o con integraciones complejas pueden llevar 6–10 semanas. Los plazos se acuerdan desde la propuesta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo actualizar yo mismo el contenido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Todas las webs incluyen formación sobre cómo editar textos, imágenes y secciones básicas. Para proyectos que requieran actualización frecuente, integramos un CMS headless (WordPress, Decap CMS) que permite gestionar el contenido sin tocar código."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué usáis Astro en vez de WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Astro genera páginas estáticas ultra-rápidas con tiempos de carga sub-segundo y Core Web Vitals perfectos, algo imposible con WordPress estándar. Para quien necesita un CMS, usamos WordPress solo como backend (headless), y Astro como frontend. Lo mejor de los dos mundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La web incluye SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, el SEO técnico está incluido en todos los proyectos: estructura de URLs, meta titles y descriptions, schema markup, sitemap, robots.txt y optimización de Core Web Vitals. El SEO de contenido (redacción orientada a keywords) se puede contratar como servicio adicional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si ya tengo una web y quiero mejorarla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hacemos auditoría técnica y SEO de la web existente para identificar qué merece la pena mantener y qué conviene reconstruir. A veces una migración parcial es más eficiente que partir de cero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajáis solo en Granada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos basados en Granada pero trabajamos con clientes de toda España de forma remota. El proceso de desarrollo no requiere reuniones presenciales, aunque siempre son posibles para clientes locales."
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const proyectos = [
+  { nombre: 'Espacio Negua', tipo: 'WEB', tech: 'Astro + WordPress headless', url: 'https://espacionegua.com', desc: 'Web terapéutica con blog headless, formulario de contacto y CMS gestionable.' },
+  { nombre: 'FPC Instalaciones', tipo: 'WEB', tech: 'Astro + Node.js', url: 'https://fpcinstalaciones.com', desc: 'Web corporativa con SEO local para empresa de fontanería en Aragón.' },
+  { nombre: 'Nieves Muriel', tipo: 'WEB', tech: 'Astro + Tailwind', url: 'https://www.nievesmuriel.com', desc: 'Web personal con SEO local para escritora y profesora universitaria.' },
+  { nombre: 'Amacapricci', tipo: 'E-COMMERCE', tech: 'Astro + WooCommerce headless', url: 'https://www.amacapricci.com', desc: 'Tienda online de joyería con Lighthouse 98+ y TTFB menor de 200ms.' },
+  { nombre: 'Casvisol', tipo: 'WEB', tech: 'Astro + Tailwind', url: 'https://casvisol.com', desc: 'Web corporativa para empresa de energía solar.' },
+];
+---
+
+<LayoutStatic
+  title="Desarrollo Web en Granada para Pymes y Autónomos | RPI Dev"
+  description="Webs rápidas con SEO local desde 800 €. Astro, WooCommerce headless y React. 12+ proyectos entregados en Granada y resto de España. Diagnóstico gratuito de 30 min."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(serviceSchema)} />
+
+  <NavStatic activePage="desarrollo-web" />
+
+  <main class="min-h-screen bg-[#0d0d1a] text-white">
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ DESARROLLO WEB EN GRANADA</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+        Webs rápidas.<br />
+        <span class="text-blue-400">SEO desde el primer día.</span>
+      </h1>
+      <p class="text-slate-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
+        Diseño y desarrollo web para pymes y autónomos en Granada. Sin plantillas genéricas, sin WordPress lento: rendimiento real medible desde el día uno.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm tracking-wider"
+        >
+          DIAGNÓSTICO GRATUITO <ArrowRight class="w-4 h-4" />
+        </a>
+        <a
+          href="tel:+34614830864"
+          class="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-blue-600/40 text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm tracking-wider"
+        >
+          <Phone class="w-4 h-4" /> +34 614 830 864
+        </a>
+      </div>
+    </section>
+
+    <!-- Por qué una web rápida importa -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ EL PROBLEMA</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">
+        Una web lenta o genérica te cuesta clientes cada día.
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { titulo: 'Google penaliza las webs lentas', desc: 'Core Web Vitals deficientes bajan tu posición en buscadores. Un TTFB alto es tráfico que pierdes sin saberlo.' },
+          { titulo: 'El móvil es el 70% del tráfico', desc: 'La mayoría de tus clientes te visitan desde el móvil. Si tu web no carga en 3 segundos, se van.' },
+          { titulo: 'WordPress genérico = seguridad comprometida', desc: 'Plugins desactualizados, temas con vulnerabilidades, hostings compartidos. Un vector de ataque constante.' },
+          { titulo: 'Sin SEO local no apareces en Granada', desc: 'Tener web no es suficiente. Sin estructura SEO y señales locales, Google no sabe a quién mostrártela.' },
+          { titulo: 'Páginas que no convierten', desc: 'Muchas webs tienen visitas pero nadie llama ni escribe. El diseño y la jerarquía de información lo cambian todo.' },
+          { titulo: 'Contenido que no puedes actualizar', desc: 'Si necesitas a alguien para cambiar un texto, la web deja de ser tuya. El CMS tiene que ser sencillo de usar.' },
+        ].map(({ titulo, desc }) => (
+          <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+            <h3 class="font-bold text-sm mb-2 text-white">{titulo}</h3>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Qué hacemos -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ SERVICIOS</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">¿Qué tipo de web necesitas?</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          {
+            tipo: 'Web corporativa / landing',
+            desc: 'Presentación profesional de tu negocio. SEO local incluido, formulario de contacto y velocidad optimizada. La base para que Google te encuentre.',
+            desde: 'Desde 800 €',
+            items: ['Hasta 8 secciones o páginas', 'SEO técnico completo', 'Schema markup', 'Formulario de contacto', 'Adaptada a móvil'],
+          },
+          {
+            tipo: 'Tienda online (e-commerce)',
+            desc: 'WooCommerce headless con Astro como frontend. Velocidad de sitio estático con toda la potencia de gestión de WooCommerce.',
+            desde: 'Desde 2.500 €',
+            items: ['Catálogo de productos', 'Carrito y pasarela de pago', 'Integración con WooCommerce', 'SEO de producto', 'Panel de gestión'],
+          },
+          {
+            tipo: 'Web con CMS headless',
+            desc: 'Para quien necesita publicar contenido con frecuencia. WordPress o Decap CMS como backend, Astro como frontend ultra-rápido.',
+            desde: 'Desde 1.500 €',
+            items: ['Blog o noticias actualizable', 'CMS sin código', 'Rendimiento estático', 'Control total del contenido'],
+          },
+          {
+            tipo: 'Auditoría y mejora de web existente',
+            desc: 'Análisis técnico y SEO de tu web actual. Identificamos qué arreglar, qué migrar y qué tirar. Sin juicios, con soluciones concretas.',
+            desde: 'Desde 300 €',
+            items: ['Informe de Core Web Vitals', 'Auditoría SEO técnica', 'Plan de acción priorizado', 'Implementación opcional'],
+          },
+        ].map(({ tipo, desc, desde, items }) => (
+          <div class="p-6 bg-white/[0.02] border border-white/8 rounded-2xl flex flex-col">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-base text-white">{tipo}</h3>
+              <span class="text-blue-400 text-xs font-bold whitespace-nowrap ml-3">{desde}</span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-1">{desc}</p>
+            <ul class="space-y-1.5">
+              {items.map((item) => (
+                <li class="flex items-center gap-2 text-xs text-slate-500">
+                  <CheckCircle class="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ PROCESO</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">Cómo trabajamos</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { n: '01', titulo: 'Diagnóstico gratuito', desc: '30 min por videollamada para entender tu negocio, tu cliente y tus objetivos.' },
+          { n: '02', titulo: 'Propuesta y precio fijo', desc: 'Presupuesto detallado con alcance, plazos y coste fijo. Sin sorpresas ni horas extra.' },
+          { n: '03', titulo: 'Desarrollo y revisiones', desc: 'Iteraciones rápidas con revisiones pactadas. Tú apruebas antes de publicar.' },
+          { n: '04', titulo: 'Entrega y formación', desc: 'Entregamos la web publicada y te formamos para que puedas actualizarla tú mismo.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="text-blue-500/40 text-4xl font-bold block mb-3">{n}</span>
+            <h3 class="font-bold text-sm mb-2 text-white">{titulo}</h3>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ PROYECTOS</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">Algunos trabajos recientes</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {proyectos.map(({ nombre, tipo, tech, url, desc }) => (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-5 bg-white/[0.02] border border-white/5 hover:border-blue-600/30 rounded-xl transition-all"
+          >
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-blue-400 text-[9px] font-bold tracking-[0.2em]">{tipo}</span>
+              <ExternalLink class="w-3.5 h-3.5 text-slate-600 group-hover:text-blue-400 transition-colors" />
+            </div>
+            <h3 class="font-bold text-sm mb-1">{nombre}</h3>
+            <p class="text-slate-500 text-xs mb-3 leading-relaxed">{desc}</p>
+            <span class="text-[10px] text-slate-600 bg-white/5 px-2 py-0.5 rounded-md">{tech}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-4xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ PREGUNTAS FRECUENTES</p>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tighter mb-10">Lo que nos preguntan antes de empezar</h2>
+      <div class="space-y-5">
+        {[
+          { q: '¿Cuánto cuesta una web profesional en Granada?', a: 'Una web corporativa sencilla parte de 800–1.500 €. Proyectos con tienda online (WooCommerce) o funcionalidades avanzadas oscilan entre 2.000–5.000 €. Siempre trabajamos con precio fijo y plazos definidos desde el inicio, sin sorpresas.' },
+          { q: '¿Cuánto tiempo tarda en estar lista la web?', a: 'Una web corporativa suele estar lista en 3–5 semanas desde el primer briefing. Proyectos de e-commerce o con integraciones complejas pueden llevar 6–10 semanas. Los plazos se acuerdan desde la propuesta.' },
+          { q: '¿Puedo actualizar yo mismo el contenido?', a: 'Sí. Todas las webs incluyen formación sobre cómo editar textos, imágenes y secciones básicas. Para proyectos que requieran actualización frecuente, integramos un CMS headless (WordPress, Decap CMS) que permite gestionar el contenido sin tocar código.' },
+          { q: '¿Por qué usáis Astro en vez de WordPress?', a: 'Astro genera páginas estáticas ultra-rápidas con tiempos de carga sub-segundo y Core Web Vitals perfectos, algo imposible con WordPress estándar. Para quien necesita un CMS, usamos WordPress solo como backend (headless), y Astro como frontend. Lo mejor de los dos mundos.' },
+          { q: '¿La web incluye SEO?', a: 'Sí, el SEO técnico está incluido en todos los proyectos: estructura de URLs, meta titles y descriptions, schema markup, sitemap, robots.txt y optimización de Core Web Vitals. El SEO de contenido (redacción orientada a keywords) se puede contratar como servicio adicional.' },
+          { q: '¿Qué pasa si ya tengo una web y quiero mejorarla?', a: 'Hacemos auditoría técnica y SEO de la web existente para identificar qué merece la pena mantener y qué conviene reconstruir. A veces una migración parcial es más eficiente que partir de cero.' },
+          { q: '¿Trabajáis solo en Granada?', a: 'Estamos basados en Granada pero trabajamos con clientes de toda España de forma remota. El proceso de desarrollo no requiere reuniones presenciales, aunque siempre son posibles para clientes locales.' },
+        ].map(({ q, a }) => (
+          <details class="group border border-white/5 rounded-xl overflow-hidden">
+            <summary class="flex justify-between items-center p-5 cursor-pointer text-sm font-bold hover:bg-white/[0.02] transition-colors list-none">
+              {q}
+              <span class="text-blue-500 ml-4 shrink-0 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            </summary>
+            <p class="px-5 pb-5 text-slate-400 text-sm leading-relaxed">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="py-20 px-5 sm:px-10 md:px-20 lg:px-24 max-w-4xl mx-auto border-t border-white/5 text-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+        ¿Hablamos de tu web?
+      </h2>
+      <p class="text-slate-400 text-base mb-8 max-w-xl mx-auto">
+        30 minutos de diagnóstico gratuito para entender qué necesitas y qué impacto real tendría. Sin compromiso.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-colors tracking-wider"
+        >
+          RESERVAR DIAGNÓSTICO GRATUITO <ArrowRight class="w-4 h-4" />
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%20Rub%C3%A9n%2C%20me%20gustar%C3%ADa%20consultarte%20sobre%20desarrollo%20web"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-blue-600/40 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-xl transition-colors tracking-wider"
+        >
+          WHATSAPP
+        </a>
+      </div>
+      <p class="text-slate-600 text-xs mt-6">
+        También puedes escribir a <a href="mailto:ruben@rpidev.com" class="text-blue-500 hover:text-blue-400">ruben@rpidev.com</a> o llamar al <a href="tel:+34614830864" class="text-blue-500 hover:text-blue-400">+34 614 830 864</a>
+      </p>
+    </section>
+
+    <!-- Footer mínimo -->
+    <footer class="border-t border-white/5 py-6 px-5 sm:px-10 md:px-20 lg:px-24">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-600">
+        <a href="/" class="hover:text-blue-400 transition-colors font-bold tracking-widest">RPI DEV</a>
+        <div class="flex gap-5">
+          <a href="/automatizacion-pymes/" class="hover:text-slate-400 transition-colors">Automatización</a>
+          <a href="/subvenciones/" class="hover:text-slate-400 transition-colors">Subvenciones</a>
+          <a href="/#contacto" class="hover:text-slate-400 transition-colors">Contacto</a>
+          <a href="/legal" class="hover:text-slate-400 transition-colors">Legal</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</LayoutStatic>

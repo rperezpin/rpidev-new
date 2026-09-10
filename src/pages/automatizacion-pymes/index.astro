@@ -1,0 +1,315 @@
+---
+import LayoutStatic from '../../layouts/LayoutStatic.astro';
+import NavStatic from '../../components/NavStatic.astro';
+import { ArrowRight, CheckCircle, Phone, Zap } from '@lucide/astro';
+
+const siteUrl = 'https://www.rpidev.com';
+const pageUrl = `${siteUrl}/automatizacion-pymes/`;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      "name": "Automatización de Procesos para Pymes con n8n y Make",
+      "serviceType": "Business Process Automation",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "areaServed": [
+        { "@type": "City", "name": "Granada" },
+        { "@type": "AdministrativeArea", "name": "Andalucía" },
+        { "@type": "AdministrativeArea", "name": "Aragón" },
+        { "@type": "Country", "name": "Spain" }
+      ],
+      "description": "Automatización de procesos empresariales con n8n, Make y Zapier para pymes y autónomos. Eliminamos tareas manuales repetitivas y ahorramos entre 5 y 20 horas semanales.",
+      "url": pageUrl
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+        { "@type": "ListItem", "position": 2, "name": "Automatización para Pymes", "item": pageUrl }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta automatizar un proceso de negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de la complejidad del flujo. Automatizaciones simples (un formulario que dispara notificaciones y actualiza una hoja de cálculo) pueden estar listas por 300–600 €. Flujos complejos con múltiples sistemas integrados y lógica condicional oscilan entre 800–2.500 €. Siempre partimos de un diagnóstico gratuito para presupuestar con precisión."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué n8n en vez de Zapier o Make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n es self-hosted (instalado en tu propio servidor), lo que significa datos 100% bajo tu control, sin límites de operaciones y cumplimiento total del RGPD. Zapier y Make tienen planes de pago por operación que se encarecen al escalar. Para pymes que van a automatizar varios procesos, n8n suele ser más económico y más seguro a largo plazo. Dicho eso, si tu stack ya usa Make o Zapier, trabajamos con ellos también."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito conocimientos técnicos para usar la automatización?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El objetivo es que los flujos funcionen de forma completamente transparente para ti. Implementamos, probamos y entregamos el sistema en funcionamiento. Si en el futuro quieres modificar algo, te formamos para hacer ajustes básicos, y para cambios más complejos puedes contar con soporte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué herramientas puedo conectar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n tiene más de 400 integraciones nativas: Google Sheets, Gmail, Notion, Airtable, HubSpot, Salesforce, WooCommerce, Shopify, Slack, WhatsApp Business, Telegram, Stripe, Holded, Sage, FacturaDirecta, APIs REST personalizadas y mucho más. Si la herramienta tiene API, puede automatizarse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si la automatización falla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n registra todos los errores y puede configurarse para enviar alertas por email o Telegram cuando un flujo falla. Los flujos tienen reintentos automáticos para errores transitorios. En todos los proyectos incluimos monitorización básica y un período de garantía post-entrega."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo se tarda en implementar una automatización?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flujos simples pueden estar en producción en 1–2 semanas. Integraciones complejas entre varios sistemas pueden llevar 3–6 semanas incluyendo pruebas. Siempre trabajamos con plazos acordados desde el inicio."
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const casosDeUso = [
+  { icono: '📄', titulo: 'Facturación automática', desc: 'Genera y envía facturas cuando se cierra un pedido en tu tienda o CRM. Sin tocar nada.' },
+  { icono: '📩', titulo: 'Leads desde formularios', desc: 'Cada lead que llega va automáticamente a tu CRM, Google Sheets y te avisa por WhatsApp o email.' },
+  { icono: '📊', titulo: 'Informes automáticos', desc: 'Informe semanal de ventas, stock o reservas generado y enviado a tu equipo cada lunes a las 8h.' },
+  { icono: '🔁', titulo: 'Sync entre plataformas', desc: 'Sincronización de productos, precios o clientes entre WooCommerce, Holded y Google Sheets sin copia manual.' },
+  { icono: '🔔', titulo: 'Alertas y recordatorios', desc: 'Aviso automático cuando un cliente no ha respondido en X días, o cuando el stock baja del mínimo.' },
+  { icono: '📅', titulo: 'Gestión de citas', desc: 'Confirmación automática, recordatorio 24h antes y seguimiento posterior sin intervención manual.' },
+  { icono: '💬', titulo: 'Respuestas automáticas', desc: 'Primera respuesta a consultas de WhatsApp Business o email con la información que el cliente necesita.' },
+  { icono: '🛒', titulo: 'Post-venta automatizado', desc: 'Solicitud de reseña, encuesta de satisfacción o email de seguimiento a los X días de una compra.' },
+];
+---
+
+<LayoutStatic
+  title="Automatización de Procesos para Pymes con n8n y Make | RPI Dev Granada"
+  description="Eliminamos tareas manuales con n8n, Make y Zapier. Facturación, CRM, notificaciones y sync entre plataformas. 5–20h semanales ahorradas. Diagnóstico gratuito."
+  canonical={pageUrl}
+  hreflangEn={pageUrl}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(serviceSchema)} />
+
+  <NavStatic activePage="automatizacion" />
+
+  <main class="min-h-screen bg-[#0d0d1a] text-white">
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ AUTOMATIZACIÓN PARA PYMES</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+        Menos tareas manuales.<br />
+        <span class="text-blue-400">Más horas para lo que importa.</span>
+      </h1>
+      <p class="text-slate-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
+        Automatizamos los procesos repetitivos de tu negocio con n8n, Make y Zapier. Facturación, CRM, notificaciones, informes: todo en piloto automático.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm tracking-wider"
+        >
+          DIAGNÓSTICO GRATUITO <ArrowRight class="w-4 h-4" />
+        </a>
+        <a
+          href="tel:+34614830864"
+          class="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-blue-600/40 text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm tracking-wider"
+        >
+          <Phone class="w-4 h-4" /> +34 614 830 864
+        </a>
+      </div>
+    </section>
+
+    <!-- El problema -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ EL PROBLEMA</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-6">
+        Cada tarea manual que repites es tiempo que no dedicas a crecer.
+      </h2>
+      <p class="text-slate-400 text-base max-w-2xl mb-10 leading-relaxed">
+        Copiar datos entre sistemas, enviar emails de seguimiento, generar informes, recordar citas: tareas que consumen horas cada semana y que la tecnología puede hacer sola, sin errores y sin descanso.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-5">
+        {[
+          { stat: '5–20h', desc: 'horas semanales que recuperan nuestros clientes con automatizaciones básicas' },
+          { stat: '400+', desc: 'integraciones nativas disponibles en n8n: CRM, facturación, e-commerce, comunicación' },
+          { stat: '0 errores', desc: 'de copia manual una vez que el flujo está en producción y verificado' },
+        ].map(({ stat, desc }) => (
+          <div class="p-6 bg-white/[0.02] border border-white/5 rounded-xl text-center">
+            <span class="text-3xl font-bold text-blue-400 block mb-2">{stat}</span>
+            <p class="text-slate-500 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Casos de uso -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ QUÉ AUTOMATIZAMOS</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">Procesos que automatizamos habitualmente</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {casosDeUso.map(({ icono, titulo, desc }) => (
+          <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="text-2xl block mb-3">{icono}</span>
+            <h3 class="font-bold text-sm mb-2 text-white">{titulo}</h3>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Herramientas -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ TECNOLOGÍA</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-6">¿Por qué n8n?</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <p class="text-slate-400 text-base leading-relaxed mb-6">
+            n8n es la plataforma de automatización open-source más potente del mercado. A diferencia de Zapier o Make, puede instalarse en tu propio servidor: datos bajo tu control, sin límites de operaciones y cumplimiento total del RGPD.
+          </p>
+          <div class="space-y-3">
+            {[
+              'Self-hosted: tus datos en tu servidor, no en terceros',
+              'RGPD: sin transmisión de datos fuera de la UE por defecto',
+              'Sin límite de operaciones (vs. planes de pago de Zapier/Make)',
+              '400+ integraciones nativas',
+              'Lógica compleja: condicionales, bucles, webhooks, APIs',
+              'También trabajamos con Make y Zapier si ya los usas',
+            ].map((item) => (
+              <div class="flex items-start gap-2.5 text-sm text-slate-300">
+                <CheckCircle class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="p-6 bg-white/[0.02] border border-white/8 rounded-2xl">
+          <h3 class="font-bold text-sm mb-4 text-blue-400 tracking-wider">COMPARATIVA RÁPIDA</h3>
+          <div class="space-y-3 text-xs">
+            {[
+              { herramienta: 'n8n self-hosted', coste: 'Servidor ~10€/mes', rgpd: '✅ Total', limites: '✅ Sin límites' },
+              { herramienta: 'Make (Integromat)', coste: 'Desde 9€/mes + ops', rgpd: '⚠️ Datos en EEUU', limites: '❌ Por operaciones' },
+              { herramienta: 'Zapier', coste: 'Desde 19$/mes + tasks', rgpd: '⚠️ Datos en EEUU', limites: '❌ Por tareas' },
+            ].map(({ herramienta, coste, rgpd, limites }) => (
+              <div class="grid grid-cols-4 gap-2 py-2 border-b border-white/5">
+                <span class="font-bold text-white col-span-1">{herramienta}</span>
+                <span class="text-slate-400">{coste}</span>
+                <span class="text-slate-400">{rgpd}</span>
+                <span class="text-slate-400">{limites}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-7xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ PROCESO</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-10">Cómo lo implementamos</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { n: '01', titulo: 'Auditoría de procesos', desc: 'Diagnóstico gratuito de 30 min para identificar qué tareas repetitivas consumen más tiempo y cuáles son automatizables.' },
+          { n: '02', titulo: 'Diseño del flujo', desc: 'Mapeamos el proceso, identificamos los sistemas a conectar y diseñamos el flujo con su lógica de errores y alertas.' },
+          { n: '03', titulo: 'Implementación y pruebas', desc: 'Desarrollamos, probamos con datos reales y ajustamos hasta que el flujo es estable. Documentamos todo.' },
+          { n: '04', titulo: 'Entrega y monitorización', desc: 'Ponemos en producción, formamos a tu equipo y configuramos alertas. Período de garantía incluido.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl">
+            <span class="text-blue-500/40 text-4xl font-bold block mb-3">{n}</span>
+            <h3 class="font-bold text-sm mb-2 text-white">{titulo}</h3>
+            <p class="text-slate-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-5 sm:px-10 md:px-20 lg:px-24 max-w-4xl mx-auto border-t border-white/5">
+      <p class="text-blue-500 text-xs font-bold tracking-[0.25em] mb-4">/ PREGUNTAS FRECUENTES</p>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tighter mb-10">Lo que nos preguntan sobre automatización</h2>
+      <div class="space-y-5">
+        {[
+          { q: '¿Cuánto cuesta automatizar un proceso de negocio?', a: 'Depende de la complejidad del flujo. Automatizaciones simples (un formulario que dispara notificaciones y actualiza una hoja de cálculo) pueden estar listas por 300–600 €. Flujos complejos con múltiples sistemas integrados y lógica condicional oscilan entre 800–2.500 €. Siempre partimos de un diagnóstico gratuito para presupuestar con precisión.' },
+          { q: '¿Por qué n8n en vez de Zapier o Make?', a: 'n8n es self-hosted (instalado en tu propio servidor), lo que significa datos 100% bajo tu control, sin límites de operaciones y cumplimiento total del RGPD. Zapier y Make tienen planes de pago por operación que se encarecen al escalar. Para pymes que van a automatizar varios procesos, n8n suele ser más económico y más seguro a largo plazo.' },
+          { q: '¿Necesito conocimientos técnicos para usar la automatización?', a: 'No. El objetivo es que los flujos funcionen de forma completamente transparente para ti. Implementamos, probamos y entregamos el sistema en funcionamiento. Si en el futuro quieres modificar algo, te formamos para hacer ajustes básicos.' },
+          { q: '¿Qué herramientas puedo conectar?', a: 'n8n tiene más de 400 integraciones nativas: Google Sheets, Gmail, Notion, HubSpot, WooCommerce, Shopify, Slack, WhatsApp Business, Stripe, Holded, Sage, FacturaDirecta, APIs REST personalizadas y mucho más. Si la herramienta tiene API, puede automatizarse.' },
+          { q: '¿Qué pasa si la automatización falla?', a: 'n8n registra todos los errores y puede configurarse para enviar alertas por email o Telegram cuando un flujo falla. Los flujos tienen reintentos automáticos para errores transitorios. En todos los proyectos incluimos monitorización básica y un período de garantía post-entrega.' },
+          { q: '¿Cuánto tiempo se tarda en implementar?', a: 'Flujos simples pueden estar en producción en 1–2 semanas. Integraciones complejas entre varios sistemas pueden llevar 3–6 semanas incluyendo pruebas. Siempre con plazos acordados desde el inicio.' },
+        ].map(({ q, a }) => (
+          <details class="group border border-white/5 rounded-xl overflow-hidden">
+            <summary class="flex justify-between items-center p-5 cursor-pointer text-sm font-bold hover:bg-white/[0.02] transition-colors list-none">
+              {q}
+              <span class="text-blue-500 ml-4 shrink-0 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            </summary>
+            <p class="px-5 pb-5 text-slate-400 text-sm leading-relaxed">{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="py-20 px-5 sm:px-10 md:px-20 lg:px-24 max-w-4xl mx-auto border-t border-white/5 text-center">
+      <Zap class="w-10 h-10 text-blue-500 mx-auto mb-5" />
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+        ¿Qué proceso quieres automatizar?
+      </h2>
+      <p class="text-slate-400 text-base mb-8 max-w-xl mx-auto">
+        Cuéntamelo en 30 minutos de diagnóstico gratuito. Sin tecnicismos, sin compromiso.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://cal.com/ruben-perez-yumwg8/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-colors tracking-wider"
+        >
+          RESERVAR DIAGNÓSTICO GRATUITO <ArrowRight class="w-4 h-4" />
+        </a>
+        <a
+          href="https://wa.me/34614830864?text=Hola%20Rub%C3%A9n%2C%20me%20gustar%C3%ADa%20consultarte%20sobre%20automatizaci%C3%B3n%20de%20procesos"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-blue-600/40 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-xl transition-colors tracking-wider"
+        >
+          WHATSAPP
+        </a>
+      </div>
+      <p class="text-slate-600 text-xs mt-6">
+        O escribe a <a href="mailto:ruben@rpidev.com" class="text-blue-500 hover:text-blue-400">ruben@rpidev.com</a> · <a href="tel:+34614830864" class="text-blue-500 hover:text-blue-400">+34 614 830 864</a>
+      </p>
+    </section>
+
+    <!-- Footer mínimo -->
+    <footer class="border-t border-white/5 py-6 px-5 sm:px-10 md:px-20 lg:px-24">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-600">
+        <a href="/" class="hover:text-blue-400 transition-colors font-bold tracking-widest">RPI DEV</a>
+        <div class="flex gap-5">
+          <a href="/desarrollo-web-granada/" class="hover:text-slate-400 transition-colors">Desarrollo Web</a>
+          <a href="/subvenciones/" class="hover:text-slate-400 transition-colors">Subvenciones</a>
+          <a href="/#contacto" class="hover:text-slate-400 transition-colors">Contacto</a>
+          <a href="/legal" class="hover:text-slate-400 transition-colors">Legal</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</LayoutStatic>
